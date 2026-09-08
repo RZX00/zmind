@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@hocuspocus/extension-redis": "^2.11.0",
-    "@hocuspocus/server": "^2.11.0",
+    "@hocuspocus/server": "^4.6.0",
     "@supabase/supabase-js": "^2.86.2",
     "dotenv": "^16.4.5",
     "ioredis": "^5.4.1",
