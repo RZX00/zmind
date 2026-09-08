@@ -73,7 +73,7 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/xlsx": "^0.0.35",
     "@uiw/codemirror-extensions-langs": "^4.23.10",
-    "@uiw/codemirror-theme-vscode": "^4.23.10",
+    "@uiw/codemirror-theme-vscode": "^4.25.11",
     "@uiw/codemirror-theme-xcode": "^4.23.10",
     "@uiw/react-codemirror": "^4.23.10",
     "@usebasejump/shared": "^0.0.3",
