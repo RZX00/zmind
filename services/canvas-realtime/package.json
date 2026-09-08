@@ -11,7 +11,7 @@
     "@hocuspocus/extension-redis": "^2.11.0",
     "@hocuspocus/server": "^2.11.0",
     "@supabase/supabase-js": "^2.86.2",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.4.2",
     "ioredis": "^5.4.1",
     "jsonwebtoken": "^9.0.2",
     "yjs": "^13.6.10"
