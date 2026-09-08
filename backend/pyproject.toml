@@ -50,7 +50,7 @@ dependencies = [
   "vncdotool==1.2.0",
   "tavily-python==0.5.4",
   "pytesseract==0.3.13",
-  "stripe==11.6.0",
+  "stripe==15.6.1",
   "dramatiq==1.18.0",
   "dramatiq[redis]==1.18.0",
   "phonenumbers==8.13.50",
