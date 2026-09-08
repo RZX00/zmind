@@ -19,7 +19,7 @@
   "dependencies": {},
   "devDependencies": {
     "@electron/notarize": "^2.3.2",
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.4.2",
     "electron": "^33.0.0",
     "electron-builder": "^25.1.8"
   },
