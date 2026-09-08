@@ -1,0 +1,15 @@
+{
+  "id": "canvas-400",
+  "title": "Mixed",
+  "createdAt": 1730000000000,
+  "updatedAt": 1730000000000,
+  "version": "1.0.0",
+  "nodes": [
+    {"id":"code-1","type":"code","codeType":"mermaid","x":80,"y":60,"width":350,"height":250,"content":"graph TD\nA-->B","mermaidThemeId":"professional","createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"media-1","type":"media","x":480,"y":60,"width":240,"height":160,"content":"File: demo.png","fileName":"demo.png","fileType":"image/png","fileExtension":"png","fileSize":102400,"mediaType":"image","uploadStatus":"mock","createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"link-1","type":"canvas-link","x":80,"y":360,"width":280,"height":180,"title":"目标画布","targetCanvasId":"canvas-999","content":"","createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"column-1","type":"column","x":480,"y":260,"width":300,"height":200,"content":"列标题\n说明","children":["text-1"],"createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"text-1","type":"text","x":500,"y":320,"width":300,"height":60,"content":"列内的卡片","createdAt":1730000000000,"updatedAt":1730000000000}
+  ],
+  "connections": []
+}

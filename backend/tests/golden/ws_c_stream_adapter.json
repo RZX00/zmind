@@ -1,0 +1,284 @@
+{
+  "events": [
+    {
+      "type": "status",
+      "timestamp": "2025-01-01T00:00:00Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_status_thread_run_start",
+      "status_type": "thread_run_start",
+      "data": { "thread_run_id": "tr_test_1" }
+    },
+    {
+      "type": "status",
+      "timestamp": "2025-01-01T00:00:00Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_status_assistant_response_start",
+      "status_type": "assistant_response_start"
+    },
+    {
+      "type": "assistant_chunk",
+      "timestamp": "2025-01-01T00:00:01Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "sequence": 0,
+      "content": "Hello "
+    },
+    {
+      "type": "assistant_chunk",
+      "timestamp": "2025-01-01T00:00:01Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "sequence": 1,
+      "content": "(thinking...)",
+      "channel": "reasoning"
+    },
+    {
+      "type": "status",
+      "timestamp": "2025-01-01T00:00:02Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_status_tool_started",
+      "status_type": "tool_started",
+      "data": {
+        "role": "assistant",
+        "status_type": "tool_started",
+        "tool": "web_search_tool",
+        "function_name": "web_search_tool",
+        "xml_tag_name": null,
+        "message": "Starting execution of web_search_tool",
+        "tool_index": 0,
+        "tool_call_id": "call_1"
+      }
+    },
+    {
+      "type": "tool_message",
+      "timestamp": "2025-01-01T00:00:03Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_tool_1",
+      "tool_call_id": "call_1",
+      "name": "web_search_tool",
+      "content": "tool_output",
+      "success": true
+    },
+    {
+      "type": "status",
+      "timestamp": "2025-01-01T00:00:03Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_status_tool_completed",
+      "status_type": "tool_completed",
+      "data": {
+        "role": "assistant",
+        "status_type": "tool_completed",
+        "tool": "web_search_tool",
+        "function_name": "web_search_tool",
+        "xml_tag_name": null,
+        "message": "Tool web_search_tool completed successfully",
+        "tool_index": 0,
+        "tool_call_id": "call_1"
+      },
+      "metadata": {
+        "thread_run_id": "tr_test_1",
+        "linked_tool_result_message_id": "msg_tool_1"
+      }
+    },
+    {
+      "type": "assistant_final",
+      "timestamp": "2025-01-01T00:00:04Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_asst_1",
+      "content": {
+        "role": "assistant",
+        "content": "Final answer",
+        "tool_calls": null
+      }
+    },
+    {
+      "type": "llm_response_end",
+      "timestamp": "2025-01-01T00:00:04Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_llm_end_1",
+      "llm_response_id": "llm_1",
+      "model": "openai/gpt-4o-mini",
+      "usage": { "prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15 },
+      "finish_reason": "stop",
+      "assistant_message": {
+        "role": "assistant",
+        "content": "Final answer",
+        "tool_calls": null
+      }
+    },
+    {
+      "type": "status",
+      "timestamp": "2025-01-01T00:00:05Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_status_run_completed",
+      "status_type": "run_completed",
+      "data": {
+        "status_type": "run_completed",
+        "status": "run_completed",
+        "endedAt": 1735689605000,
+        "reason": "assistant_finished"
+      }
+    },
+    {
+      "type": "status",
+      "timestamp": "2025-01-01T00:00:05Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message_id": "msg_status_thread_run_end",
+      "status_type": "thread_run_end",
+      "data": { "status_type": "thread_run_end" }
+    },
+    {
+      "type": "error",
+      "timestamp": "2025-01-01T00:00:06Z",
+      "agent_run_id": "ar_test_1",
+      "thread_id": "th_test_1",
+      "thread_run_id": "tr_test_1",
+      "message": "boom"
+    }
+  ],
+  "expected_chunks": [
+    {
+      "message_id": "msg_status_thread_run_start",
+      "thread_id": "th_test_1",
+      "type": "status",
+      "is_llm_message": false,
+      "content": "{\"thread_run_id\": \"tr_test_1\", \"status_type\": \"thread_run_start\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\"}",
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "message_id": "msg_status_assistant_response_start",
+      "thread_id": "th_test_1",
+      "type": "status",
+      "is_llm_message": false,
+      "content": "{\"status_type\": \"assistant_response_start\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\"}",
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "sequence": 0,
+      "message_id": null,
+      "thread_id": "th_test_1",
+      "type": "assistant",
+      "is_llm_message": true,
+      "content": "{\"role\": \"assistant\", \"content\": \"Hello \"}",
+      "metadata": "{\"stream_status\": \"chunk\", \"thread_run_id\": \"tr_test_1\"}",
+      "created_at": "2025-01-01T00:00:01Z",
+      "updated_at": "2025-01-01T00:00:01Z"
+    },
+    {
+      "sequence": 1,
+      "message_id": null,
+      "thread_id": "th_test_1",
+      "type": "assistant",
+      "is_llm_message": true,
+      "content": "{\"role\": \"assistant\", \"content\": \"(thinking...)\"}",
+      "metadata": "{\"stream_status\": \"chunk\", \"thread_run_id\": \"tr_test_1\", \"channel\": \"reasoning\"}",
+      "created_at": "2025-01-01T00:00:01Z",
+      "updated_at": "2025-01-01T00:00:01Z"
+    },
+    {
+      "message_id": "msg_status_tool_started",
+      "thread_id": "th_test_1",
+      "type": "status",
+      "is_llm_message": false,
+      "content": "{\"role\": \"assistant\", \"status_type\": \"tool_started\", \"tool\": \"web_search_tool\", \"function_name\": \"web_search_tool\", \"xml_tag_name\": null, \"message\": \"Starting execution of web_search_tool\", \"tool_index\": 0, \"tool_call_id\": \"call_1\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\"}",
+      "created_at": "2025-01-01T00:00:02Z",
+      "updated_at": "2025-01-01T00:00:02Z"
+    },
+    {
+      "message_id": "msg_tool_1",
+      "thread_id": "th_test_1",
+      "type": "tool",
+      "is_llm_message": true,
+      "content": "{\"role\": \"tool\", \"tool_call_id\": \"call_1\", \"name\": \"web_search_tool\", \"content\": \"tool_output\"}",
+      "metadata": "{}",
+      "created_at": "2025-01-01T00:00:03Z",
+      "updated_at": "2025-01-01T00:00:03Z"
+    },
+    {
+      "message_id": "msg_status_tool_completed",
+      "thread_id": "th_test_1",
+      "type": "status",
+      "is_llm_message": false,
+      "content": "{\"role\": \"assistant\", \"status_type\": \"tool_completed\", \"tool\": \"web_search_tool\", \"function_name\": \"web_search_tool\", \"xml_tag_name\": null, \"message\": \"Tool web_search_tool completed successfully\", \"tool_index\": 0, \"tool_call_id\": \"call_1\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\", \"linked_tool_result_message_id\": \"msg_tool_1\"}",
+      "created_at": "2025-01-01T00:00:03Z",
+      "updated_at": "2025-01-01T00:00:03Z"
+    },
+    {
+      "message_id": "msg_asst_1",
+      "thread_id": "th_test_1",
+      "type": "assistant",
+      "is_llm_message": true,
+      "content": "{\"role\": \"assistant\", \"content\": \"Final answer\", \"tool_calls\": null}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\", \"stream_status\": \"complete\"}",
+      "created_at": "2025-01-01T00:00:04Z",
+      "updated_at": "2025-01-01T00:00:04Z"
+    },
+    {
+      "message_id": "msg_llm_end_1",
+      "thread_id": "th_test_1",
+      "type": "llm_response_end",
+      "is_llm_message": false,
+      "content": "{\"model\": \"openai/gpt-4o-mini\", \"usage\": {\"prompt_tokens\": 10, \"completion_tokens\": 5, \"total_tokens\": 15}, \"streaming\": true, \"choices\": [{\"finish_reason\": \"stop\", \"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"Final answer\", \"tool_calls\": null}}], \"llm_response_id\": \"llm_1\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\", \"llm_response_id\": \"llm_1\"}",
+      "created_at": "2025-01-01T00:00:04Z",
+      "updated_at": "2025-01-01T00:00:04Z"
+    },
+    {
+      "message_id": "msg_status_run_completed",
+      "thread_id": "th_test_1",
+      "type": "status",
+      "is_llm_message": false,
+      "content": "{\"status_type\": \"run_completed\", \"status\": \"run_completed\", \"endedAt\": 1735689605000, \"reason\": \"assistant_finished\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\"}",
+      "created_at": "2025-01-01T00:00:05Z",
+      "updated_at": "2025-01-01T00:00:05Z"
+    },
+    {
+      "message_id": "msg_status_thread_run_end",
+      "thread_id": "th_test_1",
+      "type": "status",
+      "is_llm_message": false,
+      "content": "{\"status_type\": \"thread_run_end\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\"}",
+      "created_at": "2025-01-01T00:00:05Z",
+      "updated_at": "2025-01-01T00:00:05Z"
+    },
+    {
+      "message_id": null,
+      "thread_id": "th_test_1",
+      "type": "status",
+      "is_llm_message": false,
+      "content": "{\"role\": \"system\", \"status_type\": \"error\", \"message\": \"boom\"}",
+      "metadata": "{\"thread_run_id\": \"tr_test_1\"}",
+      "created_at": "2025-01-01T00:00:06Z",
+      "updated_at": "2025-01-01T00:00:06Z"
+    }
+  ]
+}
+

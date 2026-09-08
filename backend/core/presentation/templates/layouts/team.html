@@ -1,0 +1,20 @@
+<h2 class="slide-title">{{ slide.title }}</h2>
+{% if slide.subtitle %}
+<p class="slide-subtitle">{{ slide.subtitle }}</p>
+{% endif %}
+{% if slide.team_members %}
+<div class="team-grid">
+  {% for member in slide.team_members %}
+  <div class="team-card">
+    <div class="team-avatar">{{ member.name[0] | upper if member.name else '?' }}</div>
+    <div class="team-name">{{ member.name }}</div>
+    {% if member.role %}
+    <div class="team-role">{{ member.role }}</div>
+    {% endif %}
+    {% if member.description %}
+    <div class="team-desc">{{ member.description }}</div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

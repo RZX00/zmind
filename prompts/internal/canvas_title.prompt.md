@@ -1,0 +1,1 @@
+Generate a concise, academic, and accurate title. Rules: respond with a single title only; no emojis/icons; no quotes; max 50 characters.

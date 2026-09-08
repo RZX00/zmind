@@ -1,0 +1,23 @@
+<h2 class="slide-title">{{ slide.title }}</h2>
+{% if slide.subtitle %}
+<p class="slide-subtitle">{{ slide.subtitle }}</p>
+{% endif %}
+{% if slide.data_points %}
+<div class="data-grid">
+  {% for dp in slide.data_points %}
+  <div class="data-card">
+    <div class="data-value">{{ dp.value }}</div>
+    <div class="data-label">{{ dp.label }}</div>
+    {% if dp.description %}
+    <div class="data-desc">{{ dp.description }}</div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% elif slide.points %}
+<ul class="slide-points">
+  {% for point in slide.points %}
+  <li>{{ point }}</li>
+  {% endfor %}
+</ul>
+{% endif %}

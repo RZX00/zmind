@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>画布思考底座研究 · zmind</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  :root{
+    --bg:#0c0e14; --panel:#141823; --panel2:#1b2030; --ink:#e7ebf3; --mut:#9aa6bf;
+    --line:#28304a; --acc:#7c9cff; --acc2:#5ad1c8; --warn:#ff6b6b; --ok:#54d486; --gold:#f2c14e;
+    --rad:14px; --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:radial-gradient(1200px 700px at 70% -10%,#16203a 0%,var(--bg) 55%);
+    color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 22px 120px}
+  h1{font-size:34px;line-height:1.25;margin:0 0 6px;letter-spacing:-.5px}
+  h2{font-size:24px;margin:54px 0 14px;padding-top:14px;border-top:1px solid var(--line);letter-spacing:-.3px}
+  h3{font-size:18px;margin:26px 0 8px;color:#cdd6ec}
+  p{margin:10px 0;color:#d6ddee}
+  .sub{color:var(--mut);font-size:14px;margin:0 0 8px}
+  .lead{font-size:18px;color:#eef2fb}
+  a{color:var(--acc);text-decoration:none}
+  code{background:#0f1626;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px;color:#bcd0ff;
+    font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+  .hero{background:linear-gradient(180deg,var(--panel) 0%,#10131c 100%);border:1px solid var(--line);
+    border-radius:var(--rad);padding:26px 28px;margin:18px 0 8px}
+  .pill{display:inline-block;font-size:12px;color:var(--acc2);border:1px solid #2c4a4a;background:#0f1c1c;
+    border-radius:999px;padding:3px 11px;margin-bottom:14px}
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:760px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--rad);padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px;color:#fff}
+  .card .k{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+  .muted{color:var(--mut)}
+  .dim{border-left:3px solid var(--acc);padding-left:14px;margin:14px 0}
+  .dim b{color:#fff}
+  .callout{border:1px solid #4a2330;background:linear-gradient(180deg,#1f1015,#160c10);border-radius:var(--rad);
+    padding:20px 22px;margin:22px 0}
+  .callout.good{border-color:#1f4a33;background:linear-gradient(180deg,#0e1f17,#0b1712)}
+  .callout .tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .callout.bad .tag{color:var(--warn)} .callout.good .tag{color:var(--ok)}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--rad);overflow:hidden}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#10141f;color:#aeb9d6;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+  tr:last-child td{border-bottom:none}
+  .have{color:var(--ok)} .miss{color:var(--gold)} .cut{color:var(--warn)}
+  .strike{text-decoration:line-through;color:var(--mut)}
+  .mermaid{background:var(--panel);border:1px solid var(--line);border-radius:var(--rad);padding:18px;margin:16px 0;text-align:center}
+  ul{margin:8px 0;padding-left:20px}li{margin:5px 0;color:#d6ddee}
+  .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:#1d2740;color:var(--acc);
+    align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:8px;border:1px solid #2c3a5e}
+  .step{display:flex;gap:12px;align-items:flex-start;margin:12px 0}
+  .toc{font-size:14px;color:var(--mut);margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px 16px}
+  .toc a{color:#a9b6d6}
+  .foot{margin-top:60px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);padding-top:18px}
+  .tag2{font-size:11px;border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--mut);margin-left:6px}
+  .big{font-size:20px;color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="pill">深度研究 · 8-opus workflow · 2026-06-24</span>
+  <h1>画布思考底座：人类如何组织思考 → 反向推导节点 / 边 / 图结构</h1>
+  <p class="sub">6 个学术维度并行深挖 → 综合 → 对抗批判 · 论证学/认识论 · 认知科学 · 知识表示与图论 · 思维方法论 · 思维工具史 · 图解空间推理</p>
+
+  <div class="toc">
+    <a href="#tldr">① 一句话结论</a><a href="#dims">② 5 个维度</a><a href="#basis">③ 反向推导</a>
+    <a href="#truths">④ 三个深层真相</a><a href="#views">⑤ 一底座多视图</a><a href="#gap">⑥ 差距分析</a>
+    <a href="#cut">⑦ 砍掉的坟场器官</a><a href="#pivot">⑧ 战略修正</a><a href="#plan">⑨ 下一步建议</a>
+  </div>
+
+  <div class="hero" id="tldr">
+    <div class="k" style="color:var(--acc2);font-size:12px;letter-spacing:.08em">核心结论</div>
+    <p class="lead" style="margin-top:10px"><b>节点/边的"词汇"问题已经解决了。</b> 所有知识表示形式都归约到同一个通用语义三元组——我们现有底座恰好就是它,已覆盖约 <b style="color:var(--acc2)">70%</b>。真正缺的不是更多节点类型,而是三件事:</p>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card"><div class="k">① 落槽</div><h4>关掉 drift</h4><p class="muted" style="font-size:13.5px">已拍板的 <code>relation/directed/provenance</code> 还在 spec——前端 <code>canvas.ts</code> 至今只有 <code>label</code>。</p></div>
+      <div class="card"><div class="k">② 读空间</div><h4>免费的关系</h4><p class="muted" style="font-size:13.5px">proximity / 对齐 / 包围 / 颜色 = 一套零打字的关系词汇,我们完全没读。</p></div>
+      <div class="card"><div class="k">③ AI 推断层</div><h4 style="color:var(--gold)">必须最先建</h4><p class="muted" style="font-size:13.5px">让底座可被采纳的东西不在底座里——在 AI。这是最重要的战略修正。</p></div>
+    </div>
+  </div>
+
+  <h2 id="dims">② 人类思考组织形式 = 5 个正交维度上的小而稳定的基</h2>
+  <p>不是一张扁平清单。所有思考形式沿 5 个维度展开——底座要"跨越"的是这 5 维,不是 14 个布局按钮。</p>
+  <div class="dim"><b>A · 拓扑</b> — 点云 → 放射(mind map)→ 树(分解/金字塔/鱼骨)→ DAG(依赖/因果/Toulmin)→ 有环图(系统思维 CLD/OODA)→ 网络(Zettelkasten)→ 二部图 → 矩阵(2×2/SWOT/Zwicky/ACH)→ 序列/时间线 → 嵌套容器 → 分层叠加 → 攻击图(Dung)→ 超图</div>
+  <div class="dim"><b>B · 形式度</b> — 潜伏于空间(零打字)→ 无类型连线 → 可选标签 → 完全类型化。<b style="color:var(--warn)">40 年坟场铁律:采纳率与前置形式度成反比。</b></div>
+  <div class="dim"><b>C · 生长方向</b> — 自顶向下分解(金字塔/issue tree)vs 自底向上涌现(KJ 亲和图/Zettelkasten:先 dump 原子,再聚类命名)</div>
+  <div class="dim"><b>D · 认知相位</b> — 发散(System-1 倾倒,奖励数量)vs 收敛(System-2 聚类/打分/剪枝/综合)—— 双钻石节奏</div>
+  <div class="dim"><b>E · 意图</b> — 仅相关(Memex trail / wiki link)vs 可辩护推理(Toulmin warrant / Pollock undercut / Dung "当前被辩护")</div>
+
+  <h2 id="basis">③ 反向推导：最小完备的原语基</h2>
+  <p>问每种思考形式"要可表达 + 机器可读,最少需要哪些不可约数据?",归约到惊人地小:</p>
+  <div class="mermaid">
+flowchart LR
+  subgraph FORMS["14 种思考形式 / 拓扑"]
+    direction TB
+    F1["树·金字塔·鱼骨"]; F2["矩阵·2×2·SWOT"]; F3["系统环 CLD"]; F4["Zettelkasten 网络"]; F5["时间线·叙事"]; F6["攻击图 Dung"]
+  end
+  subgraph BASIS["最小原语基"]
+    direction TB
+    A["内容原子<br/><span style='font-size:11px'>+开放角色标签(AI 推断)</span>"]; B["容器<br/><span style='font-size:11px'>group / 软 region</span>"]; C["一条有向·开放-relation 边<br/><span style='font-size:11px'>+ directed + relationData</span>"]; D["2D 位置 / 大小 / 颜色<br/><span style='font-size:11px'>= 免费的语义通道</span>"]
+  end
+  FORMS == "都是布局/视图,<br/>不是不同数据模型" ==> BASIS
+  style FORMS fill:#161b2b,stroke:#2c3a5e,color:#dfe6f5
+  style BASIS fill:#0e1f1c,stroke:#2c4a4a,color:#eafff9
+  </div>
+  <div class="grid g2">
+    <div class="card"><div class="k">节点</div><h4>2 个结构原语</h4><p class="muted" style="font-size:13.5px"><b>① 定位内容原子</b>(所有形式的底)<b>② 容器</b>(chunking/聚类)。table/code/media/todo 都是内容原子的<b>载荷变体</b>,不是新结构。claim/evidence/question <b>不是节点</b>——是 AI 推断、paint 上去的隐形角色标签。</p></div>
+    <div class="card"><div class="k">边</div><h4>1 条边</h4><p class="muted" style="font-size:13.5px">有向 + 自由标签 + 开放 <code>relation</code> 字符串(= 三元组谓词)。开放字符串吸收<b>全部</b>观察到的词汇(支持/反驳/因果/类比/对比/引用…),无需 enum 锁定。</p></div>
+  </div>
+  <div class="card" style="margin-top:14px"><div class="k">三个真正残留的结构缺口</div>
+    <p class="muted" style="font-size:13.5px"><b>(a) 边瞄准边</b>(Toulmin warrant / Pollock undercut——攻击"链接"而非命题)· <b>(b) n 元/具化关系</b>(事件、多项比较——按需"把边提升为节点")· <b>(c) 派生空间关系</b>(从几何读出 proximity/对齐/包围/颜色——<b style="color:var(--ok)">用户零打字</b>)。批判结论:(a) 不进用户面,只作 AI 侧注释;(c) 是最高杠杆。</p></div>
+
+  <h2 id="truths">④ 三个最深的跨域真相</h2>
+  <div class="grid g3">
+    <div class="card"><div class="k">真知的本质</div><h4>辩证 · 可废止</h4><p class="muted" style="font-size:13.5px">一个判断"为真",恰恰因为它<b>挺过了最强反对</b>。核心动词是 <b style="color:var(--acc2)">OBJECT / CHALLENGE</b>,核心状态是"当前被辩护 vs 被击败",不是"被证明"。</p></div>
+    <div class="card"><div class="k">最重的对象</div><h4>是"连接",不是命题</h4><p class="muted" style="font-size:13.5px">Toulmin warrant、Pollock undercut("你的数据不足以支撑这个结论"——攻击的是链接)。承载最重的是边,边本身需可被瞄准/质疑。</p></div>
+    <div class="card"><div class="k">画布的角色</div><h4>画布就是思考</h4><p class="muted" style="font-size:13.5px">延展认知(Clark & Chalmers)——卸载 4±1 chunk 工作记忆瓶颈。而<b>空间本身已免费携带关系词汇</b>(Larkin-Simon / Gestalt / Bertin)。</p></div>
+  </div>
+  <div class="mermaid">
+flowchart LR
+  C["主张 claim"] -->|"挺过反对?"| T{"压力测试"}
+  O1["反驳 rebut<br/>(攻击结论)"] --> T
+  O2["削弱 undercut<br/>(攻击推理链)"] --> T
+  T -->|"幸存"| K["真知 真知<br/>可辩护的判断"]
+  T -->|"被击败"| R["修订 / 综合"]
+  R --> C
+  style K fill:#0e1f17,stroke:#1f4a33,color:#9af0c0
+  style T fill:#1f1a10,stroke:#5a4a20,color:#f2d98e
+  </div>
+
+  <h2 id="views">⑤ "一个底座,多个视图"（Engelbart ViewSpecs）</h2>
+  <p>那 ~14 种图结构形式不是要建 14 套数据模型——是同一批节点+边 <b>re-render</b> 成不同视图。<b>选布局本身就是认知提示</b>:矩阵无声地问"按哪两个轴?",时间线问"什么顺序?",树问"有哪些部分?"。</p>
+  <div class="mermaid">
+flowchart TD
+  S["一套节点 + 边 + 位置<br/>(通用底座)"]
+  S --> V1["大纲 outline"]; S --> V2["思维导图 mindmap"]; S --> V3["表格/矩阵 table"]; S --> V4["论证树 argument-tree<br/><span style='font-size:10px'>(AI 侧派生)</span>"]; S --> V5["时间线 timeline"]
+  style S fill:#161b2b,stroke:#2c3a5e,color:#dfe6f5
+  </div>
+
+  <h2 id="gap">⑥ 对照现有底座：差距分析</h2>
+  <table>
+    <tr><th>能力</th><th>状态</th><th>说明</th></tr>
+    <tr><td>类型化内容节点(8 类)+ 有向开放-relation 边 + 容器 + provenance 规范</td><td class="have">✓ 已有</td><td>= 通用三元组,领域硬核最优;7 个核心拓扑(树/DAG/环/矩阵/聚类/序列/网络)已全部可表达</td></tr>
+    <tr><td>group 可作连接端点</td><td class="have">✓ 已修(本会话 G4)</td><td>容器可参与图,inter-cluster 链接可表达</td></tr>
+    <tr><td><b>落槽 drift</b></td><td class="miss">⚠ 最优先</td><td>前端 <code>canvas.ts</code> 的 CanvasConnection 至今<b>只有 label</b>,relation/directed/relationData/provenance 全没活;底座自己拍板的规范还没上线</td></tr>
+    <tr><td><b>派生空间关系读取器</b></td><td class="miss">⚠ 最高杠杆</td><td>只算显式 group/edge,不读原始位置(proximity/对齐/包围/颜色)——零摩擦的关系通道闲置</td></tr>
+    <tr><td><b>AI 推断层</b></td><td class="miss">⚠ 护城河 + 痛根</td><td>完全没建(用户 memory 诊断的"v2 canvas lane 零 LLM"痛根)</td></tr>
+    <tr><td>软几何 region(overlap 成员)</td><td class="miss">○ 缺</td><td>只有硬 group.children[];用户不能"零打字套住一个意义"</td></tr>
+    <tr><td>prose/outline 作一等思考面</td><td class="miss">○ 缺(批判补强)</td><td>多数人靠写句子/列项思考,不是摆节点</td></tr>
+    <tr><td>边瞄准边 / 可见认识论状态 / 用户选角色</td><td class="cut">✗ 别建(用户面)</td><td>见下节——坟场器官</td></tr>
+  </table>
+
+  <h2 id="cut">⑦ 对抗批判砍掉的"坟场器官"</h2>
+  <p>综合 agent 偷偷把三个杀死过 IBIS/Roam/Kialo 的东西换名字塞了回来。批判 agent 全部驳回:</p>
+  <div class="grid g2">
+    <div class="card"><h4 class="cut">✗ 边瞄准边(undercut/warrant)</h4><p class="muted" style="font-size:13.5px">= 伪装的 IBIS Argument 节点。综合自己都承认"99% 用户永不知情使用"。<b>严谨不是采纳轴。</b> → 砍出用户面,只作 AI 侧不可见注释。</p></div>
+    <div class="card"><h4 class="cut">✗ 可见的 defended/defeated 状态</h4><p class="muted" style="font-size:13.5px">= Kialo。它有攻击图+pro/con 打分+真实社区,<b>依然没破圈</b>。<code>provenance.state</code> 只能是隐形管线,绝不做展示/索要 UI。</p></div>
+    <div class="card"><h4 class="cut">✗ 用户去选角色/关系标签</h4><p class="muted" style="font-size:13.5px">坟场不是数据模型,是<b>分类的那一刻</b>。角色只能是 AI 推断的隐形元数据,用户永远看不到"选个角色"。</p></div>
+    <div class="card"><h4 class="cut">✗ Walton 苏格拉底"引擎"常驻 / 发散收敛模式开关</h4><p class="muted" style="font-size:13.5px">= 学究纠正者 + 要记得设置的模式。降级为按需触发的"帮我挑刺" / AI 行为。</p></div>
+  </div>
+  <h3>批判补强:综合欠重的真实思考形式</h3>
+  <p class="muted">叙事/散文(靠<b>写句子</b>思考)· 列表/大纲(日常主导)· 同一思想的<b>迭代重写/版本</b>· 情感/直觉/品味判断 · 问题作为驱动对象 · <b>真人协作</b>(Miro 之所以是 Miro)· 带公式的电子表格思考。</p>
+
+  <h2 id="pivot">⑧ 最重要的战略修正</h2>
+  <div class="callout bad">
+    <div class="tag">⚠ 课程修正 · 挑战已拍板的排序</div>
+    <p class="big" style="margin:10px 0 6px">AI 推断层必须"最先建",不是"思考层 later"。</p>
+    <p style="color:#f3d6da">整个赌注是"AI 替用户付打字税"。<b>让底座可被采纳的东西不在底座里,在 AI。</b> 如果先把底座槽做完、AI 最后建,整个过渡期 zmind 就是<b>"带相机的 Roam"</b>——开放关系仍得有人去打字,默认值比类型化工具还差。这正是你 memory 里诊断的痛根。</p>
+    <p style="color:#f3d6da;margin-bottom:0">证据:<b>底座词汇基本做完了</b>;剩余底座工作很小(落槽 + 空间读取器 + 软 region);护城河与可采纳性都在 AI。→ 建议把 AI 推断层从"later"提到<b>现在第一优先,与落槽/空间读取器并行</b>。</p>
+  </div>
+  <div class="callout good">
+    <div class="tag">✓ 脊柱是对的且稀有(保留)</div>
+    <p style="margin-bottom:0;color:#c8f0d8">CAPTURE-FIRST, STRUCTURE-LATER · AI 付形式化的税 · 让空间免费干语义活 · 底座存不校验的开放字符串关系 · 守护用户空间意图(Gestalt 不自主,AI 不能吃掉摆放的意义)· 追溯每个 AI 生成的结构。<b>这是 IBIS/Roam/Kialo 之死的唯一已知解药。</b></p>
+  </div>
+
+  <h2 id="plan">⑨ 下一步：我的建议</h2>
+  <p>不再继续纯底座。<b>底座收尾 + AI 推断层并行起步</b>,严守 capture-first(用户永远不被要求分类)。</p>
+
+  <h3>现在(P0,并行一条流)</h3>
+  <div class="step"><span class="num">1</span><div><b>落槽端到端 + 空间关系读取器</b> <span class="tag2">底座收尾</span><br/><span class="muted">关掉 <code>canvas.ts</code> 的 drift(relation/directed/relationData/provenance 上前端类型 + 读投影);同时让后端从几何 <b>READ</b> 出 proximity-cluster / 轴对齐 / 包围 / 颜色等价类,喂给 AI。槽没有产生值的东西就是惰性的——两者必须一起。</span></div></div>
+  <div class="step"><span class="num">2</span><div><b>AI 推断层 v0</b> <span class="tag2">护城河</span><br/><span class="muted">AI 读 freeform prose + 空间布局 →(a)给无标签边 propose 开放 relation,(b)按需把 dump 聚成命名 group,(c)浮现诊断(孤立 claim / MECE 重叠 / 环 / 无支撑)。<b>全程不要求用户分类任何东西。</b></span></div></div>
+
+  <h3>接着(P1)</h3>
+  <div class="step"><span class="num">3</span><div><b>prose / outline 成一等思考面,AI 背后默默图它</b><br/><span class="muted">text 节点装长文/大纲,AI 抽取潜在结构——服务最大欠服的"写句子思考"人群。</span></div></div>
+  <div class="step"><span class="num">4</span><div><b>少量低-schema 方法模板,AI 从 dump 填充</b><br/><span class="muted">pro/con 账本 · 2×2 · 亲和聚类 · issue map——用户先 freeform dump,AI 填骨架。<b>绝不是空类型表单。</b></span></div></div>
+  <div class="step"><span class="num">5</span><div><b>守护空间意图 + 追溯/可撤所有 AI 结构(硬正确性契约)</b><br/><span class="muted">pinned / positionIsIntentional 标志;AI 问或尊重既有 alignment/proximity;每个 AI 造的节点/边带 createdBy:agent + 派生引用。</span></div></div>
+
+  <h3>以后(P2+,谨慎)</h3>
+  <p class="muted">软几何 region(零打字套住意义)· 一个只读派生 outline 视图(别追"渲染成 argument-tree" 的无损往返坟场)· n 元 promote-edge-to-node(按需,不做超边原语)· 边瞄准边仅作 AI 侧派生注释。</p>
+
+  <h3>需要你拍板的</h3>
+  <div class="card" style="border-color:#3a4a78">
+    <p style="margin:0"><b>是否接受这个排序修正</b>——把 AI 推断层从"思考层 later"提到"现在第一优先,与落槽/空间读取器并行"?接受 → 我出一份分阶段实施计划(像底座那样的 WS 工作线 + 第一个 PR 建议)。</p>
+  </div>
+  <h3 class="muted" style="margin-top:24px">留给你的张力(决策点)</h3>
+  <ul class="muted" style="font-size:14px">
+    <li><b>NotebookLM 威胁</b>:它零结构化负担交付 AI source 推理。差异化必须是"AI 替你结构化 + provenance 台账",而非要你结构化。</li>
+    <li><b>读空间是双刃</b>:同一个 auto-cluster 既加值也可能悄悄删掉用户的位置意图 → pinned 标志 + AI 必须问或尊重。</li>
+    <li><b>0.8-SD 论证收益</b>在被引导/教学场景测得;AI-as-facilitator 在 solo 自助场景能否复现,是经验性开放问题。</li>
+  </ul>
+
+  <div class="foot">
+    完整论证(6 维度各自的 frameworks / 节点 / 边 / 图结构 / 采纳风险 + 综合 + 对抗批判)见同目录 Markdown:
+    <code>docs/design/2026-06-24-canvas-thinking-substrate-research.md</code> · run w0eguenup
+  </div>
+</div>
+<script>
+  mermaid.initialize({startOnLoad:true, theme:"dark",
+    themeVariables:{fontFamily:'-apple-system,Segoe UI,PingFang SC,sans-serif', fontSize:'14px',
+      primaryColor:'#1b2030', primaryBorderColor:'#2c3a5e', primaryTextColor:'#e7ebf3',
+      lineColor:'#5a6a96', secondaryColor:'#13251f'}});
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "type": "function",
+  "function": {
+    "name": "mcp__example_server__do_thing",
+    "description": "Example MCP tool schema with refs/unions to exercise sanitizer.",
+    "parameters": {
+      "$defs": {
+        "Point": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "y": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": []
+        }
+      },
+      "type": "object",
+      "properties": {
+        "mode": {
+          "const": "fast"
+        },
+        "query": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "point": {
+          "$ref": "#/$defs/Point"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "a"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "b": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "b"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  }
+}

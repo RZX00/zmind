@@ -1,0 +1,50 @@
+export const ALLOWED_OPS = Object.freeze([
+  "add_node",
+  "update_node",
+  "delete_node",
+  "move_node",
+  "apply_style",
+  "add_connection",
+  "update_connection",
+  "delete_connection",
+  "update_canvas",
+  "relayout_mindmap",
+  "update_table_cell",
+  "table_row_op",
+  "table_col_op",
+  "set_collapsed",
+  "group_nodes",
+  "ungroup",
+]);
+
+export const OP_ALIASES = Object.freeze({
+  addnode: "add_node",
+  updatenode: "update_node",
+  deletenode: "delete_node",
+  movenode: "move_node",
+  applystyle: "apply_style",
+  addconnection: "add_connection",
+  updateconnection: "update_connection",
+  deleteconnection: "delete_connection",
+  updatecanvas: "update_canvas",
+  relayoutmindmap: "relayout_mindmap",
+  updatetablecell: "update_table_cell",
+  tablerowop: "table_row_op",
+  tablecolop: "table_col_op",
+  setcollapsed: "set_collapsed",
+  groupnodes: "group_nodes",
+});
+
+export const CANVAS_PATCH_KEYS = Object.freeze([
+  "title",
+  "cornerStyle",
+  "fontStyle",
+  "textOpacityPreset",
+  "textLayoutPreset",
+  "folderId",
+  "backgroundColor",
+  "backgroundStyleId",
+  "patternColor",
+  "metadata",
+]);
+

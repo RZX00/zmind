@@ -1,0 +1,36 @@
+class AppError extends Error {
+  constructor(code, message, details) {
+    super(message);
+    this.name = 'AppError';
+    this.code = code;
+    this.details = details || null;
+  }
+}
+
+const APP_ERROR_CODES = {
+  E_USAGE: 'E_USAGE',
+  E_NOT_FOUND: 'E_NOT_FOUND',
+  E_LOCK_TIMEOUT: 'E_LOCK_TIMEOUT',
+  E_REVISION_CONFLICT: 'E_REVISION_CONFLICT',
+  E_VALIDATION_FAILED: 'E_VALIDATION_FAILED',
+  E_SCHEMA_UNSUPPORTED: 'E_SCHEMA_UNSUPPORTED',
+  E_IO_ATOMIC_WRITE_FAILED: 'E_IO_ATOMIC_WRITE_FAILED',
+  E_INTERNAL: 'E_INTERNAL',
+};
+
+const APP_EXIT_CODES = {
+  [APP_ERROR_CODES.E_USAGE]: 2,
+  [APP_ERROR_CODES.E_NOT_FOUND]: 3,
+  [APP_ERROR_CODES.E_LOCK_TIMEOUT]: 10,
+  [APP_ERROR_CODES.E_REVISION_CONFLICT]: 11,
+  [APP_ERROR_CODES.E_VALIDATION_FAILED]: 12,
+  [APP_ERROR_CODES.E_SCHEMA_UNSUPPORTED]: 13,
+  [APP_ERROR_CODES.E_IO_ATOMIC_WRITE_FAILED]: 20,
+  [APP_ERROR_CODES.E_INTERNAL]: 99,
+};
+
+module.exports = {
+  AppError,
+  APP_ERROR_CODES,
+  APP_EXIT_CODES,
+};

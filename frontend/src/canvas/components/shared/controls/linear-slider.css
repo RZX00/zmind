@@ -1,0 +1,64 @@
+/* Linear 风格的滑动器样式 */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e5e7eb;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #3b82f6;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-elev-4);
+  transition: all 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #2563eb;
+  box-shadow: var(--shadow-elev-6);
+  transform: scale(1.1);
+}
+
+.slider::-webkit-slider-thumb:active {
+  transform: scale(0.95);
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-elev-4);
+  transition: all 0.2s;
+}
+
+.slider::-moz-range-thumb:hover {
+  background: #2563eb;
+  box-shadow: var(--shadow-elev-6);
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-track {
+  background: #e5e7eb;
+  border-radius: var(--radius-sm);
+  height: var(--space-4);
+}
+
+.slider:focus::-webkit-slider-thumb {
+  outline: var(--stroke-2) solid #3b82f6;
+  outline-offset: var(--space-2);
+}
+
+.slider:focus::-moz-range-thumb {
+  outline: var(--stroke-2) solid #3b82f6;
+  outline-offset: var(--space-2);
+}

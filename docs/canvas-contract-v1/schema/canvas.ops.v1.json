@@ -1,0 +1,143 @@
+{
+  "$id": "canvas.ops.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canvas Operations v1",
+  "type": "array",
+  "items": {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "add_node" },
+          "node": { "type": "object" }
+        },
+        "required": ["op", "node"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "update_node" },
+          "id": { "type": "string" },
+          "patch": { "type": "object" }
+        },
+        "required": ["op", "id", "patch"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "delete_node" },
+          "id": { "type": "string" }
+        },
+        "required": ["op", "id"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "move_node" },
+          "id": { "type": "string" },
+          "x": { "type": "number" },
+          "y": { "type": "number" }
+        },
+        "required": ["op", "id"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "apply_style" },
+          "id": { "type": "string" },
+          "patch": { "type": "object" }
+        },
+        "required": ["op", "id", "patch"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "add_connection" },
+          "id": { "type": "string" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "fromPoint": { "$ref": "#/$defs/point" },
+          "toPoint": { "$ref": "#/$defs/point" },
+          "label": { "type": "string" },
+          "style": { "type": "string", "enum": ["line", "arrow"] },
+          "dashed": { "type": "boolean" },
+          "curveAnchor": { "$ref": "#/$defs/point" },
+          "anchorParams": { "$ref": "#/$defs/anchorParams" },
+          "curveMode": { "type": "string", "enum": ["auto", "tension", "manual", "orthogonal"] },
+          "tension": { "type": "number" }
+        },
+        "required": ["op"],
+        "oneOf": [
+          { "required": ["from", "to"] },
+          { "required": ["fromPoint", "toPoint"] }
+        ],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "update_connection" },
+          "id": { "type": "string" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "patch": { "type": "object" }
+        },
+        "required": ["op", "patch"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "delete_connection" },
+          "id": { "type": "string" }
+        },
+        "required": ["op", "id"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "update_canvas" },
+          "patch": { "type": "object" }
+        },
+        "required": ["op", "patch"],
+        "additionalProperties": true
+      },
+      {
+        "type": "object",
+        "properties": {
+          "op": { "const": "relayout_mindmap" },
+          "id": { "type": "string" },
+          "patch": { "type": "object" }
+        },
+        "required": ["op", "id", "patch"],
+        "additionalProperties": true
+      }
+    ]
+  },
+  "$defs": {
+    "point": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "required": ["x", "y"],
+      "additionalProperties": false
+    },
+    "anchorParams": {
+      "type": "object",
+      "properties": {
+        "u": { "type": "number" },
+        "v": { "type": "number" }
+      },
+      "required": ["u", "v"],
+      "additionalProperties": false
+    }
+  }
+}

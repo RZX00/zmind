@@ -1,0 +1,260 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://zmind.so/schema/canvas.v1.json",
+  "title": "Zmind Canvas v1",
+  "type": "object",
+  "required": ["id", "title", "nodes", "connections", "createdAt", "updatedAt", "version"],
+  "additionalProperties": true,
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "nodes": {"type": "array", "items": {"$ref": "#/definitions/CanvasNode"}},
+    "connections": {"type": "array", "items": {"$ref": "#/definitions/CanvasConnection"}},
+    "serverVersion": {"type": ["integer", "null"]},
+    "folderId": {"type": ["string", "null"]},
+    "cornerStyle": {"type": ["string", "null"]},
+    "fontStyle": {"type": ["string", "null"]},
+    "backgroundColor": {"type": ["string", "null"]},
+    "backgroundStyleId": {"type": ["string", "null"]},
+    "patternColor": {"type": ["string", "null"]},
+    "textOpacityPreset": {"type": ["string", "null"], "enum": ["opaque", "dimmed", "transparent", null]},
+    "textLayoutPreset": {"type": ["string", "null"], "enum": ["classic", "compact", "minimal", null]},
+    "groups": {"type": ["array", "null"], "items": {"type": "object", "additionalProperties": true}},
+    "metadata": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "connectionAnchors": {
+          "type": ["object", "null"],
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "x": {"type": "number"},
+              "y": {"type": "number"}
+            },
+            "required": ["x", "y"]
+          }
+        },
+        "connectionAnchorParams": {
+          "type": ["object", "null"],
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "u": {"type": "number"},
+              "v": {"type": "number"}
+            },
+            "required": ["u", "v"]
+          }
+        }
+      }
+    },
+    "createdAt": {"type": "integer"},
+    "updatedAt": {"type": "integer"},
+    "version": {"type": "string"}
+  },
+  "definitions": {
+    "TextStyles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "textAlign": {"type": "string", "enum": ["left", "center", "right", "justify"]},
+        "accentColor": {"type": "string"},
+        "opacity": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "ShapeDecoration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {"type": "string", "enum": ["none", "circle", "diamond", "custom"]},
+        "size": {"type": "string", "enum": ["fit", "extend"]},
+        "strokeWidth": {"type": "number", "minimum": 0},
+        "strokeColor": {"type": "string"},
+        "fillColor": {"type": "string"},
+        "opacity": {"type": "number", "minimum": 0, "maximum": 1},
+        "customPath": {"type": "string"},
+        "offset": {"type": "number", "minimum": 0}
+      },
+      "required": ["type"]
+    },
+    "TableData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rows"],
+      "properties": {
+        "rows": {"type": "array", "items": {"type": "array", "items": {"type": "string"}}},
+        "columnWidths": {"type": "array", "items": {"type": "number"}},
+        "rowHeights": {"type": "array", "items": {"type": "number"}}
+      }
+    },
+    "TableStyles": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "theme": {"type": "string", "enum": ["booktabs", "nature", "ieee"]},
+        "borderStyle": {"type": "string", "enum": ["solid", "dashed", "dotted"]},
+        "borderWidth": {"type": "number", "minimum": 0},
+        "borderColor": {"type": "string"},
+        "headerBackground": {"type": "string"},
+        "evenRowBackground": {"type": "string"},
+        "oddRowBackground": {"type": "string"},
+        "headerTextColor": {"type": "string"},
+        "textColor": {"type": "string"},
+        "cellPadding": {"type": "number", "minimum": 0},
+        "borderRadius": {"type": "number", "minimum": 0},
+        "showGrid": {"type": "boolean"},
+        "alternateRows": {"type": "boolean"},
+        "headerBold": {"type": "boolean"},
+        "topBorder": {"type": "number", "minimum": 0},
+        "headerBorder": {"type": "number", "minimum": 0},
+        "bottomBorder": {"type": "number", "minimum": 0},
+        "fontFamily": {"type": "string"},
+        "fontSize": {"type": "number", "minimum": 1},
+        "textAlign": {"type": "string", "enum": ["left", "center", "right"]}
+      }
+    },
+    "MindmapMeta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["rootId", "spacingX", "spacingY"],
+      "properties": {
+        "rootId": {"type": "string"},
+        "spacingX": {"type": "number"},
+        "spacingY": {"type": "number"},
+        "showCrossLinks": {"type": "boolean"},
+        "orientation": {"type": "string", "enum": ["right"]},
+        "collapsed": {"type": "object", "additionalProperties": {"type": "boolean"}},
+        "siblingOrder": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}}
+      }
+    },
+    "CanvasNodeBase": {
+      "type": "object",
+      "required": ["id", "type", "x", "y", "width", "height", "content", "createdAt", "updatedAt"],
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"type": "string", "enum": ["text", "todo", "code", "table", "media", "column", "canvas-link", "group"]},
+        "x": {"type": "number"},
+        "y": {"type": "number"},
+        "width": {"type": "number", "minimum": 1},
+        "height": {"type": "number", "minimum": 1},
+        "content": {"type": "string"},
+        "createdAt": {"type": "integer"},
+        "updatedAt": {"type": "integer"},
+        "textStyles": {"$ref": "#/definitions/TextStyles"},
+        "shapeDecoration": {"$ref": "#/definitions/ShapeDecoration"},
+        "accentColor": {"type": "string"},
+        "locked": {"type": "boolean"},
+        "ai": {"type": "boolean"},
+        "children": {"type": "array", "items": {"type": "string"}},
+        "parentGroupId": {"type": "string"},
+        "groupMode": {"type": "string", "enum": ["mindmap", "normal"]},
+        "mindmap": {"$ref": "#/definitions/MindmapMeta"},
+        "tableStyles": {"$ref": "#/definitions/TableStyles"},
+        "linkStyles": {"type": "object"},
+        "svgTheme": {"$ref": "#/definitions/SvgThemeConfig"},
+        "svgMetadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "viewBox": {"type": "string"},
+            "preserveAspectRatio": {"type": "string"},
+            "width": {"type": "string"},
+            "height": {"type": "string"}
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "CanvasNode": {
+      "allOf": [{"$ref": "#/definitions/CanvasNodeBase"}],
+      "oneOf": [
+        { "properties": { "type": {"const": "text"} } },
+        { "properties": { "type": {"const": "todo"} }, "required": ["completed"] },
+        { "properties": { "type": {"const": "code"}, "codeType": {"enum": ["mermaid", "html", "svg"]} }, "required": ["codeType"] },
+        { "properties": { "type": {"const": "table"}, "data": {"$ref": "#/definitions/TableData"} }, "required": ["data"] },
+        { "properties": { "type": {"const": "media"} },
+          "required": ["fileName", "fileType", "fileExtension", "fileSize", "mediaType", "uploadStatus"] },
+        { "properties": { "type": {"const": "column"} } },
+        { "properties": { "type": {"const": "canvas-link"} }, "required": ["title"] },
+        { "properties": { "type": {"const": "group"}, "children": {"type": "array", "items": {"type": "string"}} }, "required": ["children"] }
+      ]
+    },
+    "SvgThemeConfig": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "id": {"type": "string"},
+        "colorScheme": {"type": "string", "enum": ["light", "dark", "auto"]},
+        "colors": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "primary": {"type": "string"},
+            "secondary": {"type": "string"},
+            "background": {"type": "string"},
+            "stroke": {"type": "string"},
+            "fill": {"type": "string"}
+          }
+        },
+        "cssVariables": {"type": "object", "additionalProperties": {"type": "string"}}
+      }
+    },
+    "CanvasConnection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string"},
+        "from": {"type": "string"},
+        "to": {"type": "string"},
+        "label": {"type": "string"},
+        "createdAt": {"type": "integer"},
+        "type": {"type": "string", "enum": ["straight", "bezier"]},
+        "controlPoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {"x": {"type": "number"}, "y": {"type": "number"}},
+            "required": ["x", "y"]
+          }
+        },
+        "fromPoint": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {"x": {"type": "number"}, "y": {"type": "number"}},
+          "required": ["x", "y"]
+        },
+        "toPoint": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {"x": {"type": "number"}, "y": {"type": "number"}},
+          "required": ["x", "y"]
+        },
+        "style": {"type": "string", "enum": ["line", "arrow"]},
+        "dashed": {"type": "boolean"},
+        "appearance": {"type": "object", "additionalProperties": true},
+        "curveMode": {"type": "string", "enum": ["auto", "tension", "manual", "orthogonal"]},
+        "tension": {"type": "number", "minimum": 0, "maximum": 1},
+        "curveAnchor": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {"x": {"type": "number"}, "y": {"type": "number"}},
+          "required": ["x", "y"]
+        },
+        "anchorParams": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {"u": {"type": "number"}, "v": {"type": "number"}},
+          "required": ["u", "v"]
+        }
+      },
+      "required": ["id", "createdAt"],
+      "oneOf": [
+        { "required": ["from", "to"] },
+        { "required": ["fromPoint", "toPoint"] }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+name: Feature Request
+description: Suggest a product or developer experience improvement
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please focus on user value and desired outcome.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user problem exists today?
+      placeholder: Who is blocked, and where is the friction?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the ideal UX and behavior.
+      placeholder: Preferred flow, key interactions, and constraints.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What did you evaluate and why was it not enough?

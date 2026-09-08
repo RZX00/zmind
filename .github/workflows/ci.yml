@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend release checks
+    runs-on: ubuntu-latest
+    env:
+      ENV_MODE: local
+      SUPABASE_URL: http://localhost:54321
+      SUPABASE_ANON_KEY: ci-placeholder
+      SUPABASE_SERVICE_ROLE_KEY: ci-placeholder
+      SUPABASE_JWT_SECRET: ci-placeholder
+      REDIS_HOST: localhost
+      TAVILY_API_KEY: ci-placeholder
+      FIRECRAWL_API_KEY: ci-placeholder
+      MCP_CREDENTIAL_ENCRYPTION_KEY: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: '3.11'
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: >-
+          uv run pytest -q --no-cov
+          tests/test_cac_edit_args_normalization.py
+          tests/test_cac_tools.py
+          tests/test_cac_workspace_tools.py
+          tests/test_canvas_request_contract.py
+          tests/test_canvas_native_best_path_service.py
+          tests/test_tool_registry_schema_cache.py
+          tests/test_ws_b_mcp_naming.py
+
+  frontend:
+    name: Frontend checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    env:
+      NEXT_PUBLIC_ENV_MODE: local
+      NEXT_PUBLIC_SUPABASE_URL: http://localhost:54321
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ci-placeholder
+      NEXT_PUBLIC_BACKEND_URL: http://localhost:8013/api
+      BACKEND_INTERNAL_URL: http://localhost:8013/api
+      NEXT_PUBLIC_CANVAS_REALTIME_URL: http://localhost:6020
+      NEXT_PUBLIC_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run type-check
+      - run: npm run build
+
+  mobile:
+    name: Mobile lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/mobile/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+
+  canvas-realtime:
+    name: Canvas realtime checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/canvas-realtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: services/canvas-realtime/package-lock.json
+      - run: npm ci
+      - run: node --check src/index.js

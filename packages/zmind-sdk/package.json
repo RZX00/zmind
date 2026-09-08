@@ -1,0 +1,14 @@
+{
+  "name": "@zmind/sdk",
+  "version": "0.1.0",
+  "description": "Shared ZMind SDK for CLI and OpenClaw integrations",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test"
+  }
+}

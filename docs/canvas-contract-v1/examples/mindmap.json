@@ -1,0 +1,17 @@
+{
+  "id": "canvas-200",
+  "title": "Mindmap",
+  "createdAt": 1730000000000,
+  "updatedAt": 1730000000000,
+  "version": "1.0.0",
+  "nodes": [
+    {"id":"group-1","type":"group","x":60,"y":40,"width":600,"height":300,"children":["n1","n2","n3"],"groupMode":"mindmap","mindmap":{"rootId":"n1","spacingX":96,"spacingY":30},"createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"n1","type":"text","x":100,"y":100,"width":300,"height":60,"content":"中心主题","parentGroupId":"group-1","createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"n2","type":"text","x":300,"y":160,"width":300,"height":60,"content":"分支 A","parentGroupId":"group-1","createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"n3","type":"text","x":300,"y":240,"width":300,"height":60,"content":"分支 B","parentGroupId":"group-1","createdAt":1730000000000,"updatedAt":1730000000000}
+  ],
+  "connections": [
+    {"id":"connection-1","from":"n1","to":"n2","createdAt":1730000000000},
+    {"id":"connection-2","from":"n1","to":"n3","createdAt":1730000000000}
+  ]
+}

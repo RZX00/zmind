@@ -1,0 +1,56 @@
+{
+  "name": "zmind-desktop",
+  "version": "1.0.0",
+  "description": "Zmind Desktop",
+  "author": {
+    "name": "Zmind",
+    "email": "support@zmind.so",
+    "url": "https://zmind.so"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:mac": "node -r dotenv/config -e 'require(\"./build-signed.js\")' || electron-builder --mac",
+    "build:mac:unsigned": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@electron/notarize": "^2.3.2",
+    "dotenv": "^16.4.5",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "so.zmind.desktop",
+    "productName": "Zmind",
+    "protocols": {
+      "name": "Zmind",
+      "schemes": ["zmind"]
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist"
+    },
+    "afterSign": "notarize.js",
+    "dmg": {
+      "sign": false,
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  }
+}

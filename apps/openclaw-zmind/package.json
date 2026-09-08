@@ -1,0 +1,24 @@
+{
+  "name": "@zmind/openclaw-plugin",
+  "version": "0.1.0",
+  "description": "OpenClaw plugin for connected ZMind canvas and docs operations",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "files": [
+    "src",
+    "skills",
+    "README.md",
+    "openclaw.plugin.json"
+  ],
+  "dependencies": {
+    "@zmind/sdk": "^0.1.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./src/index.js"
+    ]
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

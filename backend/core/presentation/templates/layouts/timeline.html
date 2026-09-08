@@ -1,0 +1,25 @@
+<h2 class="slide-title">{{ slide.title }}</h2>
+{% if slide.subtitle %}
+<p class="slide-subtitle">{{ slide.subtitle }}</p>
+{% endif %}
+{% if slide.timeline_items %}
+<div class="timeline">
+  {% for item in slide.timeline_items %}
+  <div class="timeline-item">
+    <div class="timeline-dot"></div>
+    <div>
+      <div class="timeline-label">{{ item.label }}</div>
+      {% if item.description %}
+      <div class="timeline-desc">{{ item.description }}</div>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% elif slide.points %}
+<ul class="slide-points">
+  {% for point in slide.points %}
+  <li>{{ point }}</li>
+  {% endfor %}
+</ul>
+{% endif %}

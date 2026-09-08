@@ -1,0 +1,30 @@
+<h2 class="slide-title">{{ slide.title }}</h2>
+{% if slide.subtitle %}
+<p class="slide-subtitle">{{ slide.subtitle }}</p>
+{% endif %}
+<div class="two-col">
+  <div>
+    {% if slide.left_column %}
+    <h3 class="col-heading">{{ slide.left_column.heading }}</h3>
+    {% if slide.left_column.points %}
+    <ul class="slide-points">
+      {% for point in slide.left_column.points %}
+      <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endif %}
+  </div>
+  <div>
+    {% if slide.right_column %}
+    <h3 class="col-heading">{{ slide.right_column.heading }}</h3>
+    {% if slide.right_column.points %}
+    <ul class="slide-points">
+      {% for point in slide.right_column.points %}
+      <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endif %}
+  </div>
+</div>

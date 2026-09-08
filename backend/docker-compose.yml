@@ -1,0 +1,162 @@
+services:
+  api:
+    image: ghcr.io/zmind-ai/zmind-backend:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8013:8013"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/.venv
+      - ./logs:/app/logs
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - LOG_LEVEL=INFO
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8013/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  worker:
+    image: ghcr.io/zmind-ai/zmind-backend:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uv run dramatiq --skip-logging --processes 2 --threads 2 run_agent_background
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/.venv
+      - ./worker-logs:/app/logs
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - LOG_LEVEL=INFO
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "uv", "run", "worker_health.py"]
+      timeout: 20s
+      interval: 30s
+      start_period: 40s
+
+  outbox-relay:
+    image: ghcr.io/zmind-ai/zmind-backend:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uv run python run_outbox_relay.py
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/.venv
+      - ./worker-logs:/app/logs
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - LOG_LEVEL=INFO
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  projection-worker:
+    image: ghcr.io/zmind-ai/zmind-backend:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uv run python run_projection_worker.py
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/.venv
+      - ./worker-logs:/app/logs
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - app-network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - LOG_LEVEL=INFO
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  redis:
+    image: redis:8-alpine
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./services/docker/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    restart: unless-stopped
+    networks:
+      - app-network
+    command: redis-server /usr/local/etc/redis/redis.conf --appendonly yes --bind 0.0.0.0 --protected-mode no --maxmemory 8gb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis_data:

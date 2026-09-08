@@ -1,0 +1,21 @@
+<h2 class="slide-title">{{ slide.title }}</h2>
+<div class="img-text-row img-left">
+  <div class="slide-image-wrap">
+    {% if slide.image_url %}
+    <img class="slide-image" src="{{ slide.image_url }}" alt="{{ slide.image_alt | default(slide.title) }}">
+    {% else %}
+    <div class="image-placeholder">{{ slide.image_alt | default('Image') }}</div>
+    {% endif %}
+  </div>
+  <div>
+    {% if slide.points %}
+    <ul class="slide-points">
+      {% for point in slide.points %}
+      <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+    {% elif slide.content %}
+    <div class="slide-content">{{ slide.content }}</div>
+    {% endif %}
+  </div>
+</div>

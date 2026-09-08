@@ -1,0 +1,2534 @@
+{
+  "footer": {
+    "columns": {
+      "zmind": "Zmind",
+      "resources": "Resources",
+      "legal": "Legal"
+    },
+    "linkById": {
+      "1": "About",
+      "3": "Contact",
+      "4": "Careers",
+      "5": "Documentation",
+      "7": "Discord",
+      "9": "Privacy Policy",
+      "10": "Terms of Service",
+      "11": "License Apache 2.0"
+    },
+    "aria": {
+      "x": "X (Twitter)",
+      "docs": "Docs",
+      "xhs": "Xiaohongshu",
+      "wechat": "WeChat"
+    },
+    "wechatModal": {
+      "title": "Scan to connect on WeChat",
+      "desc": "Scan to join our WeChat group and get an invite code.",
+      "loading": "Fetching the latest QR...",
+      "error": "QR failed to load. Tap to retry.",
+      "alt": "WeChat group QR code"
+    }
+  },
+  "notFound": {
+    "badge": "404 Error",
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "returnHome": "Return Home"
+  },
+  "auth": {
+    "dialog": {
+      "title": "Sign in to continue",
+      "description": "Access your thinking studio and start organizing your ideas",
+      "orEmail": "or continue with email",
+      "signInWithEmail": "Sign in with email",
+      "createNewAccount": "Create new account",
+      "tos": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "success": {
+      "title": "Check your email",
+      "sent": "We've sent a confirmation link to:",
+      "help": "Click the link in the email to activate your account. If you don't see the email, check your spam folder.",
+      "returnHome": "Return to home",
+      "backToSignIn": "Back to sign in"
+    },
+    "form": {
+      "createTitle": "Create your account",
+      "loginTitle": "Log into your account",
+      "orEmail": "or email",
+      "email": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "creating": "Creating account...",
+      "signing": "Signing in...",
+      "create": "Create account",
+      "signIn": "Sign in",
+      "forgot": "Forgot password?",
+      "already": "Already have an account? Sign in",
+      "noAccount": "Don't have an account? Sign up"
+    },
+    "forgot": {
+      "title": "Reset Password",
+      "desc": "Enter your email address and we'll send you a link to reset your password.",
+      "cancel": "Cancel",
+      "send": "Send Reset Link",
+      "invalidEmail": "Please enter a valid email address"
+    },
+    "reset": {
+      "invalidCode": "Invalid or missing reset code. Please request a new password reset link.",
+      "invalidCodeShort": "Invalid reset code",
+      "successTitle": "Password Reset Complete",
+      "successDesc": "Your password has been successfully updated. You can now sign in with your new password.",
+      "goToSignIn": "Go to sign in",
+      "backToSignIn": "Back to sign in",
+      "title": "Reset Password",
+      "subtitle": "Create a new password for your account",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "updating": "Updating password...",
+      "submit": "Reset Password"
+    },
+    "buttons": {
+      "getStarted": "Get started for free",
+      "requestInvite": "Get beta access"
+    },
+    "loginFailed": "Login failed",
+    "signupFailed": "Sign up failed",
+    "banner": {
+      "is": "is",
+      "tagline": "your AI thinking studio"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Your AI thinking studio",
+      "titleLine1": "An infinite canvas",
+      "titleLine2": "Think, Create, and Collaborate.",
+      "highlight": "with AI.",
+      "subtitle": "More than a notebook, Zmind is the all-in-one agentic tool that builds your deep-thinking studio with text, images, videos, and audio.",
+      "toPrefix": "to",
+      "words": [
+        "Think",
+        "Create",
+        "Collaborate."
+      ],
+      "canvas": {
+        "minimap": "Minimap",
+        "tools": {
+          "select": "Select",
+          "write": "Write",
+          "ai": "AI assist",
+          "layout": "Structure",
+          "code": "Code"
+        },
+        "flow": {
+          "title": "Mermaid flow",
+          "status": "Flowchart ready for export"
+        },
+        "svg": {
+          "title": "SVG nodes",
+          "status": "Linked to playback and media stack"
+        }
+      }
+    },
+    "share": {
+      "invite": {
+        "title": "Collaboration invite",
+        "desc": "Share a link so others can join you.",
+        "inviteCreate": "Start collaboration",
+        "inviteCreating": "Starting...",
+        "inviteCreated": "Link is ready. Share it to collaborate.",
+        "inviteCreateFailed": "Could not start collaboration",
+        "inviteRevoked": "Collaboration turned off",
+        "inviteRevokeFailed": "Failed to turn off",
+        "latest": "Active invite",
+        "code": "Custom invite code (6 digits)",
+        "link": "Link",
+        "list": "Invites",
+        "empty": "No invite yet. Start one to collaborate.",
+        "noExpiry": "Default 7 days / 5 uses",
+        "expires": "Expires",
+        "uses": "Uses",
+        "copy": "Copy invite link",
+        "note": "Anyone with the link can edit.",
+        "preparing": "Preparing invite link...",
+        "regen": "Regenerate link (old link stops working)",
+        "regenerated": "New link generated",
+        "regenConfirm": "Regenerating invalidates the old link. Continue?",
+        "stopConfirm": "Turning off collaboration invalidates the link. Continue?"
+      }
+    },
+    "core_value": {
+      "labels": {
+        "workflow": "Workflow",
+        "deepThinking": "Deep Thinking",
+        "collaboration": "Collaboration"
+      },
+      "canvas": {
+        "title": "Everything starts on an infinite canvas",
+        "subtitle": "Drop any thought, file, markdown, or confusion onto Zmind. We organise, visualise, and deepen your ideas — turning unstructured chaos into clarity and creation."
+      },
+      "ai": {
+        "title": "AI-powered Thinking Studio",
+        "subtitle": "Zmind's AI guides you through Socratic dialogue—questioning, reasoning, and uncovering deeper insights together."
+      },
+      "collaboration": {
+        "title": "Build ideas together",
+        "subtitle": "Zmind offers a shared thinking space for collective creation. You can collaborate with friends, teams, or anyone you want freely."
+      }
+    },
+    "templates": {
+      "label": "Community",
+      "title": "Start with a template",
+      "subtitle": "Jumpstart your workflow with community-created canvases for research, planning, and design.",
+      "viewMore": "View all templates"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about Zmind",
+      "items": [
+        {
+          "question": "Who is Zmind for?",
+          "answer": "Zmind is designed for anyone who thinks deeply and creates—from students and researchers analyzing complex materials, to content creators and designers organizing inspiration, to teams collaborating on projects. Whether you're writing, studying, planning, or building, Zmind adapts to your workflow."
+        },
+        {
+          "question": "What file types can I import into Zmind?",
+          "answer": "You can drop any type of content onto your Zmind canvas: documents (PDFs, Word files, Markdown, HTML), images, videos, audio files, web links, and plain text. Our AI automatically processes and organizes multimodal content, making everything searchable and connected."
+        },
+        {
+          "question": "How does AI \"deep thinking\" work in Zmind?",
+          "answer": "Our AI doesn't just answer questions—it helps you think through problems. It can break down complex articles, generate structured outlines from messy notes, suggest connections between ideas, create visual diagrams from text, and guide you through analytical frameworks for research or decision-making."
+        },
+        {
+          "question": "Can I use Zmind for research and academic work?",
+          "answer": "Absolutely. Zmind excels at research workflows: upload multiple papers or articles, and our AI helps you extract key insights, compare arguments, build literature maps, and generate citations. Perfect for literature reviews, thesis writing, or any deep analytical work."
+        },
+        {
+          "question": "How does collaboration work in Zmind?",
+          "answer": "Every workspace in Zmind can be shared with team members or collaborators. You can work together in real-time on the same infinite canvas, leave comments, assign tasks, and track changes—whether you're working on a design project, presentation, or strategic plan."
+        },
+        {
+          "question": "Can Zmind generate images and videos?",
+          "answer": "Yes! Zmind includes AI-powered media generation capabilities. You can create custom images, diagrams, and even videos directly within your workspace to support your ideas—perfect for design projects, presentations, or visual storytelling."
+        },
+        {
+          "question": "How is Zmind different from note-taking apps like Notion or Obsidian?",
+          "answer": "Unlike traditional note-taking tools, Zmind gives you an infinite spatial canvas where ideas can be arranged freely, not just in pages or folders. Our AI is deeply integrated to help structure your thinking process, not just store information. Plus, we handle all media types natively—text, images, videos, and audio—in one unified workspace."
+        },
+        {
+          "question": "Is my data secure and private in Zmind?",
+          "answer": "Your privacy is our priority. All your content is encrypted, and you maintain full control over what you share. Workspaces are private by default, and you decide exactly who can access your shared spaces."
+        }
+      ]
+    },
+    "flow": {
+      "title": "From Chaos to Clarity",
+      "subtitle": "Seamlessly connect your inputs, intelligence, and outputs in one unified workflow."
+    },
+    "cta": {
+      "title": "Ready to Transform How You Think?",
+      "button": "Get beta access",
+      "contactButton": "Contact us",
+      "contactTitle": "Talk with the Zmind team",
+      "contactDescription": "Add us on WeChat or email us directly — we respond quickly.",
+      "contactWeChatLabel": "WeChat",
+      "contactQrAlt": "WeChat beta group QR",
+      "contactQrNote": "Scan the QR to join our beta WeChat group.",
+      "contactQrLoading": "Loading QR...",
+      "contactQrError": "QR failed to load. Tap to retry.",
+      "contactEmailLabel": "Email",
+      "subtext": "Join thousands of creative professionals who've already upgraded their thinking process"
+    },
+    "capabilities": {
+      "title": "Complete Thinking Toolkit",
+      "subtitle": "Eight specialized nodes to capture every type of thought - from quick notes to complex diagrams. Let your mind flow naturally while AI helps you stay organized.",
+      "items": [
+        {
+          "title": "Capture Quick Thoughts",
+          "description": "Jot down ideas instantly with rich text formatting. Perfect for brainstorming sessions, meeting notes, and creative writing."
+        },
+        {
+          "title": "Visualize Complex Systems",
+          "description": "Create diagrams, flowcharts, and visual maps of your thinking process. Turn abstract concepts into clear visual narratives."
+        },
+        {
+          "title": "Structure Your Presentations",
+          "description": "Build compelling presentations directly from your thought process. Seamlessly transition from ideation to professional slides."
+        },
+        {
+          "title": "Research & Gather Intelligence",
+          "description": "Connect external knowledge and research findings. Build comprehensive knowledge maps with verified sources and real-time data."
+        },
+        {
+          "title": "Analyze Data & Insights",
+          "description": "Transform raw information into actionable insights. Create data visualizations and analytical frameworks for better decision-making."
+        },
+        {
+          "title": "Organize Task Workflows",
+          "description": "Convert thoughts into structured action plans. Manage complex projects with intelligent task organization and priority setting."
+        },
+        {
+          "title": "Build Knowledge Hierarchies",
+          "description": "Create interconnected knowledge systems. Organize information in meaningful relationships and build your personal knowledge graph."
+        },
+        {
+          "title": "Think Continuously",
+          "description": "Your thinking studio never sleeps. AI agents work in the background to suggest connections, identify patterns, and enhance your thought process."
+        }
+      ]
+    }
+  },
+  "dashboard": {
+    "greeting": "Hi, {name}",
+    "guest": "there",
+    "title": "What's your new thinking today?",
+    "inputPlaceholder": "Describe what you need help with...",
+    "workspaceHeader": {
+      "title": "My Canvases",
+      "subtitle": "Browse and manage your canvases",
+      "loading": "Loading your canvases..."
+    },
+    "tour": {
+      "welcome": {
+        "title": "Welcome to your Dashboard",
+        "content": "Welcome! This is your starting point. Create new thinking, manage canvases, and organize your knowledge here."
+      },
+      "chat": {
+        "title": "Start a Conversation",
+        "content": "Describe what you need. You can attach files, configure models, and Zmind will create a canvas for your task."
+      },
+      "agent": {
+        "title": "Model & Settings",
+        "content": "Choose a model and adjust settings from this compact menu. Upgrade for advanced models when needed."
+      },
+      "workspace": {
+        "title": "Workspace",
+        "content": "Your canvases live here. Open, rename, organize into folders, or create a new canvas to begin."
+      },
+      "knowledge": {
+        "title": "Knowledge Base",
+        "content": "Upload files or connect sources to power richer context. Zmind uses this knowledge across canvases."
+      }
+    }
+  },
+  "teamSettings": {
+    "title": "Team Settings",
+    "description": "Manage your team account details and members.",
+    "errors": {
+      "loadFailed": "Failed to load account data",
+      "notFound": "Account not found"
+    },
+    "account": {
+      "title": "Account",
+      "description": "Basic settings for your team.",
+      "openWorkspace": "Open Workspace",
+      "teamName": "Team Name",
+      "teamUrl": "Team URL",
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "members": {
+      "title": "Members & Invites",
+      "description": "Search, filter, and manage your team's members and invites.",
+      "membersCount": "Members: {count}",
+      "pendingCount": "Pending: {count}",
+      "searchPlaceholder": "Search name or email",
+      "newInvite": "New Invite",
+      "noResults": "No results",
+      "pendingInvite": "Pending invite",
+      "created": "Created {time}",
+      "close": "Close"
+    },
+    "roles": {
+      "owner": "Owner",
+      "member": "Member",
+      "primaryOwner": "Primary Owner"
+    },
+    "labels": {
+      "teamRole": "Team Role",
+      "invitationType": "Invitation Type"
+    },
+    "placeholders": {
+      "invitationType": "Invitation type",
+      "memberType": "Member type"
+    },
+    "invites": {
+      "create": "Create invitation",
+      "creating": "Creating...",
+      "type24h": "24 Hour",
+      "typeOneTime": "One time use"
+    },
+    "actions": {
+      "openMenu": "Open menu",
+      "changeRole": "Change role",
+      "removeMember": "Remove member",
+      "updateRoleTitle": "Update team member role",
+      "updateRoleDesc": "Update a member's role in your team",
+      "updateRole": "Update Role",
+      "makePrimaryOwner": "Make this user the primary owner",
+      "removeMemberTitle": "Remove team member",
+      "removeMemberDesc": "Are you sure you want to remove this user from the team?",
+      "removePending": "Removing...",
+      "updatePending": "Updating...",
+      "deleteInviteTitle": "Delete Invitation",
+      "deleteInviteDesc": "Are you sure you want to delete this invitation? This cannot be undone.",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "deleting": "Deleting..."
+    },
+    "url": {
+      "copySuccess": "Link copied",
+      "copyFailed": "Failed to copy",
+      "copyAria": "Copy team URL",
+      "copyTitle": "Copy URL"
+    }
+  },
+  "userMenu": {
+    "personalAccount": "Personal Account",
+    "teams": "Teams",
+    "admin": "Admin",
+    "adminBilling": "Billing Management",
+    "inviteCodes": "Invite Codes",
+    "adminAudit": "Audit & Events",
+    "plans": "Subscription",
+    "billing": "Billing",
+    "integrations": "Integrations",
+    "localEnv": "Local .Env Manager",
+    "skills": "Skills",
+    "triggers": "Triggers",
+    "tutorials": "Tutorials",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "logout": "Log out",
+    "createTeam": {
+      "title": "Create a new team",
+      "desc": "Create a team to collaborate with others."
+    },
+    "languageToggle": "中文 / English"
+  },
+  "tutorialsBanner": {
+    "dismiss": "Dismiss tutorials banner",
+    "title": "New to Zmind? Start here",
+    "description": "7 interactive tutorials to help you master core workflows quickly.",
+    "walkthroughs": "Interactive walkthroughs",
+    "cta": "View tutorials"
+  },
+  "sidebar": {
+    "openMenu": "Open menu",
+    "expand": "Expand sidebar",
+    "toggleSidebar": "Toggle sidebar (CMD+B)",
+    "newThinking": "Home",
+    "workspace": "Workspace",
+    "knowledge": "Knowledge",
+    "skills": "Skills",
+    "triggers": "Triggers",
+    "template": "Template",
+    "obsidian": "Obsidian",
+    "trash": "Trash",
+    "canvasFiles": "Canvas Files",
+    "recent": "Recent",
+    "upgrade": "Upgrade",
+    "inviteCard": {
+      "title": "Invite codes",
+      "desc": "Redeem to activate AI access and receive $10 in credits.",
+      "remaining": "{count} of 3 left",
+      "inactive": "Not redeemed",
+      "openCta": "View invite codes",
+      "modalTitle": "Your invite codes",
+      "modalTitlePending": "Redeem invite",
+      "modalDesc": "Redeemed users get AI access plus $10 in credits.",
+      "copyLink": "Copy invite link",
+      "copySuccess": "Invite link copied",
+      "copyFailed": "Copy failed",
+      "used": "Used",
+      "loading": "Loading invite codes…",
+      "loadFailed": "Failed to load invite codes",
+      "retry": "Retry",
+      "pending": "Preparing invite codes. Refresh soon.",
+      "redeemHint": "Redeem an invite to get 3 share codes.",
+      "redeemCta": "Redeem invite",
+      "redeemGo": "Redeem"
+    },
+    "manage": "Manage",
+    "rename": "Rename",
+    "duplicate": "Duplicate",
+    "delete": "Delete",
+    "openclaw": "OpenClaw"
+  },
+  "obsidianIntegration": {
+    "page": {
+      "title": "Obsidian Compatibility",
+      "subtitle": "Import full markdown vaults and export workspace notes in Obsidian format."
+    },
+    "importWizard": {
+      "title": "Obsidian Import Wizard",
+      "subtitle": "Two-pass parser for markdown vault migration.",
+      "sourceTypeZip": "Zip Vault",
+      "sourceTypeDirectory": "Directory Batch",
+      "createJob": "Create Job",
+      "commitImport": "Commit Import",
+      "selectVaultDirectory": "Select vault directory",
+      "uploadMarkdownFiles": "Upload markdown files",
+      "uploadVaultZip": "Upload vault zip",
+      "toasts": {
+        "createJobSuccess": "Obsidian import job created.",
+        "createJobFailed": "Failed to create import job",
+        "createJobFirst": "Create a job first.",
+        "noMarkdownFiles": "No markdown files found in selected files.",
+        "uploadMixedSuccess": "Uploaded {docCount} markdown files and {assetCount} assets.",
+        "uploadMarkdownSuccess": "Uploaded {count} markdown files.",
+        "uploadMarkdownFailed": "Failed to upload markdown files",
+        "uploadZipSuccess": "Uploaded zip package: {name}",
+        "uploadZipFailed": "Failed to upload zip file",
+        "commitSuccess": "Import committed successfully.",
+        "commitFailed": "Failed to commit import"
+      }
+    },
+    "importJobStatus": {
+      "empty": "No import job created yet.",
+      "jobLabel": "Job {id}",
+      "totalFiles": "Total files: {count}",
+      "importedDocs": "Imported docs: {count}",
+      "references": "References: {count}",
+      "unresolved": "Unresolved: {count}"
+    },
+    "importReport": {
+      "unavailable": "Import report is unavailable.",
+      "title": "Import Report",
+      "mappedDocs": "Mapped docs: {count}",
+      "unresolvedLinks": "Unresolved links: {count}",
+      "unresolvedAssets": "Unresolved assets: {count}",
+      "unresolvedLinksTitle": "Unresolved links",
+      "unresolvedAssetsTitle": "Unresolved assets",
+      "unknown": "unknown"
+    },
+    "exportCard": {
+      "title": "Obsidian Export",
+      "subtitle": "Export current workspace to a vault zip package.",
+      "createExport": "Create Export",
+      "empty": "No export job created yet.",
+      "jobLabel": "Job {id}",
+      "exportedDocs": "Exported docs: {count}",
+      "downloadZip": "Download Zip",
+      "preparing": "Preparing package...",
+      "toasts": {
+        "startSuccess": "Obsidian export job started.",
+        "startFailed": "Failed to create export job"
+      }
+    }
+  },
+  "pricing": {
+    "mostPopular": "Most Popular",
+    "perMonth": "/month",
+    "billedYearly": "billed yearly",
+    "savePerYear": "Save {amount} per year",
+    "upgradeMessage": "Subscription upgraded from {from} to {to} points",
+    "updateSuccess": "Subscription updated successfully",
+    "billing": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "discount": "2 months free"
+    },
+    "title": "Choose the right plan for your needs",
+    "subtitle": "Choose the plan that fits your workflow.",
+    "bottomNote": "All plans include access to our comprehensive API, detailed analytics, and priority customer support. Upgrade or downgrade anytime.",
+    "cta": "Choose a plan",
+    "paymentsDisabled": "Coming soon",
+    "inviteRequired": "Redeem an invite code to unlock purchases.",
+    "tiers": {
+      "plus": {
+        "tagline": "Best for individuals and small teams",
+        "button": "Get started",
+        "features": [
+          "2,000 points/month",
+          "Storage: 200MB total / 50MB per file",
+          "200 canvas nodes total",
+          "Private projects",
+          "100+ integrations",
+          "Premium AI Models",
+          "Advanced AI Capabilities"
+        ]
+      },
+      "pro": {
+        "tagline": "Ideal for growing businesses",
+        "button": "Get started",
+        "features": [
+          "4,000 points/month",
+          "Storage: 1GB total / 50MB per file",
+          "500 canvas nodes total",
+          "Private projects",
+          "100+ integrations",
+          "Premium AI Models",
+          "Advanced AI Capabilities"
+        ]
+      },
+      "business": {
+        "tagline": "For established businesses",
+        "button": "Get started",
+        "features": [
+          "10,000 points/month",
+          "Storage: 1GB total / 50MB per file",
+          "Unlimited canvas nodes",
+          "Private projects",
+          "100+ integrations",
+          "Premium AI Models",
+          "Advanced AI Capabilities"
+        ]
+      },
+      "ultra": {
+        "tagline": "For power users",
+        "button": "Get started",
+        "features": [
+          "10,000 points/month",
+          "Storage: 1GB total / 50MB per file",
+          "Unlimited canvas nodes",
+          "Private projects",
+          "100+ integrations",
+          "Premium AI Models",
+          "Priority Support",
+          "Advanced AI Capabilities"
+        ]
+      },
+      "max": {
+        "tagline": "For power users",
+        "button": "Get started",
+        "features": [
+          "Unlimited points",
+          "Storage: 1GB total / 50MB per file",
+          "Unlimited canvas nodes",
+          "Private projects",
+          "100+ integrations",
+          "Premium AI Models",
+          "Priority Support",
+          "Advanced AI Capabilities"
+        ]
+      },
+      "enterprise": {
+        "tagline": "For large teams",
+        "button": "Get started",
+        "features": [
+          "40,000 points/month",
+          "Storage: 1GB total / 50MB per file",
+          "Unlimited canvas nodes",
+          "Private projects",
+          "100+ integrations",
+          "Premium AI Models",
+          "Priority support",
+          "Advanced AI Capabilities"
+        ]
+      },
+      "scale": {
+        "tagline": "For scaling teams",
+        "button": "Get started",
+        "features": [
+          "80,000 points/month",
+          "Storage: 1GB total / 50MB per file",
+          "Unlimited canvas nodes",
+          "Private projects",
+          "100+ integrations",
+          "Premium AI Models",
+          "Priority support",
+          "Advanced AI Capabilities",
+          "Dedicated account manager"
+        ]
+      }
+    },
+    "cases": {
+      "title": "Case Studies",
+      "subtitle": "See real canvases from our community",
+      "viewMore": "View more on Template"
+    },
+    "model": {
+      "title": "Model pricing",
+      "desc": "See per‑model points and examples",
+      "viewDetails": "View details",
+      "hideDetails": "Hide details"
+    },
+    "invite": {
+      "title": "Get 1000 points free trial",
+      "subtitle": "No payment needed · valid for 30 days via invite code",
+      "cta": "Get Invite Code"
+    },
+    "info": {
+      "title": "What are points?",
+      "body": "Points are what you spend on AI usage. More complex tasks use more points."
+    },
+    "modelPricing": {
+      "loading": "Loading pricing data...",
+      "unavailable": {
+        "title": "Pricing Unavailable",
+        "desc": "Failed to fetch model pricing. Please refresh the page."
+      },
+      "tokenPricing": {
+        "title": "Model pricing",
+        "subtitle": "Compare model rates and estimated points."
+      },
+      "tokens": {
+        "title": "How usage is measured",
+        "body": "Usage is estimated from input and output text volume. We show points so you can plan your spend."
+      },
+      "pricingWork": {
+        "title": "How pricing is calculated",
+        "body": "Points are estimated from input and output text volume. Actual usage depends on model choice and task size."
+      },
+      "examples": {
+        "title": "Usage Examples",
+        "subtitle": "See estimated points usage across different task types.",
+        "model": "Model",
+        "input": "Input volume",
+        "output": "Output volume",
+        "cost": "Estimated cost",
+        "selectHint": "Select a model above"
+      },
+      "select": {
+        "label": "Select a model to estimate points:",
+        "placeholder": "Choose a model"
+      },
+      "pointsUnit": "points",
+      "table": {
+        "title": "Model pricing",
+        "desc": "Rates shown in points per 1M input/output units.",
+        "model": "Model",
+        "inputCost": "Input rate",
+        "outputCost": "Output rate",
+        "perMillion": "per 1M units"
+      }
+    }
+  },
+  "history": {
+    "title": "History",
+    "empty": "No history yet",
+    "recentCount": "Last {count} records",
+    "showing": "Showing last {max} of {count}",
+    "index": "{index}"
+  },
+  "versionHistory": {
+    "title": "Version History",
+    "save": "Save Current Version",
+    "saving": "Saving...",
+    "refresh": "Refresh",
+    "clearAll": "Clear All",
+    "stats": {
+      "total": "Total Versions",
+      "auto": "Auto-saved",
+      "manual": "Manually saved",
+      "storage": "Storage Size"
+    },
+    "empty": {
+      "title": "No versions yet",
+      "hint": "Start creating content, and versions will be saved automatically"
+    },
+    "autoTag": "Auto",
+    "nodes": "{count} nodes",
+    "connections": "{count} connections",
+    "load": "Load",
+    "delete": "Delete",
+    "confirmClear": {
+      "title": "Confirm Clear",
+      "desc": "This will delete all versions and cannot be undone. Continue?",
+      "cancel": "Cancel",
+      "confirm": "Confirm Clear"
+    },
+    "processing": "Processing...",
+    "copied": "Copied",
+    "copy": "Copy"
+  },
+  "enterprise": {
+    "redirecting": "Redirecting to Plans…",
+    "moved": "We’ve moved enterprise inquiries. Please upgrade your membership to unlock premium features.",
+    "goPricing": "Go to Pricing"
+  },
+  "maintenance": {
+    "badge": "System Under Maintenance",
+    "title": "We'll Be Right Back",
+    "localHint": "The backend server appears to be offline. Please ensure your backend server is running and try again.",
+    "cloudHint": "We're performing scheduled maintenance to improve your experience. Our team is working diligently to restore all services.",
+    "offline": "Services Offline",
+    "paused": "All agent executions are currently paused.",
+    "checking": "Checking Status...",
+    "check": "Check System Status",
+    "lastChecked": "Last checked: {time}",
+    "helpLocal": "Need help? Check the documentation for setup instructions.",
+    "helpCloud": "For urgent matters, please contact our support team.",
+    "scheduled": "Scheduled maintenance",
+    "inProgress": "Scheduled maintenance in progress",
+    "completed": "Maintenance completed",
+    "startingNow": "starting now",
+    "startingIn": "starting in {time}",
+    "expected": "Expected completion: {time}",
+    "starts": "Starts: {time}",
+    "ends": "Ends: {time}",
+    "duration": "Duration: {time}",
+    "remainingHm": "{hours}h {minutes}m remaining",
+    "remainingM": "{minutes}m remaining",
+    "almostDone": "Almost done!",
+    "dismiss": "Dismiss maintenance notice"
+  },
+  "legal": {
+    "back": "Back",
+    "title": "Legal <span class=\"text-brand-600\">Information</span>",
+    "tabs": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last updated: {date}",
+      "combined": "Terms of Service & Privacy Policy",
+      "effective": "Last updated and effective date: 13 August 2024"
+    },
+    "loading": "Loading...",
+    "error": "Failed to load content.",
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: {date}"
+    }
+  },
+  "knowledge": {
+    "title": "Knowledge Base",
+    "subtitle": "Turn files into a knowledge base you can ask anytime. Upload once, reference in chat or canvas.",
+    "upload": "Upload Files",
+    "connect": "Connect Source",
+    "viewAll": "View all →",
+    "empty": "No recent files. Click \"Upload Files\" to start building your knowledge base.",
+    "noSummary": "No summary available",
+    "loading": "Loading…",
+    "entry": "Knowledge Entry",
+    "recent": {
+      "title": "Recently Added",
+      "files": "{count} files"
+    },
+    "files": {
+      "managementTitle": "File management",
+      "title": "All files",
+      "subtitle": "See sizes and delete anytime to free space.",
+      "empty": "No files yet. Upload your first document to get started.",
+      "emptyFolder": "Empty folder",
+      "emptyFiltered": "No files match your filters.",
+      "unfiled": "Unfiled",
+      "delete": "Delete",
+      "count": "{count} files"
+    },
+    "views": {
+      "quick": "Quick views",
+      "all": "All files",
+      "recent": "Recent 7 days",
+      "largest": "Largest files",
+      "older": "30+ days old",
+      "folders": "Folders",
+      "unfiled": "Unfiled"
+    },
+    "dropzone": {
+      "title": "Drag to upload",
+      "subtitle": "Upload to knowledge base",
+      "folderLabel": "Upload to",
+      "folderPlaceholder": "Folder",
+      "browse": "Choose files",
+      "empty": "Create a folder first",
+      "limit": "Max {max}"
+    },
+    "filters": {
+      "searchPlaceholder": "Search filename or summary...",
+      "type": "Type",
+      "typeAll": "All types",
+      "typeDoc": "Docs",
+      "typeSheet": "Sheets",
+      "typeSlides": "Slides",
+      "typeImage": "Images",
+      "typeAudio": "Audio",
+      "typeVideo": "Video",
+      "typeText": "Text",
+      "typeOther": "Other",
+      "sort": "Sort",
+      "sortRecent": "Most recent",
+      "sortSize": "Largest size",
+      "sortName": "Name"
+    },
+    "table": {
+      "name": "File",
+      "folder": "Folder",
+      "size": "Size",
+      "updated": "Updated",
+      "actions": "Actions"
+    },
+    "folders": {
+      "title": "Folder management",
+      "subtitle": "Organize by folder and drag to move.",
+      "renameLabel": "Folder name"
+    },
+    "actions": {
+      "createFolder": "Create Folder",
+      "renameFolder": "Rename",
+      "newEntry": "New text",
+      "saveAssignments": "Save Assignments",
+      "explorePlaza": "Thinking Plaza"
+    },
+    "plaza": {
+      "title": "Thinking Plaza",
+      "desc": "Browse publicly shared canvases and thinking. Supports timeline playback.",
+      "enter": "Open Plaza"
+    },
+    "emptyFolders": "No folders yet. Create your first folder to get started.",
+    "confirm": {
+      "deleteFolder": {
+        "title": "Delete folder",
+        "desc": "Are you sure you want to delete the folder \"{name}\"? This will permanently delete all files inside the folder. This action cannot be undone."
+      },
+      "deleteFile": {
+        "title": "Delete file",
+        "desc": "Are you sure you want to delete the file \"{name}\"? This action cannot be undone."
+      }
+    },
+    "deleting": "Deleting...",
+    "source": {
+      "label": "Source",
+      "manual": "manual"
+    },
+    "quota": {
+      "title": "Storage",
+      "subtitle": "All uploads count toward your quota.",
+      "inline": "{used} / {total}",
+      "inlineUnavailable": "Storage unavailable",
+      "manage": "Manage",
+      "manageTitle": "Manage storage",
+      "manageDesc": "Upgrade your plan or delete files to free space.",
+      "manageUpgrade": "Upgrade plan",
+      "manageCleanup": "Delete files",
+      "usage": "{used} / {total}",
+      "remaining": "{remaining} remaining",
+      "perFile": "Per file {max}",
+      "blocked": "Uploads are blocked when you exceed the limit.",
+      "managePlan": "Manage plan",
+      "unavailable": "Storage details are temporarily unavailable."
+    },
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "daysAgo": "{count} days ago",
+    "toasts": {
+      "authError": "Authentication error",
+      "createFolderSuccess": "Folder created successfully",
+      "createFolderFailed": "Failed to create folder",
+      "folderNameExists": "A folder with this name already exists",
+      "renameFolderSuccess": "Folder renamed successfully",
+      "renameFolderFailed": "Failed to rename folder",
+      "updateSummarySuccess": "Summary updated successfully",
+      "updateSummaryFailed": "Failed to update summary",
+      "moveFileSuccess": "File moved successfully",
+      "moveFileFailed": "Failed to move file",
+      "deleteFolderSuccess": "Folder deleted",
+      "deleteFileSuccess": "File deleted",
+      "deleteFolderFailed": "Failed to delete folder",
+      "deleteFileFailed": "Failed to delete file",
+      "saveAssignmentsSuccess": "Knowledge base access updated",
+      "saveAssignmentsFailed": "Failed to save assignments",
+      "uploadCompleted": "Upload completed",
+      "uploadFailed": "Upload failed",
+      "selectFolder": "Select a folder to upload",
+      "uploadFileFailed": "Failed to upload {name}: {status} {message}"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Global preferences",
+    "nav": {
+      "all": "All Settings",
+      "account": "Account",
+      "connections": "Appearance & Connections",
+      "guides": "Smart Guides",
+      "keymap": "Keyboard Shortcuts",
+      "instructions": "Instructions"
+    },
+    "account": {
+      "title": "Account information",
+      "subtitle": "Manage your profile and login details",
+      "loading": "Loading account information...",
+      "stats": {
+        "subscription": "Subscription",
+        "balance": "Credits",
+        "pointsUnit": "points",
+        "canvases": "Canvases",
+        "nodes": "Total nodes",
+        "statusActive": "Active",
+        "statusTrialing": "Trial",
+        "statusCanceled": "Canceled",
+        "statusPastDue": "Past due",
+        "statusUnpaid": "Unpaid",
+        "statusNone": "No subscription",
+        "planFree": "Free plan"
+      }
+    },
+    "mindmap": {
+      "tunnel": {
+        "label": "Mindmap: Natural tunnel layout (ragged X)",
+        "help": "Children expand from each parent edge. Short branches stay compact; deep branches extend further, reducing overall width."
+      }
+    },
+    "connections": {
+      "aiPanel": {
+        "title": "AI Panel",
+        "expandRatio": {
+          "label": "Expanded width (%)",
+          "hint": "Applies when the AI panel is expanded."
+        },
+        "backgroundOpacity": {
+          "label": "Background opacity (%)",
+          "hint": "Higher values feel more solid; lower values feel lighter."
+        }
+      },
+      "focus": {
+        "title": "Focus (Double-Space)",
+        "fillRatio": {
+          "label": "Fill ratio (%)",
+          "hint": "When focusing selection (double-space), how much of the viewport the selection should fill."
+        },
+        "padding": {
+          "label": "Padding (px)",
+          "hint": "Extra margin around focused selection."
+        }
+      },
+      "screenshot": {
+        "title": "Screenshot",
+        "aspect": {
+          "label": "Default aspect ratio",
+          "options": {
+            "11": "1:1 (Square)",
+            "43": "4:3",
+            "169": "16:9 (Widescreen)",
+            "original": "Original (no crop)"
+          },
+          "help": "Screenshots will be center-cropped to the selected ratio."
+        }
+      },
+      "endpoint": {
+        "title": "Endpoint Strategy",
+        "options": {
+          "centerRay": "Center Ray (Recommended)",
+          "sideMidpoints": "Side Midpoints (Legacy)"
+        }
+      },
+      "mindmapWidth": {
+        "title": "Mindmap Node Width",
+        "options": {
+          "auto": "Auto-expand (150–450)",
+          "fixed": "Fixed 300 (match text nodes)"
+        }
+      },
+      "direction": {
+        "title": "Direction Preference",
+        "options": {
+          "auto": "Default (Auto)",
+          "horizontal": "Horizontal Only",
+          "vertical": "Vertical Only"
+        }
+      },
+      "advanced": {
+        "title": "Advanced Settings"
+      },
+      "guides": {
+        "title": "Smart Guides",
+        "enabled": {
+          "label": "Enable smart guides"
+        },
+        "tolerance": {
+          "label": "Snap tolerance (px, screen)",
+          "hint": "Converted by zoom automatically. Smaller=stricter, larger=easier to snap."
+        },
+        "equal": {
+          "label": "Equal spacing snap"
+        },
+        "lines": {
+          "label": "Show guide lines"
+        },
+        "distance": {
+          "label": "Show distance labels"
+        },
+        "gridFallback": {
+          "label": "Fallback to grid when no guide"
+        },
+        "color": {
+          "label": "Guide color (Morandi palette)"
+        },
+        "style": {
+          "label": "Line style",
+          "solid": "Solid",
+          "dashed": "Dashed"
+        },
+        "tips": "Tip: Snapping happens on release. Hold Shift to preview guides, Alt/Option to disable snapping."
+      },
+      "thresholds": {
+        "title": "Thresholds (px)",
+        "horiz": {
+          "label": "Horizontal gap threshold",
+          "hint": "Prefer left-right connections only when net horizontal gap exceeds this"
+        },
+        "vert": {
+          "label": "Vertical gap threshold",
+          "hint": "Prefer up-down connections only when net vertical gap exceeds this"
+        }
+      },
+      "micro": {
+        "title": "Micro thresholds (px)",
+        "horiz": {
+          "label": "Horizontal micro threshold",
+          "hint": "When gaps are small, use this minimum delta to bias left/right"
+        },
+        "vert": {
+          "label": "Vertical micro threshold",
+          "hint": "When gaps are small, use this minimum delta to bias up/down"
+        }
+      },
+      "reset": "Reset to defaults"
+    },
+    "keymap": {
+      "title": "Keyboard Shortcuts",
+      "search": {
+        "placeholder": "Search shortcuts..."
+      },
+      "categories": {
+        "all": "All",
+        "basics": "Basics",
+        "selectEdit": "Select & Edit",
+        "tools": "Tools",
+        "editor": "Editor",
+        "files": "Files"
+      },
+      "empty": "No matching shortcuts",
+      "shortcuts": {
+        "save": "Save canvas",
+        "undo": "Undo",
+        "redo": "Redo",
+        "redoShift": "Redo",
+        "selectAll": "Select all nodes",
+        "duplicate": "Duplicate node / Toggle To‑Do",
+        "delete": "Delete selection",
+        "backspace": "Delete selection",
+        "escape": "Deselect",
+        "multiSelect": "Multi‑select",
+        "boxSelect": "Box select",
+        "multiBoxSelect": "Add to box selection",
+        "rightDragCanvas": "Pan canvas",
+        "selectTool": "Select tool",
+        "handTool": "Hand tool",
+        "panTemp": "Temporary pan",
+        "focusSelection": "Focus selection (double space)",
+        "smartGuidesToggle": "Toggle smart guides on/off",
+        "editorSave": "Save and exit edit",
+        "editorCancel": "Cancel edit",
+        "tableTab": "Next cell",
+        "tableShiftTab": "Previous cell",
+        "closeSidebar": "Close sidebar"
+      }
+    }
+  },
+  "workspace": {
+    "switchGuard": {
+      "title": "Switching now will stop the current AI task",
+      "description": "AI is still working here. Continue and stop the current task?",
+      "confirm": "Stop and continue",
+      "cancel": "Cancel"
+    },
+    "menu": {
+      "newCanvas": "New Canvas",
+      "newDoc": "New Doc",
+      "newFolder": "New Folder",
+      "expandAll": "Expand All Folders",
+      "collapseAll": "Collapse All Folders"
+    },
+    "doc": {
+      "untitled": "Untitled Doc",
+      "version": "Version {version}",
+      "newTitle": "New Doc"
+    },
+    "nodes": "{count} nodes",
+    "updated": "{date}",
+    "search": {
+      "open": "Search",
+      "ariaOpen": "Open search",
+      "ariaLabel": "Canvas search",
+      "ariaSearchLabel": "Search canvases",
+      "placeholder": "Search canvases...",
+      "ariaClose": "Close search"
+    },
+    "folder": {
+      "release": "Release to move into this folder",
+      "expanded": "Expanded",
+      "new": "New Folder",
+      "rename": "Rename",
+      "delete": "Delete",
+      "items": "{count} items",
+      "pinned": "Pinned",
+      "confirmDelete": "Delete this folder? Canvases inside will move to the parent/root."
+    },
+    "header": {
+      "chat": "Chat",
+      "canvas": "Canvas"
+    },
+    "openclawCard": {
+      "title": "Let OpenClaw work on your real canvas and docs",
+      "description": "Choose who can use OpenClaw, what it can edit, and roll back risky changes from one place.",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "manage": "Manage OpenClaw",
+      "setup": "Set up OpenClaw"
+    }
+  },
+  "assets": {
+    "loading": "Loading…",
+    "empty": "No assets yet. Drag files onto the canvas to add them.",
+    "open": "Open",
+    "download": "Download",
+    "rename": "Rename",
+    "delete": "Delete",
+    "copyLink": "Copy link",
+    "grid": "Grid",
+    "list": "List",
+    "tab": {
+      "assets": "Assets",
+      "knowledge": "Knowledge"
+    },
+    "aria": {
+      "panelTitle": "Asset Library"
+    }
+  },
+  "common": {
+    "language": {
+      "english": "English",
+      "chinese": "中文"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "refresh": "Refresh",
+    "clearFilters": "Clear filters",
+    "copy": "Copy",
+    "copied": "Copied",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "toggleTheme": "Toggle theme",
+    "vncPreloaderTitle": "VNC Preloader",
+    "processing": "Processing...",
+    "requestFailed": "We couldn't finish that request. Please try again."
+  },
+  "table": {
+    "csvData": "CSV Data",
+    "xlsxData": "Spreadsheet",
+    "rowsColumns": "- {rows} rows, {cols} columns",
+    "filteredFrom": "filtered from {total}",
+    "page": "Page {current} of {total}",
+    "columns": "Columns",
+    "showHideColumns": "Show/Hide Columns",
+    "searchPlaceholder": "Search data...",
+    "showing": "Showing {from} to {to} of {total} rows",
+    "previous": "Previous",
+    "next": "Next",
+    "noData": "No Data",
+    "csvEmpty": "This CSV file appears to be empty or invalid.",
+    "clearSearch": "Clear search",
+    "noResultsFor": "No results found for \"{term}\""
+  },
+  "webSearch": {
+    "status": {
+      "success": "Search completed successfully",
+      "failed": "Search failed"
+    },
+    "loading": {
+      "title": "Searching the web"
+    },
+    "images": "Images",
+    "results": "results",
+    "visitSite": "Visit Site",
+    "source": "Source",
+    "noResults": {
+      "title": "No Results Found",
+      "suggestion": "Try refining your search query for better results"
+    },
+    "unknownQuery": "Unknown query"
+  },
+  "mcp": {
+    "searchResultsCount": "{count} search results",
+    "cost": "Cost: ${amount}",
+    "query": "Query",
+    "copyUrl": "Copy URL",
+    "tableData": "Table Data ({count} rows)",
+    "structuredData": "Structured Data",
+    "properties": "Properties",
+    "urlsCount": "URLs ({count})",
+    "errorDetails": "Error Details",
+    "markdownContent": "Markdown Content",
+    "codeOutput": "Code Output",
+    "byAuthor": "By {author}"
+  },
+  "connectCredential": {
+    "expired": "Expired",
+    "remainingHm": "{hours}h {minutes}m",
+    "remainingMs": "{minutes}m {seconds}s",
+    "remainingS": "{seconds}s",
+    "linkGenerated": "Link generated",
+    "generationFailed": "Generation failed",
+    "generating": "Generating connection link",
+    "linkTitle": "Connection Link",
+    "expiresIn": "Expires in {time}",
+    "expiresOn": "Link expires on {time}",
+    "connectAccount": "Connect Account",
+    "linkExpired": "Connection Link Expired",
+    "expiredHelp": "This connection link has expired. You'll need to generate a new one to connect your account.",
+    "none": "No connection link generated",
+    "failedFor": "Failed to generate link for \"{name}\""
+  },
+  "billing": {
+    "modal": {
+      "title": "Add credits"
+    },
+    "unlimited": "Unlimited",
+    "page": {
+      "title": "Subscription & Credits",
+      "subtitle": "Your plan, credits, and usage in one place.",
+      "viewModelPricing": "View Model Pricing",
+      "manageSubscription": "Manage Subscription",
+      "currentPlan": "Current plan",
+      "nextRefresh": "Next refresh: {date}",
+      "availableCredits": "Available points",
+      "totalCredits": "Plan total",
+      "usedCredits": "Used {used} / {total}",
+      "extraCredits": "Extra points {amount}",
+      "pointsUnit": "points",
+      "plan": "Plan",
+      "status": "Status",
+      "nextBill": "Next bill",
+      "balance": "Credits",
+      "localDisabled": "Running in local development mode – billing features are disabled.",
+      "detailsTitle": "Billing Details",
+      "collapse": "Collapse",
+      "expand": "Expand",
+      "errorLoading": "Error loading billing details: {message}",
+      "creditsBalance": "Credits",
+      "tierMonthlyCredits": "Tier monthly credits",
+      "none": "No billing information available.",
+      "error": "Error",
+      "failedAccountLoad": "Failed to load account data",
+      "accountNotFound": "Account Not Found",
+      "accountNotFoundDesc": "Your personal account could not be found."
+    },
+    "balanceCard": {
+      "failedLoad": "Failed to load credits",
+      "creditBalance": "Credits",
+      "pointsUnit": "points",
+      "buyCredits": "Restore credits",
+      "totalAvailable": "total available",
+      "purchaseAdditional": "Restore monthly credits",
+      "purchaseCredits": "Restore credits",
+      "amountUSD": "Credit Amount (Points)",
+      "enterAmount": "Enter points",
+      "rateNote": "Points are auto-converted at checkout. Minimum: 100 points",
+      "invalidAmount": "Please enter a valid points amount",
+      "redirectingCheckout": "Redirecting to checkout...",
+      "failedCreateCheckout": "Failed to create checkout: {message}",
+      "purchaseX": "Buy {amount} points",
+      "neverExpireNote": "Purchased points never expire and are used only after your plan credits are exhausted."
+    },
+    "dailyLogin": {
+      "toastGranted": "Daily login bonus +{points} points added."
+    },
+    "paymentPending": {
+      "title": "Payment in progress",
+      "description": "Complete payment in the new tab. We'll update this page when it's confirmed.",
+      "status": {
+        "waiting": "Waiting for payment confirmation...",
+        "checking": "Checking payment status...",
+        "notConfirmed": "We haven't received the payment yet. It can take a minute.",
+        "timeout": "Still waiting. If you've paid, click \"I have completed payment\"."
+      },
+      "actions": {
+        "confirm": "I have completed payment",
+        "cancel": "Cancel payment"
+      },
+      "error": "We couldn't verify the payment yet. Please try again.",
+      "popupBlocked": "We couldn't open the payment page. Please allow pop-ups and try again.",
+      "successToast": "Payment confirmed. Updating your account."
+    },
+    "transactions": {
+      "title": "Credits Activity",
+      "loading": "Loading your transaction history...",
+      "error": "Error",
+      "failedLoad": "Failed to load transactions",
+      "currentBalanceTitle": "Credits Overview",
+      "breakdown": "Your credits breakdown",
+      "totalBalance": "Total Credits",
+      "expiringCredits": "Expiring Credits",
+      "nonExpiringCredits": "Non-Expiring Credits",
+      "historyTitle": "Transaction History",
+      "historyDesc": "All credit additions and deductions",
+      "none": "No transactions found.",
+      "noneFiltered": "No {type} transactions found.",
+      "showMore": "Show more",
+      "showing": "Showing {from}-{to} of {total} transactions",
+      "previous": "Previous",
+      "next": "Next",
+      "table": {
+        "date": "Date",
+        "type": "Type",
+        "description": "Description",
+        "creditType": "Credit Type",
+        "tokens": "Input + Output",
+        "amount": "Change (points)",
+        "balanceAfter": "Remaining credits",
+        "expiring": "Expiring",
+        "permanent": "Permanent",
+        "noDescription": "No description"
+      },
+      "badges": {
+        "tier_grant": "Tier Grant",
+        "purchase": "Purchase",
+        "admin_grant": "Admin Grant",
+        "promotional": "Promotional",
+        "welcome_bonus": "Welcome Bonus",
+        "daily_login": "Daily Login",
+        "usage": "Usage",
+        "refund": "Refund",
+        "adjustment": "Adjustment",
+        "expired": "Expired",
+        "initial": "Initial"
+      }
+    }
+  },
+  "admin": {
+    "userTable": {
+      "user": "User",
+      "account": "Account",
+      "accountType": "Type",
+      "personal": "Personal",
+      "team": "Team",
+      "allAccounts": "All accounts",
+      "teamAccount": "Team Account",
+      "owner": "Owner",
+      "createdOn": "Created {date}",
+      "tier": "Tier",
+      "creditBalance": "Credit Balance",
+      "actions": "Actions",
+      "details": "Details",
+      "searchByAccount": "Search by email or team name...",
+      "searchByEmail": "Search by email...",
+      "joinedOn": "Joined {date}",
+      "emptyMessage": "No users found matching your criteria"
+    },
+    "details": {
+      "title": "Account Details - {email}",
+      "subtitle": "Manage account billing and perform admin actions",
+      "tabs": {
+        "overview": "Overview",
+        "transactions": "Transactions",
+        "activity": "Activity",
+        "actions": "Admin Actions"
+      },
+      "accountInfo": "Account Info",
+      "teamName": "Team Name",
+      "email": "Email",
+      "ownerEmail": "Owner Email",
+      "userId": "User ID",
+      "accountId": "Account ID",
+      "slug": "Team Slug",
+      "joined": "Joined",
+      "created": "Created",
+      "accountType": "Account Type",
+      "tier": "Tier",
+      "creditSummary": "Credit Summary",
+      "currentBalance": "Current Balance",
+      "purchased": "Purchased",
+      "used": "Used",
+      "subscription": "Subscription",
+      "recentActivity": "Recent Activity"
+    },
+    "audit": {
+      "events": {
+        "columns": {
+          "event": "Event",
+          "aggregate": "Object",
+          "tenant": "Workspace",
+          "actor": "User",
+          "occurred": "Occurred"
+        }
+      },
+      "failures": {
+        "columns": {
+          "projection": "View",
+          "event": "Event",
+          "aggregate": "Object",
+          "failures": "Failures",
+          "error": "Last error"
+        }
+      }
+    },
+    "invites": {
+      "title": "Invite Codes - Admin",
+      "subtitle": "Generate and manage invite codes, and review redemption history.",
+      "createTitle": "Create Invite Codes",
+      "count": "Count",
+      "countHint": "Generate multiple codes at once",
+      "code": "Code (optional)",
+      "codePlaceholder": "Exact code (count must be 1)",
+      "copy": "Copy code",
+      "usedCount": "Already used {count}",
+      "usedUp": "Fully redeemed",
+      "account": "Account",
+      "redeemed": "Redeemed",
+      "reward": "Reward",
+      "creditExpiry": "Credit Expiry",
+      "campaign": "Campaign",
+      "tag": "Tag",
+      "expiresInDays": "Expires in (days)",
+      "maxRedemptions": "Max Redemptions",
+      "active": "Active",
+      "advancedOptions": "Advanced options",
+      "selectedCount": "Selected {count} invite codes",
+      "deleteSelected": "Delete Selected",
+      "confirmDelete": "Are you sure you want to delete {count} invite codes? This action cannot be undone.",
+      "default": "Default",
+      "inactive": "Inactive",
+      "deleteMode": "Delete",
+      "cancelDelete": "Cancel Delete",
+      "redemptions": "Redemptions",
+      "noRedemptions": "No redemptions yet.",
+      "totalRedemptions": "Total redemptions: {count}",
+      "expand": "Expand",
+      "collapse": "Collapse"
+    }
+  },
+  "canvas": {
+    "selection": {
+      "title": "Select or Create Canvas",
+      "placeholder": "Enter canvas name...",
+      "recent": "Recently used canvases",
+      "clickToLink": "Click to link",
+      "exists": "Exists",
+      "hintArrows": "↑↓ to select",
+      "hintConfirm": "Enter to confirm • ESC to cancel"
+    },
+    "screenshot": {
+      "title": "Screenshot",
+      "capturing": "Capturing...",
+      "noPreview": "Click the camera to capture the canvas.",
+      "retry": "Retake",
+      "download": "Download",
+      "copied": "Screenshot copied to clipboard",
+      "clipboardUnavailable": "Clipboard unavailable. You can download the image instead.",
+      "copyHint": "Copied to clipboard when possible. Download is always available.",
+      "missingContainer": "Canvas not found, cannot capture.",
+      "failed": "Screenshot failed. Please retry.",
+      "partial": "Screenshot generated. Some media may still be loading.",
+      "downloaded": "Download ready.",
+      "close": "Close",
+      "aspect": {
+        "original": "Original"
+      }
+    },
+    "syncing": "Syncing...",
+    "openFailed": "Open failed. Showing last saved.",
+    "retrying": "Retrying...",
+    "retryNoCache": "Retry",
+    "clearLocal": "Clear local",
+    "status": {
+      "saveFailed": "Save failed",
+      "saveFailedDetail": "We could not sync your changes. Your local draft is still available.",
+      "retry": "Retry",
+      "saving": "Saving...",
+      "localDraft": "Local draft saved",
+      "savedAt": "Saved at {time}",
+      "offline": "Not connected",
+      "unsaved": "Unsaved changes",
+      "saved": "Saved"
+    },
+    "menu": {
+      "open": "Open Canvas",
+      "openNew": "Open in New Tab",
+      "duplicate": "Duplicate Canvas",
+      "delete": "Delete Canvas",
+      "deleteCanvas": "Delete Canvas",
+      "renameFolder": "Rename Folder",
+      "collapseFolder": "Collapse Folder",
+      "expandFolder": "Expand Folder",
+      "createSubfolder": "Create Subfolder",
+      "deleteFolder": "Delete Folder",
+      "thisFolder": "this folder",
+      "confirmDelete": {
+        "title": "Confirm Deletion",
+        "message": "Delete canvas \"{title}\"?\n\nThis action cannot be undone."
+      },
+      "confirmDeleteFolder": {
+        "message": "Delete folder \"{name}\"?\n\nItems inside will be moved to the parent."
+      },
+      "rename": "Rename",
+      "pin": "Pin",
+      "unpin": "Unpin",
+      "createText": "New Text Node",
+      "createTodo": "New To-Do Node",
+      "createMermaid": "New Mermaid Diagram",
+      "createHTML": "New HTML Node",
+      "createColumn": "New Column",
+      "createTable": "New Table Node",
+      "optimizeSizes": "Optimize Node Sizes",
+      "leaveGroup": "Leave Group",
+      "group": {
+        "rename": "Rename Group",
+        "ungroup": "Ungroup",
+        "group": "Group",
+        "switchToGroup": "Switch to Group",
+        "switchToMindmap": "Switch to Mind Map"
+      },
+      "align": {
+        "title": "Align",
+        "alignAndDistribute": "Align and Distribute",
+        "left": "Align Left",
+        "right": "Align Right",
+        "top": "Align Top",
+        "bottom": "Align Bottom",
+        "centerH": "Center Horizontally",
+        "centerV": "Center Vertically",
+        "distributeH": "Distribute Horizontally",
+        "distributeV": "Distribute Vertically"
+      },
+      "node": {
+        "edit": "Edit Node",
+        "expandEdit": "Open Expanded Editor",
+        "optimize": "Optimize Size",
+        "lock": "Lock Node",
+        "unlock": "Unlock Node",
+        "ai": {
+          "mark": "Mark as AI",
+          "unmark": "Unmark AI",
+          "markSelected": "Mark as AI (Selected)",
+          "unmarkSelected": "Unmark AI (Selected)"
+        }
+      },
+      "media": {
+        "downloadOriginal": "Download original file",
+        "downloadStarted": "Download started"
+      },
+      "table": {
+        "insertRowAbove": "Insert Row Above",
+        "insertRowBelow": "Insert Row Below",
+        "insertColLeft": "Insert Column Left",
+        "insertColRight": "Insert Column Right",
+        "quickAdd": "Quick Add Rows/Cols",
+        "deleteRow": "Delete Row",
+        "deleteColumn": "Delete Column"
+      },
+      "connection": {
+        "editLabel": "Edit Label",
+        "style": {
+          "title": "Style",
+          "solid": "Solid",
+          "dashed": "Dashed",
+          "toggleEnd": "Toggle End Arrow",
+          "toggleStart": "Toggle Start Arrow",
+          "color": "Color: {name}"
+        },
+        "deleteOne": "Delete Connection",
+        "deleteConnections": "Delete {count} connections"
+      },
+      "duplicateNode": "Duplicate Node",
+      "duplicateNodes": "Duplicate {count} Nodes",
+      "deleteNode": "Delete Node",
+      "deleteNodes": "Delete {count} Nodes",
+      "selectedCount": "Selected {count} nodes"
+    },
+    "node": {
+      "text": {
+        "placeholder": "type here",
+        "openExpanded": "Open full editor",
+        "editorPlaceholder": "Type '/' for commands",
+        "expanded": {
+          "subtitle": "Write with full focus. Changes are saved automatically.",
+          "autosave": "Auto save on",
+          "close": "Close",
+          "aiUnavailable": "AI is unavailable: missing canvas context"
+        }
+      }
+    },
+    "link": {
+      "brokenConfirm": "The target canvas for link \"{title}\" was deleted.\n\nWould you like to reselect or create a new target?",
+      "brokenAlert": "Canvas link is broken and cannot be auto-repaired. Please delete and recreate."
+    },
+    "untitled": "Untitled Canvas",
+    "create": "Create New Canvas",
+    "blank": "Start with a blank canvas",
+    "emptyHint": {
+      "title": "How to start",
+      "subtitle": "Input / Organize / Output",
+      "inputLabel": "Input",
+      "inputDesc": "Double-click / Drag / Paste",
+      "processLabel": "Organize",
+      "processDesc": "Connect / AI tidy",
+      "outputLabel": "Output",
+      "outputDesc": "Slides / Video / Images",
+      "a11y": "Input: double-click, drag, paste. Organize: connect or AI tidy. Output: slides, video, images."
+    },
+    "driftHint": {
+      "message": "You are outside the content area. Double-click empty space to jump back.",
+      "a11y": "You are outside the content area. Double-click empty space to jump back to your canvas content."
+    },
+    "codeEditor": {
+      "title": "Code Editor",
+      "editing": "Editing: {id}...",
+      "noCode": "No code node",
+      "placeholder": "// Write your code here...",
+      "tip": {
+        "select": "Select a code node to start editing",
+        "create": "Or create a new code node in the canvas"
+      },
+      "lines": "Lines: {count}",
+      "chars": "Chars: {count}"
+    },
+    "floatingEditor": {
+      "title": "code.editor",
+      "idle": "idle",
+      "unsaved": "Unsaved changes",
+      "undo": "undo",
+      "redo": "redo",
+      "restore": "restore",
+      "maximize": "maximize",
+      "close": "close",
+      "editing": "editing:",
+      "status": "status:",
+      "noSelection": "no selection",
+      "chars": "{count} chars",
+      "lang": "lang: {lang}",
+      "clickToEdit": "Click to edit",
+      "clickNode": "click a canvas node to edit"
+    },
+    "toolbar": {
+      "shareCanvas": "Share Canvas",
+      "shareToFriend": "Share with Friend",
+      "publishToTemplates": "Publish to Templates",
+      "backToCanvas": "Back to Canvas",
+      "switchToOutline": "Switch to Outline",
+      "stop": "Stop",
+      "play": "Play",
+      "screenshot": "Screenshot",
+      "openExpandedEditor": "Open expanded editor",
+      "openAssetLibrary": "Open Asset Library",
+      "closeAssetLibrary": "Close Asset Library",
+      "collaborate": "Collaboration invites",
+      "openSidePanel": "Open side panel",
+      "closeSidePanel": "Close side panel"
+    },
+    "aiAssistant": {
+      "title": "AI Assistant"
+    },
+    "toolbarLeft": {
+      "createText": "Drag to create Text node",
+      "createTodo": "Drag to create To-Do node",
+      "createMermaid": "Drag to create Mermaid node",
+      "createHTML": "Drag to create HTML node",
+      "createColumn": "Drag to create Column node",
+      "createTable": "Drag to create Table node",
+      "createAudio": "Drag to start recording audio",
+      "createLink": "Drag to create Canvas Link node",
+      "sections": {
+        "text": "Text",
+        "code": "Code",
+        "structure": "Structure",
+        "visual": "Visual",
+        "media": "Media",
+        "link": "Link"
+      },
+      "items": {
+        "text": "Text",
+        "todo": "To-do",
+        "column": "Column",
+        "table": "Table",
+        "mermaid": "Mermaid",
+        "html": "HTML",
+        "audio": "Audio",
+        "link": "Canvas link"
+      },
+      "tools": {
+        "select": "Select",
+        "create": "Create",
+        "structure": "Structure",
+        "text": "Text",
+        "code": "Code",
+        "line": "Line tool",
+        "style": "Canvas style"
+      },
+      "modes": {
+        "select": "Select mode",
+        "drag": "Drag mode",
+        "chat": "Chat mode"
+      },
+      "panels": {
+        "create": "Create",
+        "text": "Text",
+        "code": "Code",
+        "structure": "Structure",
+        "nodeStyle": "Node style",
+        "groupStyle": "Group style",
+        "connectionStyle": "Connection style"
+      },
+      "actions": {
+        "closePanel": "Close panel"
+      }
+    },
+    "selectionOverlay": {
+      "chat": "Chat",
+      "chatPlaceholder": "Tell me your request.",
+      "infographic": "Infographic",
+      "generateInfographic": "Generate infographic from selection",
+      "infographicGenerated": "Infographic generated",
+      "infographicFailed": "Failed to generate infographic",
+      "noContent": "Selection has no usable content",
+      "generating": "Generating...",
+      "styleSettings": "Infographic style settings",
+      "styleSettingsTitle": "Infographic Style",
+      "styleSettingsDesc": "Pick a preset, or upload a reference image.",
+      "styleSystemDefault": "System default style",
+      "styleCustom": "Custom style",
+      "styleLoadFailed": "Failed to load infographic style settings",
+      "styleSaved": "Infographic defaults saved",
+      "styleSaveFailed": "Failed to save infographic defaults",
+      "style": "Style",
+      "loadingStyleSettings": "Loading...",
+      "styleMarket": "Style Market",
+      "stylePreset": "Preset",
+      "stylePresetSelect": "Select style preset",
+      "styleUseResolvedDefault": "Use resolved default (user/workspace/system)",
+      "mergeMode": "Prompt merge mode",
+      "mergeModeAppend": "Append",
+      "mergeModePrepend": "Prepend",
+      "mergeModeReplace": "Replace style intent",
+      "styleLock": "Style lock",
+      "styleLockSoft": "Soft lock",
+      "styleLockStrict": "Strict lock",
+      "styleLockOff": "Off",
+      "customPrompt": "Extra instructions",
+      "customPromptPlaceholder": "e.g. Use bigger titles, stronger contrast...",
+      "customPromptHint": "Current panel settings apply immediately for generation in this canvas. Click \"Save as default\" to persist for your account.",
+      "reloadStyleSettings": "Reload",
+      "close": "Close",
+      "saving": "Saving...",
+      "saveAsDefault": "Save as default",
+      "styleResolvedChain": "Resolved defaults chain",
+      "styleSearchPlaceholder": "Search styles",
+      "styleNoMarketResult": "No styles available",
+      "marketFilterAll": "All",
+      "marketFilterOfficial": "Official",
+      "marketFilterWorkspace": "Workspace",
+      "marketSortRecommended": "Recommended",
+      "marketSortFeatured": "Featured",
+      "marketSortRecent": "Recent",
+      "marketSortName": "A-Z",
+      "marketFeaturedBadge": "Featured",
+      "styleRecentUsed": "Recent",
+      "styleClearRecent": "Clear",
+      "stylePreview": "Style preview",
+      "stylePreviewResolvedDefault": "Resolved default style",
+      "stylePreviewNoDescription": "No description provided for this style.",
+      "stylePreviewTagsFallback": "No style tags",
+      "sourceTemporary": "Temporary override",
+      "sourceUserDefault": "User default",
+      "sourceWorkspaceDefault": "Workspace default",
+      "sourceSystemDefault": "System default",
+      "sourceUnknown": "Unknown",
+      "resolvedRecipeSourceLabel": "Recipe",
+      "resolvedPromptSourceLabel": "Prompt",
+      "resolvedMergeSourceLabel": "Merge",
+      "resolvedLockSourceLabel": "Lock",
+      "styleAppliedTemporary": "Applied temporary style for this canvas",
+      "styleTemporaryCleared": "Canvas now uses resolved defaults",
+      "styleSavedWorkspace": "Workspace defaults saved",
+      "styleSavedUser": "Your defaults saved",
+      "styleUseResolvedForCanvas": "Use resolved defaults in canvas",
+      "styleSaveAsMyDefault": "Save as my default",
+      "styleSaveAsWorkspaceDefault": "Save as workspace default",
+      "styleApplyToCanvas": "Apply",
+      "stylePromptOnly": "Custom prompt override",
+      "stylePresetsLabel": "Style presets",
+      "refImageLabel": "Reference image",
+      "optionalHint": "(optional)",
+      "refImageAttached": "Uploaded",
+      "refImageDropOrClick": "Drop or click to upload a reference image",
+      "refImageUploading": "Uploading...",
+      "refImageInvalidType": "Please upload an image file (PNG, JPG, WebP, GIF)",
+      "refImageTooLarge": "Image must be smaller than 10MB",
+      "refImageUploadFailed": "Failed to upload reference image"
+    },
+    "htmlEditor": {
+      "previewTitle": "HTML Preview",
+      "presentationHeader": "PPT HTML Editor",
+      "header": "HTML Editor",
+      "saveAndExit": "Save & Exit",
+      "placeholder": "Enter HTML code...",
+      "presentationPreview": "Presentation preview",
+      "edit": "Edit HTML",
+      "refresh": "Refresh",
+      "refreshPreview": "Refresh preview",
+      "interact": "Interact in overlay",
+      "interactBtn": "Interact",
+      "previewSnapshot": "Static preview",
+      "previewLive": "Live preview",
+      "rotateStatic": "Static preview"
+    },
+    "codeNode": {
+      "previewTitle": "HTML Preview",
+      "togglePreview": "Toggle Preview",
+      "saveHint": "Save (Ctrl+Enter)",
+      "cancelHint": "Cancel (Esc)",
+      "edit": "Edit code",
+      "clickToSelect": "Click to select node"
+    },
+    "svgInteraction": {
+      "hint": "Click to select SVG elements; click text to edit directly"
+    },
+    "ai": {
+      "title": "AI Assistant",
+      "closePanel": "Close panel",
+      "contextNode": "Node context",
+      "contextSelection": "{count} selected",
+      "contextCanvas": "Entire canvas",
+      "statusRunning": "Running",
+      "statusConnecting": "Connecting",
+      "statusQueuePaused": "Queue paused ({count})",
+      "statusQueue": "Queue {count}",
+      "statusIdle": "Idle",
+      "historyTitle": "History",
+      "historyAria": "History sessions",
+      "historySearchAria": "Search history sessions",
+      "historySearchPlaceholder": "Search sessions",
+      "historyClearSearch": "Clear search",
+      "historySearchEmpty": "No matching sessions",
+      "historyPanelTitle": "History",
+      "historyPanelCurrent": "Current: #{index}",
+      "historyPanelHint": "Tap to switch",
+      "historyPanelActive": "Current chat",
+      "historyPanelChat": "Chat #{index}",
+      "historyPanelBadge": "Current",
+      "historyMessageCount": "{count} messages",
+      "historyGroupRecent": "This week",
+      "historyGroupEarlier": "Earlier",
+      "historyDeleteTitle": "Delete session?",
+      "historyDeleteDescription": "This will permanently remove all messages in \"{title}\".",
+      "historyDeleteFailed": "Failed to delete session.",
+      "historyDeleteBlocked": "Stop the current run before deleting.",
+      "noHistory": "No history yet",
+      "noHistoryHint": "Start a new chat to see it here.",
+      "newSession": "New session",
+      "expandPanel": "Expand panel",
+      "collapsePanel": "Collapse panel"
+    },
+    "svgTextEditor": {
+      "editHint": "✏️ Edit text (Enter to save / ESC to cancel)",
+      "updateNote": "💾 Changes will directly update SVG code",
+      "placeholder": "Enter text..."
+    },
+    "tools": {
+      "selectToHand": "Select tool — click to switch to Hand tool",
+      "handToSelect": "Hand tool — click to switch to Select tool",
+      "hideMinimap": "Hide minimap",
+      "showMinimap": "Show minimap",
+      "centerView": "Center view",
+      "resetView": "Reset view (100% zoom, recenter)",
+      "unlockCanvas": "Unlock canvas",
+      "lockCanvas": "Lock canvas"
+    },
+    "connection": {
+      "placeholder": "Label..."
+    },
+    "titleEditor": {
+      "hint": "Click to open file manager, double‑click to edit title"
+    },
+    "share": {
+      "title": "Share Canvas",
+      "subtitle": "Share a public read-only link to this canvas",
+      "ownerOnly": "Only workspace owners can manage sharing settings.",
+      "migrationNote": "Please apply the SQL migration for canvas public sharing, then retry.",
+      "publicLabel": "Public",
+      "plazaHint": "When enabled, this canvas will be listed on the \"Template\" page and be discoverable by all visitors.",
+      "goToPlaza": "Go to Template",
+      "publicInfo": "This canvas is publicly accessible. Anyone with the link can view this canvas and its conversation timeline.",
+      "includeTimeline": "Include conversation timeline",
+      "includeTimelineHelp": "When enabled, visitors can view the AI conversation timeline on the shared page.",
+      "linkLabel": "Share link",
+      "copy": "Copy link",
+      "note": "Anyone with the link can view (read-only).",
+      "disable": "Turn off sharing",
+      "disabledNote": "Sharing is off. Turn it on to create a new link.",
+      "enable": "Turn on sharing",
+      "advanced": "Advanced settings",
+      "retry": "Retry",
+      "unavailable": "Sharing is temporarily unavailable. Please try again.",
+      "create": "Create shareable link",
+      "creating": "Creating...",
+      "remove": "Remove link",
+      "removing": "Removing...",
+      "created": "Shareable link created successfully",
+      "createFailed": "Failed to create shareable link",
+      "removed": "Shareable link removed",
+      "removeFailed": "Failed to remove shareable link",
+      "copied": "Link copied to clipboard",
+      "help": "Create a shareable link that allows others to view this canvas and its AI timeline publicly.",
+      "timeline": "Show AI timeline on share page",
+      "inviteCreate": "Create invite",
+      "inviteCreating": "Creating...",
+      "inviteCreated": "Invite is ready. Share the link to collaborate.",
+      "inviteCreateFailed": "Could not create invite",
+      "inviteRevoked": "Collaboration turned off",
+      "inviteRevokeFailed": "Could not turn off invite",
+      "inviteLoadFailed": "Could not load invites",
+      "codeHidden": "Code is shown only when created—please save it.",
+      "inviteActive": "Collaboration on",
+      "copyFailed": "Copy failed",
+      "inviteStop": "Turn off",
+      "private": {
+        "title": "Private Link",
+        "subtitle": "Create a private link visible only to those with the URL",
+        "enable": "Enable share link",
+        "help": "Only people with the link can view. Not listed in templates."
+      },
+      "invite": {
+        "title": "Collaboration invite",
+        "desc": "Send an invite link so others can join you.",
+        "ownerOnly": "Only workspace owners can create or revoke collaboration invites.",
+        "inviteCreate": "Invite to collaborate",
+        "inviteCreating": "Inviting...",
+        "inviteCreated": "Invite is ready. Share the link.",
+        "inviteCreateFailed": "Could not send invite",
+        "inviteRevoked": "Collaboration turned off",
+        "inviteRevokeFailed": "Failed to turn off",
+        "latest": "Active invite",
+        "code": "Invite code",
+        "link": "Link",
+        "copy": "Copy invite link",
+        "note": "Anyone with the link can edit.",
+        "preparing": "Preparing invite link...",
+        "regen": "Regenerate link (old link will expire)",
+        "regenerated": "New link is ready",
+        "regenConfirm": "Regenerating will invalidate the old link. Continue?",
+        "stopConfirm": "Turn off collaboration? The current link will expire.",
+        "list": "Invites",
+        "empty": "No invite yet. Click “Invite to collaborate” to start.",
+        "noExpiry": "Default 7 days / 5 uses",
+        "expires": "Expires",
+        "uses": "Uses",
+        "inviteActive": "Link is active",
+        "inviteStop": "Turn off",
+        "inviteLoadFailed": "Could not load invites",
+        "codeHidden": "Code is shown only when created—please save it.",
+        "active": "Link is active",
+        "stop": "Turn off",
+        "limitNote": "Link lasts 7 days / 5 uses. You can turn it off anytime.",
+        "closeTip": "Turning off makes the current link invalid. Create again to get a new link."
+      },
+      "publish": {
+        "title": "Publish to Templates",
+        "subtitle": "Publish this canvas to the public templates",
+        "enable": "Publish to Template",
+        "help": "People can discover this canvas in the Template page.",
+        "unlist": "Unlist from Template"
+      }
+    },
+    "column": {
+      "placeholder": "Enter column title",
+      "editHint": "Double-click to edit title"
+    },
+    "style": {
+      "buttonTitle": "Style settings",
+      "globalTitle": "Global Style",
+      "customBackgroundColor": "Custom background color",
+      "customPatternColor": "Custom pattern color"
+    },
+    "mindmap": {
+      "orientation": {
+        "title": "Mindmap Orientation",
+        "right": "Right only",
+        "both": "Both sides"
+      }
+    }
+  },
+  "docs": {
+    "breadcrumbs": {
+      "docs": "Documentation",
+      "introduction": "Introduction"
+    },
+    "intro": {
+      "header": {
+        "title": "Zmind: Visual AI Thinking Canvas",
+        "subtitle": "Let AI agents and a multimodal canvas help you see, structure, and refine ideas",
+        "lastUpdated": "March 2025"
+      },
+      "imageAlt": "Zmind multimodal thinking canvas",
+      "overviewTitle": "What is Zmind?",
+      "overviewP1": "Zmind is a full-modality AI learning and thinking assistant. It pairs an AI-native infinite canvas with guided agents so you can see your context, shape it visually, and keep the whole reasoning chain editable.",
+      "meet": {
+        "title": "Why it helps you think",
+        "p1": "We remove the biggest blocker in using AI for real thinking: unclear intent and messy context.",
+        "li1": "Guided questioning that reveals what you actually need and the assumptions behind it",
+        "li2": "Visual context so relationships and decisions never disappear in a chat log",
+        "li3": "Multimodal inputs (text, images, docs) that stay linked on one canvas graph",
+        "li4": "Agents that summarize, prune noise, and extend branches without losing the thread",
+        "li5": "Everything remains editable and collaborative instead of one-off replies",
+        "p2": "Intelligence^2 = Human Intelligence x Artificial Intelligence — with you in control."
+      },
+      "build": {
+        "title": "What you can do",
+        "p": "Built for people who must turn fuzzy problems into clear plans:",
+        "li1": "Map complex decisions and explore branches with AI nudges, not walls of text",
+        "li2": "Study and synthesize across docs, images, and links in one structured canvas",
+        "li3": "Run workshops, meetings, and research with shared context and reusable outputs"
+      },
+      "how": {
+        "title": "How it works on the canvas",
+        "p": "A single canvas where AI edits the same structure you see:",
+        "li1": "Canvas JSON model shared by humans and agents — no hidden layers",
+        "li2": "Guided prompts that clarify goals, risks, next steps, and missing info",
+        "li3": "Multimodal understanding and generation with upcoming clipping integrations",
+        "li4": "Reusable nodes and templates to speed up future sessions"
+      },
+      "why": {
+        "title": "What you experience",
+        "p": "A workspace built for thinking, not just chatting:",
+        "li1": "See and steer: visual branches, priorities, and decisions stay in view",
+        "li2": "Edit everything: AI outputs are nodes you can reshape, link, and reuse",
+        "li3": "Work together: share canvases, co-edit with teammates, and keep context persistent"
+      },
+      "cta": {
+        "title": "Start a canvas with Zmind"
+      }
+    }
+  },
+  "nodeStylePanel": {
+    "mixed": "{count} mixed node styles",
+    "text": "{count, plural, one {Text node style} other {{count} text node styles}}",
+    "chart": "{count, plural, one {Chart node style} other {{count} chart node styles}}",
+    "svg": "{count, plural, one {SVG node style} other {{count} SVG node styles}}",
+    "table": "{count, plural, one {Table node style} other {{count} table node styles}}",
+    "column": "{count, plural, one {Column style} other {{count} column styles}}",
+    "generic": "Node style settings"
+  },
+  "landing": {
+    "nav": {
+      "home": "Home",
+      "capabilities": "Capabilities",
+      "pricing": "Pricing",
+      "blog": "Blog",
+      "core-values": "Feature",
+      "faq": "Q&A",
+      "templates": "Templates",
+      "tutorials": "Tutorials",
+      "enterprise": "Enterprise",
+      "dashboard": "Dashboard",
+      "tryFree": "Get beta access"
+    },
+    "bento": {
+      "title": "Where Human Creativity Meets AI Intelligence",
+      "subtitle": "Experience the future of thinking with AI agents that understand your visual thought process and actively contribute to your creative journey.",
+      "items": {
+        "intelligent": {
+          "title": "Intelligent Canvas Understanding",
+          "desc": "AI agents that truly understand your visual workspace. They see the relationships between ideas, suggest improvements, and help you discover new connections."
+        },
+        "realtime": {
+          "title": "Real-time Thinking Partnership",
+          "desc": "Four specialized AI agents work alongside you: Canvas Agent for spatial intelligence, Thinking Agent for cognitive enhancement, Logic Agent for structured reasoning, and Decision Agent for strategic choices."
+        },
+        "adaptive": {
+          "title": "Adaptive Intelligence Layer",
+          "desc": "AI that learns your thinking patterns and adapts to your workflow. Get personalized suggestions, smart automation, and intelligent insights tailored to your unique mind."
+        }
+      }
+    },
+    "cases": {
+      "title": "Case Studies",
+      "subtitle": "See real canvases from our community",
+      "viewMore": "View more on Template"
+    },
+    "footer": {
+      "description": "Zmind – Your digital thinking studio where AI meets visual creativity. Organize thoughts, collaborate with intelligence, and transform ideas into executable strategies."
+    }
+  },
+  "globalSearch": {
+    "placeholder": "Search all canvases...",
+    "open": "Search all canvases",
+    "results": "Search results",
+    "recent": "Recently updated",
+    "loading": "Searching...",
+    "unavailable": "Search is unavailable. Try again in a moment.",
+    "noResults": "No results for \"{query}\"",
+    "noResultsHint": "Try a shorter term or a different keyword",
+    "filters": "Filters",
+    "filtersCurrentCanvas": "Only this canvas",
+    "filtersCurrentCanvasHint": "Open a canvas to enable.",
+    "filtersIncludeArchived": "Include archived",
+    "rootFolder": "Root",
+    "untitledCanvas": "Untitled canvas",
+    "untitledFolder": "Untitled folder",
+    "noPreview": "No preview available",
+    "minLength": "Type at least {count} characters",
+    "nodeMissing": "This node may have been deleted.",
+    "badgeDoc": "Doc",
+    "badgeLink": "Link",
+    "badgeCanvas": "Canvas",
+    "createCanvas": "New canvas",
+    "createCanvasWithTitle": "Create canvas \"{title}\"",
+    "createDoc": "New doc",
+    "createDocWithTitle": "Create doc \"{title}\"",
+    "description": "Quickly create a new canvas or doc, or jump to an existing one.",
+    "hint": "Type to search docs, canvases, nodes and links. Press Enter on an action to move fast.",
+    "quickActions": "Quick actions",
+    "quickCanvasHint": "Open a fresh canvas immediately",
+    "quickDocHint": "Start writing in a new doc right away",
+    "action": "Go",
+    "recentEmpty": "No docs or canvases yet.",
+    "recentNow": "just now",
+    "untitled": "Untitled",
+    "resultHint": "Open this result",
+    "emptyHelp": "Use quick actions above, or keep typing to search everything in this workspace."
+  },
+  "activateTrial": {
+    "nav": {
+      "home": "Home",
+      "dashboard": "Dashboard",
+      "logout": "Log out"
+    },
+    "title": "Welcome to Zmind",
+    "subtitle": "Redeem an invite to unlock AI access and purchasing",
+    "section": {
+      "title": "Early Access via Invite Code",
+      "desc": "Enter your invite code to receive $10 in credits (~1000 points, valid for 30 days) and unlock purchasing."
+    },
+    "input": {
+      "placeholder": "Enter your invite code"
+    },
+    "redeem": {
+      "redeeming": "Redeeming...",
+      "cta": "Redeem Invite"
+    },
+    "how": {
+      "title": "How to get an invite code",
+      "desc": "Join our WeChat group and request an invite code from the admins. Scan the QR code below to join.",
+      "qrAlt": "WeChat Group QR",
+      "qrPlaceholder": "QR coming soon",
+      "tipPrefix": "Tip: when ready, upload your WeChat group QR image to",
+      "tipSuffix": "so it appears here.",
+      "tipUpload": "Scan the QR to join the WeChat group. If you don't see it, ask an admin for the latest code."
+    },
+    "toast": {
+      "invalidCode": "Please enter a valid invite code.",
+      "redeemedSuccess": "Invite redeemed. $10 in credits added.",
+      "alreadyRedeemed": "This account has already redeemed an invite code.",
+      "invalidOrExpired": "The invite code is invalid or has expired.",
+      "alreadyUsed": "This invite code has already been used.",
+      "onlyNewAccounts": "Only new accounts are eligible to redeem.",
+      "redeemedSuccessWithBalance": "Invite redeemed. $10 in credits added (~1000 points).",
+      "redeemFailed": "Redemption failed, please try again later."
+    }
+  },
+  "skillsMarketplace": {
+    "page": {
+      "title": "Skills Marketplace",
+      "subtitle": "Discover, install, and manage capabilities for your AI agents. Access 63,000+ skills from the community.",
+      "tabs": {
+        "marketplace": "Browse Marketplace",
+        "available": "Available Skills"
+      },
+      "import": "Import Skill"
+    },
+    "stats": {
+      "totalAvailable": "Total Available",
+      "compatible": "Compatible",
+      "partial": "Partial",
+      "sources": "Sources"
+    },
+    "filters": {
+      "searchPlaceholder": "Filter available skills...",
+      "sourcePlaceholder": "Source",
+      "compatibilityPlaceholder": "Compatibility",
+      "toggle": {
+        "enabledOnly": "Enabled Only",
+        "allSkills": "All Skills"
+      }
+    },
+    "source": {
+      "all": "All Sources",
+      "github": "GitHub",
+      "manual": "Manual",
+      "marketplace": "Marketplace",
+      "builtin": "Built-in",
+      "user": "Custom",
+      "file": "Local"
+    },
+    "compatibility": {
+      "all": "All Status",
+      "compatible": "Compatible",
+      "partial": "Partial",
+      "incompatible": "Incompatible",
+      "unknown": "Unknown",
+      "reason": "Reason: {reason}"
+    },
+    "errors": {
+      "loadSkills": "Failed to load skills. Please try again later."
+    },
+    "empty": {
+      "title": "No skills found",
+      "description": {
+        "filtered": "Try adjusting your filters to see more results.",
+        "noSkills": "No skills are available yet. Visit the Marketplace to get started."
+      },
+      "actions": {
+        "browseMarketplace": "Browse Marketplace"
+      }
+    },
+    "skillCard": {
+      "noDescription": "No description provided.",
+      "sourceLink": "Source",
+      "details": "Details",
+      "hide": "Hide",
+      "deleteTitle": "Delete Skill?",
+      "deleteDescription": "Are you sure you want to permanently delete \"{name}\"?",
+      "allowedTools": "Allowed Tools",
+      "model": "Model",
+      "license": "License",
+      "installed": "Installed",
+      "updated": "Updated"
+    },
+    "importDialog": {
+      "trigger": "Import Skill",
+      "title": "Import Skill",
+      "description": "Import a Claude Code skill from GitHub or paste the SKILL.md content manually.",
+      "tabs": {
+        "github": "GitHub URL",
+        "manual": "Manual Paste"
+      },
+      "github": {
+        "label": "GitHub Blob URL",
+        "placeholder": "https://github.com/user/repo/blob/main/skill/SKILL.md",
+        "hint": "Paste the GitHub blob URL to a SKILL.md file (must include /blob/ and end with .md)",
+        "invalid": "Invalid GitHub URL format. Expected: https://github.com/user/repo/blob/branch/path/SKILL.md",
+        "exampleLabel": "Example:"
+      },
+      "manual": {
+        "label": "SKILL.md Content",
+        "placeholder": "---\nname: my-skill\ndescription: A helpful skill\n---\n\nYour prompt here...",
+        "hint": "Paste the full contents of a SKILL.md file, including frontmatter",
+        "alert": "The file should start with frontmatter (between ---) containing at least name and description fields."
+      },
+      "overwrite": {
+        "label": "Overwrite if exists",
+        "hint": "Replace existing skill with the same name"
+      },
+      "result": {
+        "success": "Import completed: {message}"
+      },
+      "actions": {
+        "import": "Import Skill",
+        "importing": "Importing..."
+      }
+    },
+    "marketplaceSearch": {
+      "description": "Browse 63,000+ Claude Code skills. By default, you see the most popular skills, or use AI semantic search to describe what you need in natural language.",
+      "error": {
+        "title": "Search Failed",
+        "generic": "Failed to search marketplace. Please try again.",
+        "integration": "SkillsMP integration may not be configured. Please ensure SKILLSMP_API_KEY is set in backend environment."
+      },
+      "empty": {
+        "title": "No Skills Found",
+        "noMatch": "No skills match your search query '{query}'.",
+        "noSkills": "No skills available at the moment.",
+        "tips": {
+          "keywords": "Using different keywords",
+          "compatibility": "Removing the compatibility filter",
+          "semantic": "Trying AI Semantic Search"
+        }
+      },
+      "results": {
+        "found": "{count, plural, one {Found {count} skill} other {Found {count} skills}}",
+        "showing": "{count, plural, one {Showing {count} skill} other {Showing {count} skills}}",
+        "browsingAll": "(browsing all)",
+        "compatibleOnly": "(compatible only)",
+        "loadingMore": "Loading more...",
+        "displaying": "Displaying {shown} of {total}"
+      },
+      "loadMore": {
+        "label": "Load more",
+        "loading": "Loading...",
+        "remaining": "({count} more skills)"
+      }
+    },
+    "marketplaceFilters": {
+      "placeholder": {
+        "ai": "Describe what you need... (e.g., 'I need a tool to visualize data')",
+        "keyword": "Search by keyword... (e.g., 'python', 'analysis')"
+      },
+      "searchButton": {
+        "label": "Search",
+        "loading": "Searching..."
+      },
+      "searchType": {
+        "ai": "AI Semantic",
+        "keyword": "Keyword"
+      },
+      "sort": {
+        "placeholder": "Sort by",
+        "stars": "Most Popular",
+        "recent": "Newest"
+      },
+      "compatibilityOnly": "Compatible Only",
+      "tip": {
+        "label": "Tip",
+        "ai": "AI search understands intent. Try describing the task rather than just keywords.",
+        "keyword": "Keyword search matches exact terms. Use this for finding specific packages."
+      }
+    },
+    "marketplaceCard": {
+      "unknownAuthor": "Unknown",
+      "added": "Added",
+      "install": "Install",
+      "installing": "Installing..."
+    },
+    "marketplaceDetail": {
+      "errorTitle": "Failed to load skill details",
+      "unknownError": "Unknown error",
+      "byAuthor": "by {author}",
+      "installs": "{count} installs",
+      "description": "Description",
+      "compatibilityNote": "Compatibility Note",
+      "requiredTools": "Required Tools ({count})",
+      "documentation": "Skill Documentation",
+      "license": "License: {license}",
+      "created": "Created: {date}",
+      "updated": "Updated: {date}",
+      "viewOnSkillsMp": "View on SkillsMP",
+      "installed": "Installed",
+      "installSkill": "Install Skill",
+      "installing": "Installing..."
+    }
+  },
+  "openclawIntegration": {
+    "page": {
+      "title": "OpenClaw Workspace Bridge",
+      "subtitle": "Turn on OpenClaw for this workspace, choose who can use it, and roll back risky writes without leaving ZMind."
+    },
+    "status": {
+      "title": "Bridge status",
+      "description": "This is the control room for real OpenClaw access to your canvases and docs.",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "toggleLabel": "Allow OpenClaw",
+      "toggleHint": "When off, OpenClaw requests are blocked before they touch your workspace.",
+      "lastVerified": "Last verified",
+      "neverVerified": "No successful OpenClaw request yet",
+      "recentActivity": "Recent writes (7d)",
+      "pendingRollbacks": "Rollback-ready actions"
+    },
+    "access": {
+      "title": "Access rules",
+      "description": "Keep the defaults strict, then only open up the exact actions your team is comfortable with.",
+      "rolesTitle": "Who can use OpenClaw here",
+      "capabilitiesTitle": "What OpenClaw can do",
+      "groups": {
+        "read": "Read access",
+        "write": "Write access"
+      },
+      "save": "Save access rules",
+      "saved": "Access rules saved",
+      "helper": "Safer default: keep write + rollback limited to owners until your workflow is stable.",
+      "ownerOnlyTitle": "Owner access required",
+      "ownerOnlyDescription": "Only workspace owners can change OpenClaw rules or run rollback from this page."
+    },
+    "roles": {
+      "owner": {
+        "label": "Owners",
+        "description": "Best default for live work. Owners can enable, edit, and undo OpenClaw changes."
+      },
+      "member": {
+        "label": "Members",
+        "description": "Open OpenClaw to the full workspace after your team trusts the workflow."
+      }
+    },
+    "capabilities": {
+      "canvasRead": {
+        "label": "Read canvases",
+        "description": "OpenClaw can list canvases and inspect their contents."
+      },
+      "canvasCreate": {
+        "label": "Create canvases",
+        "description": "OpenClaw can create new canvases inside this workspace."
+      },
+      "canvasWrite": {
+        "label": "Edit canvases",
+        "description": "OpenClaw can add or update canvas nodes and connections."
+      },
+      "docRead": {
+        "label": "Read docs",
+        "description": "OpenClaw can list docs and read their current content."
+      },
+      "docCreate": {
+        "label": "Create docs",
+        "description": "OpenClaw can create new docs in this workspace."
+      },
+      "docWrite": {
+        "label": "Edit docs",
+        "description": "OpenClaw can apply structured doc edits."
+      },
+      "rollbackExecute": {
+        "label": "Run rollback",
+        "description": "Owners can undo supported OpenClaw writes directly from the activity feed."
+      }
+    },
+    "guide": {
+      "title": "How it works",
+      "description": "Keep the setup simple: enable the bridge once, then let the plugin reuse the same workspace rules every time.",
+      "tipTitle": "Important",
+      "tipDescription": "Canvas writes also require the `canvas-realtime` service to be online in your self-hosted stack.",
+      "steps": {
+        "one": {
+          "title": "1. Turn the bridge on",
+          "description": "Enable OpenClaw here before anyone tries to connect from the CLI or plugin."
+        },
+        "two": {
+          "title": "2. Log in from OpenClaw",
+          "description": "Use the ZMind CLI or OpenClaw plugin to sign in with the same workspace account."
+        },
+        "three": {
+          "title": "3. Watch and undo",
+          "description": "Every supported OpenClaw write shows up below with the fastest safe rollback path."
+        }
+      }
+    },
+    "activity": {
+      "title": "Recent OpenClaw activity",
+      "description": "See what OpenClaw changed in this workspace and reverse supported actions when needed.",
+      "refresh": "Refresh",
+      "loading": "Loading OpenClaw activity?",
+      "empty": "No OpenClaw activity yet. Your first successful write will appear here.",
+      "rollback": "Roll back",
+      "rollbackDone": "Rolled back",
+      "rollbackDisabled": "Rollback is turned off in access rules.",
+      "rollbackOwnerOnly": "Only workspace owners can roll back OpenClaw writes.",
+      "unknownTime": "Unknown time",
+      "status": {
+        "succeeded": "Succeeded",
+        "rolled_back": "Rolled back",
+        "failed": "Failed"
+      }
+    },
+    "settingsPane": {
+      "title": "OpenClaw bridge",
+      "description": "Open the dedicated page to control access, audit writes, and roll back supported changes.",
+      "cta": "Open OpenClaw controls"
+    },
+    "toasts": {
+      "saved": "OpenClaw access rules updated.",
+      "saveFailed": "Failed to update OpenClaw access rules.",
+      "rollbackSuccess": "OpenClaw activity rolled back.",
+      "rollbackFailed": "Failed to roll back this OpenClaw activity."
+    },
+    "errors": {
+      "loadTitle": "Unable to load OpenClaw settings",
+      "loadDescription": "Refresh the page or try again in a moment."
+    }
+  }
+}

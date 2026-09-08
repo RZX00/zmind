@@ -1,0 +1,299 @@
+{
+  "type": "function",
+  "function": {
+    "name": "canvas_edit",
+    "description": "Alias of 'edit'. Apply operations to a canvas document (add/update/delete nodes, connections — including free-line endpoints and curvature anchors — move_node, apply_style, update_canvas, update_connection, relayout_mindmap).",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "canvas_id": {
+          "type": "string",
+          "description": "Optional. Defaults to the canvas bound to this thread."
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "add_node"
+                  },
+                  "node": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "op",
+                  "node"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "update_node"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "patch": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "op",
+                  "id",
+                  "patch"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "delete_node"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "op",
+                  "id"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "add_connection"
+                  },
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "fromPoint": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ]
+                  },
+                  "toPoint": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ]
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "style": {
+                    "type": "string",
+                    "enum": [
+                      "line",
+                      "arrow"
+                    ]
+                  },
+                  "dashed": {
+                    "type": "boolean"
+                  },
+                  "curveAnchor": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "anchorParams": {
+                    "type": "object",
+                    "properties": {
+                      "u": {
+                        "type": "number"
+                      },
+                      "v": {
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "curveMode": {
+                    "type": "string",
+                    "enum": [
+                      "auto",
+                      "tension",
+                      "manual",
+                      "orthogonal"
+                    ]
+                  },
+                  "tension": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "op"
+                ],
+                "oneOf": [
+                  {
+                    "required": [
+                      "from",
+                      "to"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "fromPoint",
+                      "toPoint"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "delete_connection"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "op",
+                  "id"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "update_connection"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "patch": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "op",
+                  "patch"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "move_node"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "op",
+                  "id"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "apply_style"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "patch": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "op",
+                  "id",
+                  "patch"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "update_canvas"
+                  },
+                  "patch": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "op",
+                  "patch"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "op": {
+                    "const": "relayout_mindmap"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "patch": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "op",
+                  "id",
+                  "patch"
+                ]
+              }
+            ]
+          }
+        },
+        "expected_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operations"
+      ]
+    }
+  }
+}

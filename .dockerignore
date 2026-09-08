@@ -1,0 +1,44 @@
+# === Top-level directories not needed by backend Dockerfile ===
+.git/
+.claude/
+.serena/
+apps/
+docs/
+frontend/
+k8s/
+scripts/
+services/
+supabase/
+tmp/
+tmp*/
+.tmp/
+.tmp*/
+prompt_backups/
+prompt_sources_snapshot/
+pytest-cache-files-*
+pytest-cache-files-*/
+tmpif*/
+node_modules/
+
+# === Top-level files ===
+*.md
+.gitignore
+.gitattributes
+.env*
+mise.toml
+docker-compose*
+
+# === Heavy/local artifacts inside backend ===
+backend/.venv*/
+backend/.uv-cache*/
+backend/.uv_cache*/
+backend/.pytest_cache/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.langgraph_api/
+backend/.env*
+!backend/.env.example
+backend/node_modules/
+backend/.cache/
+backend/.mypy_cache/
+backend/tests/

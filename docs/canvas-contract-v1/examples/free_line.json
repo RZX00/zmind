@@ -1,0 +1,20 @@
+{
+  "id": "canvas-510",
+  "title": "Free Line Demo",
+  "createdAt": 1730000000000,
+  "updatedAt": 1730000000000,
+  "version": "1.0.0",
+  "nodes": [],
+  "connections": [
+    {
+      "id": "connection-1",
+      "fromPoint": { "x": 160, "y": 220 },
+      "toPoint": { "x": 460, "y": 280 },
+      "curveAnchor": { "x": 300, "y": 240 },
+      "style": "line",
+      "dashed": false,
+      "createdAt": 1730000000000
+    }
+  ]
+}
+

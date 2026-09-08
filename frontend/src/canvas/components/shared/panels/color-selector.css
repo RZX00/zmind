@@ -1,0 +1,209 @@
+/* 颜色选择器样式 - 替换styled-components */
+.accent-color-list {
+  /* 容器样式 */
+  --color-tooltip-bg: #ffffff;
+  --color-tooltip-fg: #111827;
+  --color-tooltip-border: rgba(0, 0, 0, 0.06);
+  --transparent-badge-bg: #ffffff;
+  --transparent-badge-border: #e5e7eb;
+}
+
+.dark .accent-color-list {
+  --color-tooltip-bg: #111827;
+  --color-tooltip-fg: #e5e7eb;
+  --color-tooltip-border: rgba(255, 255, 255, 0.08);
+  --transparent-badge-bg: #111827;
+  --transparent-badge-border: #374151;
+}
+
+.accent-color-list .container-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  align-items: center;
+}
+
+/* 紧凑变体：用于 Mermaid 面板，更小的间距与尺寸 */
+.accent-color-list--tight .container-items {
+  gap: var(--space-2);
+}
+
+.accent-color-list--tight .item-color,
+.accent-color-list--tight .item-color::after {
+  width: 24px;
+  height: 24px;
+}
+
+.accent-color-list--tight .item-color::before {
+  left: 36px;
+}
+
+.accent-color-list .item-color {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  outline: none;
+  transition: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  cursor: pointer;
+  background: transparent;
+}
+
+.accent-color-list .item-color::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color);
+  border-radius: var(--radius-sm);
+  transform: scale(1.2);
+  pointer-events: none;
+  transition: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.accent-color-list .item-color::before {
+  position: absolute;
+  content: attr(data-color);
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  line-height: 12px;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-tooltip-bg);
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  box-shadow: var(--shadow-control);
+  border: var(--stroke-1) solid var(--color-tooltip-border);
+  color: var(--color-tooltip-fg);
+  white-space: nowrap;
+}
+
+/* 深色模式下的提示标签与透明标记适配 */
+.dark .accent-color-list .item-color::before {
+  background-color: var(--color-tooltip-bg);
+  color: var(--color-tooltip-fg);
+  border: var(--stroke-1) solid var(--color-tooltip-border);
+  box-shadow: var(--shadow-control-strong);
+}
+
+.accent-color-list .item-color:hover {
+  transform: scale(1.5);
+  z-index: 99999;
+}
+
+.accent-color-list .item-color:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.accent-color-list .item-color:active::after {
+  transform: scale(1.1);
+}
+
+.accent-color-list .item-color:focus::before {
+  content: "✅Copy";
+}
+
+/* Mermaid 面板（紧凑变体）不显示右侧 Copy 标签，也不显示悬浮名称标签 */
+.accent-color-list--tight .item-color::before {
+  display: none !important;
+}
+.accent-color-list--tight .item-color:focus::before {
+  content: '' !important;
+}
+
+/* 选中后的“按下”效果（持久态）：轻微下压与内阴影 */
+/* 选中态不再长期下压，保持常态显示 */
+.accent-color-list--tight .item-color.selected {
+  transform: none;
+}
+.accent-color-list--tight .item-color.selected > div {
+  box-shadow: none;
+}
+
+/* 点击时的“轻按”效果：使用过渡而非动画，按下即缩放，抬起即回弹 */
+.accent-color-list--tight .item-color {
+  /* 慢回弹：抬起恢复到悬浮/常态更柔和 */
+  transition: transform 160ms cubic-bezier(0.2, 0.0, 0.2, 1);
+  will-change: transform;
+}
+.accent-color-list--tight .item-color > div {
+  transition: filter 160ms ease-out;
+}
+/* 轻按：未悬浮时基于原始大小，微幅缩小 */
+/* 轻按（原地）：相对原始大小微缩 */
+.accent-color-list--tight .item-color:active {
+  /* 快速按下：响应更敏捷 */
+  transition: transform 70ms cubic-bezier(0.2, 0.0, 0.2, 1);
+  transform: scale(0.98);
+}
+.accent-color-list--tight .item-color:active > div {
+  transition: filter 70ms ease-out;
+  filter: brightness(0.97) saturate(0.98);
+}
+/* 轻按（悬浮基线）：相对悬浮大小微回落，回弹后恢复到悬浮放大 */
+.accent-color-list--tight .item-color:hover:active {
+  /* 以悬浮放大 1.5 为基准，回落更明显一点 */
+  transition: transform 70ms cubic-bezier(0.2, 0.0, 0.2, 1);
+  transform: scale(1.42);
+}
+.accent-color-list--tight .item-color:hover:active > div {
+  transition: filter 70ms ease-out;
+  filter: brightness(0.97) saturate(0.98);
+}
+
+/* 透明色带特殊样式 */
+.accent-color-list .item-color .transparent-badge {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: var(--transparent-badge-bg);
+  border: var(--stroke-1) solid var(--transparent-badge-border);
+}
+
+.dark .accent-color-list .item-color .transparent-badge {
+  background: var(--transparent-badge-bg);
+  border: var(--stroke-1) solid var(--transparent-badge-border);
+}
+
+.accent-color-list .item-color .transparent-badge::after {
+  content: "";
+  position: absolute;
+  left: var(--space-4);
+  right: var(--space-4);
+  top: 50%;
+  height: var(--space-2);
+  background: #ef4444;
+  transform: rotate(45deg);
+  border-radius: var(--radius-xs);
+  opacity: 0.8;
+}
+
+/* 相邻项联动效果 */
+.accent-color-list .item-color:hover + * {
+  transform: scale(1.3);
+  z-index: 9999;
+}
+
+.accent-color-list .item-color:hover + * + * {
+  transform: scale(1.15);
+  z-index: 999;
+}
+
+.accent-color-list .item-color:has(+ *:hover) {
+  transform: scale(1.3);
+  z-index: 9999;
+}
+
+.accent-color-list .item-color:has(+ * + *:hover) {
+  transform: scale(1.15);
+  z-index: 999;
+}

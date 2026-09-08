@@ -1,0 +1,787 @@
+{
+  "schema_version": "ws-e-golden-v1",
+  "cases": [
+    {
+      "case_id": "golden_01_basic_stream",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_01_primary",
+      "shadow_agent_run_id": "ar_golden_01_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "sequence": 0,
+          "message_id": null,
+          "thread_id": "th_golden_01",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Hello" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g01" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "sequence": 1,
+          "message_id": "msg_asst_g01",
+          "thread_id": "th_golden_01",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Hello!", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g01" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_02_reasoning_channel",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_02_primary",
+      "shadow_agent_run_id": "ar_golden_02_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "sequence": 0,
+          "message_id": null,
+          "thread_id": "th_golden_02",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "(thinking) I'll respond politely." },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g02", "channel": "reasoning" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "sequence": 1,
+          "message_id": null,
+          "thread_id": "th_golden_02",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Hi!" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g02" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "sequence": 2,
+          "message_id": "msg_asst_g02",
+          "thread_id": "th_golden_02",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Hi! How can I help?", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g02" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_03_single_tool_call",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_03_primary",
+      "shadow_agent_run_id": "ar_golden_03_shadow",
+      "expect": { "is_match": true },
+      "required_phrases": ["Here are the results"],
+      "primary_payloads": [
+        {
+          "sequence": 0,
+          "message_id": null,
+          "thread_id": "th_golden_03",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Searching…" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g03" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "sequence": 1,
+          "message_id": "msg_asst_g03_tc",
+          "thread_id": "th_golden_03",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_g03_1",
+                "type": "function",
+                "function": { "name": "web_search_tool", "arguments": { "query": "LangGraph checkpoint resume pattern" } }
+              }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g03" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "message_id": "msg_status_g03_started",
+          "thread_id": "th_golden_03",
+          "type": "status",
+          "is_llm_message": false,
+          "content_obj": {
+            "role": "assistant",
+            "status_type": "tool_started",
+            "tool": "web_search_tool",
+            "function_name": "web_search_tool",
+            "message": "Starting execution of web_search_tool",
+            "tool_index": 0,
+            "tool_call_id": "call_g03_1"
+          },
+          "metadata_obj": { "thread_run_id": "tr_g03" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        {
+          "message_id": "msg_tool_g03",
+          "thread_id": "th_golden_03",
+          "type": "tool",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "tool",
+            "tool_call_id": "call_g03_1",
+            "name": "web_search_tool",
+            "content": "{\"results\":[{\"title\":\"Example\",\"url\":\"https://example.com\"}]}"
+          },
+          "metadata_obj": { "thread_run_id": "tr_g03" },
+          "created_at": "2025-01-01T00:00:03Z",
+          "updated_at": "2025-01-01T00:00:03Z"
+        },
+        {
+          "message_id": "msg_status_g03_completed",
+          "thread_id": "th_golden_03",
+          "type": "status",
+          "is_llm_message": false,
+          "content_obj": {
+            "role": "assistant",
+            "status_type": "tool_completed",
+            "tool": "web_search_tool",
+            "function_name": "web_search_tool",
+            "message": "Tool web_search_tool completed successfully",
+            "tool_index": 0,
+            "tool_call_id": "call_g03_1"
+          },
+          "metadata_obj": { "thread_run_id": "tr_g03" },
+          "created_at": "2025-01-01T00:00:04Z",
+          "updated_at": "2025-01-01T00:00:04Z"
+        },
+        {
+          "sequence": 2,
+          "message_id": "msg_asst_g03_final",
+          "thread_id": "th_golden_03",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Here are the results. https://example.com", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g03" },
+          "created_at": "2025-01-01T00:00:05Z",
+          "updated_at": "2025-01-01T00:00:05Z"
+        },
+        {
+          "message_id": "msg_llm_end_g03",
+          "thread_id": "th_golden_03",
+          "type": "llm_response_end",
+          "is_llm_message": false,
+          "content_obj": {
+            "model": "openai/gpt-4o-mini",
+            "usage": { "prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15 },
+            "streaming": true,
+            "choices": [
+              {
+                "finish_reason": "stop",
+                "index": 0,
+                "message": { "role": "assistant", "content": "Here are the results. https://example.com", "tool_calls": null }
+              }
+            ],
+            "llm_response_id": "llm_g03_1"
+          },
+          "metadata_obj": { "thread_run_id": "tr_g03", "llm_response_id": "llm_g03_1" },
+          "created_at": "2025-01-01T00:00:06Z",
+          "updated_at": "2025-01-01T00:00:06Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_04_two_tool_calls",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_04_primary",
+      "shadow_agent_run_id": "ar_golden_04_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "sequence": 0,
+          "message_id": "msg_asst_g04_tc",
+          "thread_id": "th_golden_04",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_g04_1",
+                "type": "function",
+                "function": { "name": "canvas_read", "arguments": {} }
+              },
+              {
+                "id": "call_g04_2",
+                "type": "function",
+                "function": { "name": "kb_search", "arguments": { "query": "checkpoint" } }
+              }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g04" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "message_id": "msg_tool_g04_1",
+          "thread_id": "th_golden_04",
+          "type": "tool",
+          "is_llm_message": true,
+          "content_obj": { "role": "tool", "tool_call_id": "call_g04_1", "name": "canvas_read", "content": "{\"canvas\":{\"nodes\":[],\"connections\":[]}}" },
+          "metadata_obj": { "thread_run_id": "tr_g04" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "message_id": "msg_tool_g04_2",
+          "thread_id": "th_golden_04",
+          "type": "tool",
+          "is_llm_message": true,
+          "content_obj": { "role": "tool", "tool_call_id": "call_g04_2", "name": "kb_search", "content": "{\"hits\":[]}" },
+          "metadata_obj": { "thread_run_id": "tr_g04" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        {
+          "sequence": 1,
+          "message_id": "msg_asst_g04_final",
+          "thread_id": "th_golden_04",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "No nodes and no hits.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g04" },
+          "created_at": "2025-01-01T00:00:03Z",
+          "updated_at": "2025-01-01T00:00:03Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_05_many_chunks",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_05_primary",
+      "shadow_agent_run_id": "ar_golden_05_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "sequence": 0,
+          "message_id": null,
+          "thread_id": "th_golden_05",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "A" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g05" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "sequence": 1,
+          "message_id": null,
+          "thread_id": "th_golden_05",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "B" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g05" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "sequence": 2,
+          "message_id": null,
+          "thread_id": "th_golden_05",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "C" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g05" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        {
+          "sequence": 3,
+          "message_id": null,
+          "thread_id": "th_golden_05",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "D" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g05" },
+          "created_at": "2025-01-01T00:00:03Z",
+          "updated_at": "2025-01-01T00:00:03Z"
+        },
+        {
+          "sequence": 4,
+          "message_id": "msg_asst_g05",
+          "thread_id": "th_golden_05",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "ABCD", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g05" },
+          "created_at": "2025-01-01T00:00:04Z",
+          "updated_at": "2025-01-01T00:00:04Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_06_multi_llm_usage_sums",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_06_primary",
+      "shadow_agent_run_id": "ar_golden_06_shadow",
+      "expect": { "is_match": true, "total_tokens": 50 },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g06_a",
+          "thread_id": "th_golden_06",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Step 1 done.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g06_1" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "message_id": "msg_llm_end_g06_1",
+          "thread_id": "th_golden_06",
+          "type": "llm_response_end",
+          "is_llm_message": false,
+          "content_obj": { "model": "openai/gpt-4o-mini", "usage": { "total_tokens": 20 }, "finish_reason": "stop", "llm_response_id": "llm_g06_1" },
+          "metadata_obj": { "thread_run_id": "tr_g06_1", "llm_response_id": "llm_g06_1" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "message_id": "msg_asst_g06_b",
+          "thread_id": "th_golden_06",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Step 2 done.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g06_2" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        {
+          "message_id": "msg_llm_end_g06_2",
+          "thread_id": "th_golden_06",
+          "type": "llm_response_end",
+          "is_llm_message": false,
+          "content_obj": { "model": "openai/gpt-4o-mini", "usage": { "total_tokens": 30 }, "finish_reason": "stop", "llm_response_id": "llm_g06_2" },
+          "metadata_obj": { "thread_run_id": "tr_g06_2", "llm_response_id": "llm_g06_2" },
+          "created_at": "2025-01-01T00:00:03Z",
+          "updated_at": "2025-01-01T00:00:03Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_07_terminal_stopped",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_07_primary",
+      "shadow_agent_run_id": "ar_golden_07_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [{ "type": "status", "status": "stopped", "message": "STOP" }]
+    },
+    {
+      "case_id": "golden_08_terminal_failed",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_08_primary",
+      "shadow_agent_run_id": "ar_golden_08_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [{ "type": "status", "status": "failed", "message": "ERROR" }]
+    },
+    {
+      "case_id": "golden_09_no_terminal_status",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_09_primary",
+      "shadow_agent_run_id": "ar_golden_09_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g09",
+          "thread_id": "th_golden_09",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Done.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g09" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "case_id": "golden_10_long_duration_ms",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_10_primary",
+      "shadow_agent_run_id": "ar_golden_10_shadow",
+      "expect": { "is_match": true, "duration_ms": 10000 },
+      "primary_payloads": [
+        {
+          "sequence": 0,
+          "message_id": null,
+          "thread_id": "th_golden_10",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Working…" },
+          "metadata_obj": { "stream_status": "chunk", "thread_run_id": "tr_g10" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "sequence": 1,
+          "message_id": "msg_asst_g10",
+          "thread_id": "th_golden_10",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Finished.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g10" },
+          "created_at": "2025-01-01T00:00:10Z",
+          "updated_at": "2025-01-01T00:00:10Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_11_session_index_present",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_11_primary",
+      "shadow_agent_run_id": "ar_golden_11_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g11",
+          "thread_id": "th_golden_11",
+          "type": "assistant",
+          "is_llm_message": true,
+          "session_index": 2,
+          "content_obj": { "role": "assistant", "content": "Session 2 reply.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g11" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_12_tool_failed_is_counted",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_12_primary",
+      "shadow_agent_run_id": "ar_golden_12_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "sequence": 0,
+          "message_id": "msg_asst_g12_tc",
+          "thread_id": "th_golden_12",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              { "id": "call_g12_1", "type": "function", "function": { "name": "image_service_tool", "arguments": { "prompt": "cat" } } }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g12" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "message_id": "msg_status_g12_failed",
+          "thread_id": "th_golden_12",
+          "type": "status",
+          "is_llm_message": false,
+          "content_obj": {
+            "role": "assistant",
+            "status_type": "tool_failed",
+            "tool": "image_service_tool",
+            "function_name": "image_service_tool",
+            "message": "Tool image_service_tool failed",
+            "tool_index": 0,
+            "tool_call_id": "call_g12_1"
+          },
+          "metadata_obj": { "thread_run_id": "tr_g12" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "message_id": "msg_asst_g12_final",
+          "thread_id": "th_golden_12",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Couldn't generate the image.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g12" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_13_unicode_text",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_13_primary",
+      "shadow_agent_run_id": "ar_golden_13_shadow",
+      "expect": { "is_match": true },
+      "required_phrases": ["你好"],
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g13",
+          "thread_id": "th_golden_13",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "你好，我可以帮你做什么？", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g13" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_14_empty_final_text",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_14_primary",
+      "shadow_agent_run_id": "ar_golden_14_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g14",
+          "thread_id": "th_golden_14",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g14" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_15_arguments_as_json_string",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_15_primary",
+      "shadow_agent_run_id": "ar_golden_15_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g15_tc",
+          "thread_id": "th_golden_15",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              { "id": "call_g15_1", "type": "function", "function": { "name": "web_search_tool", "arguments": "{\"query\":\"abc\"}" } }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g15" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "message_id": "msg_tool_g15_1",
+          "thread_id": "th_golden_15",
+          "type": "tool",
+          "is_llm_message": true,
+          "content_obj": { "role": "tool", "tool_call_id": "call_g15_1", "name": "web_search_tool", "content": "ok" },
+          "metadata_obj": { "thread_run_id": "tr_g15" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "message_id": "msg_asst_g15_final",
+          "thread_id": "th_golden_15",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Done.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g15" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_16_two_iterations_tool_calls",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_16_primary",
+      "shadow_agent_run_id": "ar_golden_16_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g16_tc1",
+          "thread_id": "th_golden_16",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              { "id": "call_g16_1", "type": "function", "function": { "name": "kb_search", "arguments": { "query": "foo" } } }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g16_1" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "message_id": "msg_tool_g16_1",
+          "thread_id": "th_golden_16",
+          "type": "tool",
+          "is_llm_message": true,
+          "content_obj": { "role": "tool", "tool_call_id": "call_g16_1", "name": "kb_search", "content": "{\"hits\":[1]}" },
+          "metadata_obj": { "thread_run_id": "tr_g16_1" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "message_id": "msg_asst_g16_tc2",
+          "thread_id": "th_golden_16",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              { "id": "call_g16_2", "type": "function", "function": { "name": "canvas_edit", "arguments": { "ops": [{ "op": "add", "id": "n1" }] } } }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g16_2" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        {
+          "message_id": "msg_tool_g16_2",
+          "thread_id": "th_golden_16",
+          "type": "tool",
+          "is_llm_message": true,
+          "content_obj": { "role": "tool", "tool_call_id": "call_g16_2", "name": "canvas_edit", "content": "{\"applied\":[]}" },
+          "metadata_obj": { "thread_run_id": "tr_g16_2" },
+          "created_at": "2025-01-01T00:00:03Z",
+          "updated_at": "2025-01-01T00:00:03Z"
+        },
+        {
+          "message_id": "msg_asst_g16_final",
+          "thread_id": "th_golden_16",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Updated the canvas.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g16_2" },
+          "created_at": "2025-01-01T00:00:04Z",
+          "updated_at": "2025-01-01T00:00:04Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_17_tool_message_plain_content",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_17_primary",
+      "shadow_agent_run_id": "ar_golden_17_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g17_tc",
+          "thread_id": "th_golden_17",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              { "id": "call_g17_1", "type": "function", "function": { "name": "message_tool", "arguments": { "text": "ping" } } }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g17" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "message_id": "msg_tool_g17",
+          "thread_id": "th_golden_17",
+          "type": "tool",
+          "is_llm_message": true,
+          "content_obj": { "role": "tool", "tool_call_id": "call_g17_1", "name": "message_tool", "content": "ok" },
+          "metadata_obj": { "thread_run_id": "tr_g17" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        {
+          "message_id": "msg_asst_g17_final",
+          "thread_id": "th_golden_17",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Sent.", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g17" },
+          "created_at": "2025-01-01T00:00:02Z",
+          "updated_at": "2025-01-01T00:00:02Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_18_ping_ignored",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_18_primary",
+      "shadow_agent_run_id": "ar_golden_18_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [
+        { "type": "ping" },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    },
+    {
+      "case_id": "golden_19_no_messages_terminal_only",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_19_primary",
+      "shadow_agent_run_id": "ar_golden_19_shadow",
+      "expect": { "is_match": true },
+      "primary_payloads": [{ "type": "status", "status": "completed", "message": "Agent run completed successfully" }]
+    },
+    {
+      "case_id": "golden_20_basic_with_llm_end_minimal",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_golden_20_primary",
+      "shadow_agent_run_id": "ar_golden_20_shadow",
+      "expect": { "is_match": true, "total_tokens": 7 },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_g20",
+          "thread_id": "th_golden_20",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "ok", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_g20" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        },
+        {
+          "message_id": "msg_llm_end_g20",
+          "thread_id": "th_golden_20",
+          "type": "llm_response_end",
+          "is_llm_message": false,
+          "content_obj": { "model": "openai/gpt-4o-mini", "usage": { "total_tokens": 7 }, "finish_reason": "stop", "llm_response_id": "llm_g20_1" },
+          "metadata_obj": { "thread_run_id": "tr_g20", "llm_response_id": "llm_g20_1" },
+          "created_at": "2025-01-01T00:00:01Z",
+          "updated_at": "2025-01-01T00:00:01Z"
+        },
+        { "type": "status", "status": "completed", "message": "Agent run completed successfully" }
+      ]
+    }
+  ]
+}
+

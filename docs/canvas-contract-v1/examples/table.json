@@ -1,0 +1,16 @@
+{
+  "id": "canvas-300",
+  "title": "Table",
+  "createdAt": 1730000000000,
+  "updatedAt": 1730000000000,
+  "version": "1.0.0",
+  "nodes": [
+    {
+      "id":"table-1","type":"table","x":100,"y":80,"width":400,"height":130,"content":"",
+      "data":{"rows":[["Header","Value"],["Q1","120"],["Q2","150"]],"columnWidths":[160,160],"rowHeights":[40,40]},
+      "tableStyles":{"theme":"ieee","showGrid":false,"headerBold":true,"topBorder":2,"headerBorder":1,"bottomBorder":2,"textAlign":"left"},
+      "createdAt":1730000000000,"updatedAt":1730000000000
+    }
+  ],
+  "connections": []
+}

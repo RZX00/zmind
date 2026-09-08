@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zmind.so/schemas/canvas-schema.json",
+  "title": "Zmind Canvas — canonical schema (v1)",
+  "description": "Single source of truth for the canvas substrate: the 8 atomic node types, the connection shape (with the universal structural slots), provenance, the closed write op-set, the one canvas_edit grammar, and the CanvasWriteError envelope. Frontend types (canvas.ts), backend pydantic (api_models.py) and the realtime contract (contract.js) should derive from this artifact; CI asserts no drift. WS1-1 of the Canvas AI Operation & Comprehension Contract. Authored as the spec; codegen + 3-runtime wiring + the Yjs migration are WS1-2..WS1-5 (see docs/migration/canvas-schema-v1.md).",
+  "version": "1.0.0",
+
+  "x-node-types": ["text", "code", "column", "table", "canvas-link", "todo", "media", "group"],
+  "x-code-subtypes": ["mermaid", "html", "svg"],
+
+  "x-style-enums": {
+    "accentColorPresets": "lifted verbatim from frontend TextStylePanel.tsx ACCENT_COLOR_PRESETS (10 named colors)",
+    "shapeDecoration": ["none", "circle", "diamond", "custom"],
+    "tableTheme": ["booktabs", "nature", "ieee"],
+    "mermaidThemeIds": ["professional", "minimal", "sunset", "dark", "forest", "cb-set3", "cb-paired", "d3-category10", "echarts-macarons"],
+    "svgBgMode": ["transparent", "auto"]
+  },
+
+  "$defs": {
+    "Provenance": {
+      "type": "object",
+      "description": "Universal structural slot (WS5-3). Who/what created or last touched a node or edge, plus an OPEN judgment/origin state. The substrate STORES these and never validates state/origin — vocabulary is supplied by the thinking layer.",
+      "properties": {
+        "createdBy": { "$ref": "#/$defs/Actor" },
+        "updatedBy": { "$ref": "#/$defs/Actor" },
+        "state": { "type": "string", "description": "OPEN — non-normative examples: draft|accepted|rejected|pending. Never enum-validated by the substrate." },
+        "origin": { "type": "string", "description": "OPEN — non-normative examples: user-typed|ai-suggested|imported." }
+      },
+      "additionalProperties": true
+    },
+    "Actor": {
+      "type": "object",
+      "properties": {
+        "actor": { "type": "string", "enum": ["human", "agent", "system"] },
+        "id": { "type": "string" },
+        "model": { "type": "string", "description": "Model id when actor == 'agent'." }
+      },
+      "required": ["actor"],
+      "additionalProperties": true
+    },
+
+    "TableStyles": {
+      "type": "object",
+      "description": "Replaces the `any` hole on table nodes (ported from canvas.ts TableStyles).",
+      "properties": {
+        "theme": { "type": "string", "enum": ["booktabs", "nature", "ieee"] },
+        "borderStyle": { "type": "string", "enum": ["solid", "dashed", "dotted"] },
+        "borderWidth": { "type": "number" },
+        "borderColor": { "type": "string" },
+        "headerBackground": { "type": "string" },
+        "evenRowBackground": { "type": "string" },
+        "oddRowBackground": { "type": "string" },
+        "headerTextColor": { "type": "string" },
+        "textColor": { "type": "string" },
+        "cellPadding": { "type": "number" },
+        "borderRadius": { "type": "number" },
+        "showGrid": { "type": "boolean" },
+        "alternateRows": { "type": "boolean" },
+        "headerBold": { "type": "boolean" },
+        "fontFamily": { "type": "string" },
+        "fontSize": { "type": "number" },
+        "textAlign": { "type": "string", "enum": ["left", "center", "right"] }
+      },
+      "additionalProperties": false
+    },
+
+    "NodeBase": {
+      "type": "object",
+      "description": "Fields common to every node. Geometry + universal payload + universal slots.",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "enum": ["text", "code", "column", "table", "canvas-link", "todo", "media", "group"] },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "content": { "type": "string" },
+        "parentGroupId": { "type": ["string", "null"], "description": "Containment back-pointer — the single source of truth for membership (WS5-3)." },
+        "locked": { "type": "boolean" },
+        "ai": { "type": "boolean", "description": "Derived convenience: provenance.createdBy.actor == 'agent'. Kept for back-compat." },
+        "accentColor": { "type": "string" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "provenance": { "$ref": "#/$defs/Provenance" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "type"]
+    },
+
+    "Connection": {
+      "type": "object",
+      "description": "An edge. `label` is human display text; `relation` (WS5-1) is the OPEN machine-readable kind the AI filters/reasons on; `directed` is the single source of logical direction (appearance.arrow is render-only).",
+      "properties": {
+        "id": { "type": "string" },
+        "from": { "type": ["string", "null"] },
+        "to": { "type": ["string", "null"] },
+        "label": { "type": "string" },
+        "relation": { "type": "string", "description": "OPEN vocabulary — substrate stores/indexes but never validates. e.g. link|reference|flow (generic) or supports|cites (thinking layer)." },
+        "directed": { "type": "boolean", "default": true },
+        "relationData": { "type": "object", "additionalProperties": true, "description": "OPEN per-relation bag, typed by the layer above. NOT indexed/queryable by the substrate." },
+        "fromPoint": { "$ref": "#/$defs/Point" },
+        "toPoint": { "$ref": "#/$defs/Point" },
+        "provenance": { "$ref": "#/$defs/Provenance" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id"]
+    },
+    "Point": {
+      "type": "object",
+      "properties": { "x": { "type": "number" }, "y": { "type": "number" } },
+      "required": ["x", "y"]
+    },
+
+    "TextNode": { "allOf": [{ "$ref": "#/$defs/NodeBase" }], "properties": { "type": { "const": "text" }, "textStyles": { "type": "object" }, "shapeDecoration": { "type": "object" } } },
+    "TodoNode": { "allOf": [{ "$ref": "#/$defs/NodeBase" }], "properties": { "type": { "const": "todo" }, "completed": { "type": "boolean" } }, "required": ["completed"] },
+    "CodeNode": {
+      "allOf": [{ "$ref": "#/$defs/NodeBase" }],
+      "properties": {
+        "type": { "const": "code" },
+        "codeType": { "type": "string", "enum": ["mermaid", "html", "svg"] },
+        "mermaidThemeId": { "type": "string" },
+        "mermaidTheme": { "type": "object" },
+        "svgTheme": { "type": "object" },
+        "svgMetadata": { "type": "object" },
+        "svgBgMode": { "type": "string", "enum": ["transparent", "auto"] }
+      },
+      "required": ["codeType"]
+    },
+    "ColumnNode": { "allOf": [{ "$ref": "#/$defs/NodeBase" }], "properties": { "type": { "const": "column" }, "children": { "type": "array", "items": { "type": "string" } }, "isCollapsed": { "type": "boolean" }, "groupStyles": { "type": "object" } } },
+    "TableNode": { "allOf": [{ "$ref": "#/$defs/NodeBase" }], "properties": { "type": { "const": "table" }, "data": { "type": "object" }, "tableStyles": { "$ref": "#/$defs/TableStyles" } } },
+    "CanvasLinkNode": {
+      "allOf": [{ "$ref": "#/$defs/NodeBase" }],
+      "properties": {
+        "type": { "const": "canvas-link" },
+        "title": { "type": "string", "description": "REQUIRED for canvas-link only; `title` is deprecated on every other node type (content first line is the title there)." },
+        "targetCanvasId": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "lastSyncedAt": { "type": "number" }
+      },
+      "required": ["title"]
+    },
+    "MediaNode": {
+      "allOf": [{ "$ref": "#/$defs/NodeBase" }],
+      "properties": {
+        "type": { "const": "media" },
+        "fileName": { "type": "string" },
+        "fileType": { "type": "string" },
+        "fileExtension": { "type": "string" },
+        "fileSize": { "type": "number" },
+        "mediaType": { "type": "string", "enum": ["image", "document", "spreadsheet", "presentation", "audio", "video"] },
+        "uploadStatus": { "type": "string", "enum": ["pending", "uploaded", "mock", "error"] },
+        "mediaSource": { "type": "string", "enum": ["file", "external"] },
+        "externalUrl": { "type": "string" },
+        "storagePath": { "type": "string" },
+        "fileId": { "type": "string" }
+      },
+      "required": ["fileName", "fileType", "fileExtension", "fileSize", "mediaType", "uploadStatus"]
+    },
+    "GroupNode": {
+      "allOf": [{ "$ref": "#/$defs/NodeBase" }],
+      "properties": {
+        "type": { "const": "group" },
+        "children": { "type": "array", "items": { "type": "string" } },
+        "groupMode": { "type": "string", "enum": ["mindmap", "normal"] },
+        "mindmap": { "type": "object", "description": "Optional layout descriptor (rootId, spacing, orientation). siblingOrder is being normalized into children[]; per-node collapsed into isCollapsed (WS5-4)." },
+        "groupStyles": { "type": "object" },
+        "attachedConnections": { "type": "array", "items": { "type": "string" }, "description": "Re-derivable cache, not source of truth." }
+      },
+      "required": ["children"]
+    },
+
+    "Node": {
+      "description": "Discriminated union over the 8 node types (informational; runtimes pick a variant by `type`).",
+      "oneOf": [
+        { "$ref": "#/$defs/TextNode" },
+        { "$ref": "#/$defs/CodeNode" },
+        { "$ref": "#/$defs/ColumnNode" },
+        { "$ref": "#/$defs/TableNode" },
+        { "$ref": "#/$defs/CanvasLinkNode" },
+        { "$ref": "#/$defs/TodoNode" },
+        { "$ref": "#/$defs/MediaNode" },
+        { "$ref": "#/$defs/GroupNode" }
+      ]
+    },
+
+    "Op": { "type": "string", "enum": [
+      "add_node", "update_node", "delete_node", "move_node", "apply_style",
+      "add_connection", "update_connection", "delete_connection", "update_canvas", "relayout_mindmap",
+      "update_table_cell", "table_row_op", "table_col_op", "group_nodes", "ungroup", "set_collapsed"
+    ], "description": "Closed write op-set: the live 10 (ops_contract.py) + 6 added by the contract (table cell/row/col, group/ungroup, set_collapsed). attach_media is deferred (Appendix A)." },
+
+    "CanvasPatchKey": { "type": "string", "enum": [
+      "title", "cornerStyle", "fontStyle", "textOpacityPreset", "textLayoutPreset",
+      "folderId", "backgroundColor", "backgroundStyleId", "patternColor", "metadata"
+    ] },
+
+    "CanvasEditGrammar": {
+      "type": "object",
+      "description": "The ONE advertised canvas_edit grammar (WS3-2). All `$`-prefixed alternative shapes are removed; the tolerance/normalization layer stays as an unadvertised defensive funnel.",
+      "properties": {
+        "operations": { "type": "array", "items": { "type": "object", "properties": { "op": { "$ref": "#/$defs/Op" } }, "required": ["op"] } },
+        "expected_version": { "type": ["integer", "null"] }
+      },
+      "required": ["operations"],
+      "additionalProperties": false
+    },
+
+    "CanvasWriteError": {
+      "type": "object",
+      "description": "The ONE typed write-failure envelope (WS4-5) with a machine-actionable self-heal recipe.",
+      "properties": {
+        "code": { "type": "string", "enum": [
+          "STALE_RELOAD", "ID_REMAPPED", "VALIDATION", "NODE_NOT_FOUND",
+          "CONNECTION_ENDPOINT_MISSING", "CONNECTION_ENDPOINT_INVALID",
+          "NODE_LOCKED", "EMPTY_BATCH", "BATCH_TOO_LARGE", "TRANSPORT_RETRYABLE"
+        ] },
+        "retryable": { "type": "boolean" },
+        "self_heal": { "type": "object", "properties": { "action": { "type": "string" }, "params": { "type": "object" } }, "required": ["action"] },
+        "op_index": { "type": "integer" },
+        "field": { "type": "string" },
+        "message": { "type": "string" }
+      },
+      "required": ["code", "retryable", "message"]
+    }
+  }
+}

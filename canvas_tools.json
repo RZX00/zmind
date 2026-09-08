@@ -1,0 +1,398 @@
+[2m2026-02-02T05:29:37.561755Z[0m [[33m[1mwarning  [0m] [1mNo API key found for provider: GEMINI[0m [36mfilename[0m=[35mllm.py[0m [36mfunc_name[0m=[35msetup_api_keys[0m [36mlineno[0m=[35m52[0m
+[2m2026-02-02T05:29:37.561831Z[0m [[32m[1mdebug    [0m] [1mAPI key set for provider: LEAFLOW[0m [36mfilename[0m=[35mllm.py[0m [36mfunc_name[0m=[35msetup_api_keys[0m [36mlineno[0m=[35m50[0m
+[2m2026-02-02T05:29:37.561861Z[0m [[32m[1mdebug    [0m] [1mAPI key set for provider: AIPING[0m [36mfilename[0m=[35mllm.py[0m [36mfunc_name[0m=[35msetup_api_keys[0m [36mlineno[0m=[35m50[0m
+[2m2026-02-02T05:29:37.561894Z[0m [[33m[1mwarning  [0m] [1mMissing AWS credentials for Bedrock integration - access_key: False, secret_key: False, region: None[0m [36mfilename[0m=[35mllm.py[0m [36mfunc_name[0m=[35msetup_api_keys[0m [36mlineno[0m=[35m85[0m
+[2m2026-02-02T05:29:37.562027Z[0m [[32m[1mdebug    [0m] [1mAzure OpenAI configuration detected and environment variables initialized.[0m [36mfilename[0m=[35mllm.py[0m [36mfunc_name[0m=[35msetup_api_keys[0m [36mlineno[0m=[35m98[0m
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_edit",
+      "description": "Edit or delete existing canvas content. Update nodes by ID: { \"n1\": { \"content\": \"new\" }, \"n2\": { \"x\": 100 } }. Delete nodes: { \"$delete\": [\"n1\", \"n2\"] }. Batch update with selector: { \"$select\": \".text[content*='TODO']\", \"$set\": { \"type\": \"todo\" } }. Update canvas props: { \"$canvas\": { \"title\": \"New Title\" } }. Update/delete connections: { \"$connections\": { \"conn-1\": { \"label\": \"...\" }, \"$delete\": [\"conn-2\"] } }. Add connections between existing nodes: { \"$connections\": [ { \"from\": \"n1\", \"to\": \"n2\", \"label\": \"...\" } ] } or { \"$connections\": { \"$add\": [ { \"from\": \"n1\", \"to\": \"n2\" } ] } }.",
+      "parameters": {
+        "additionalProperties": true,
+        "description": "Canvas as Code - Edit or delete existing content",
+        "properties": {
+          "$delete": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "$Delete"
+          },
+          "$select": {
+            "type": "string",
+            "title": "$Select"
+          },
+          "$set": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "$Set",
+            "required": []
+          },
+          "$transform": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "$Transform",
+            "required": []
+          },
+          "$operations": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object",
+              "required": []
+            },
+            "type": "array",
+            "title": "$Operations"
+          },
+          "$connections": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {},
+            "required": [],
+            "title": "$Connections"
+          },
+          "$canvas": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "$Canvas",
+            "required": []
+          }
+        },
+        "title": "CaCEditArgs",
+        "type": "object",
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_generate_image",
+      "description": "Generate AI images and insert into the canvas.",
+      "parameters": {
+        "properties": {
+          "prompt": {
+            "title": "Prompt",
+            "type": "string"
+          },
+          "aspect_ratio": {
+            "default": "1:1",
+            "title": "Aspect Ratio",
+            "type": "string"
+          },
+          "quantity": {
+            "default": 1,
+            "maximum": 10,
+            "minimum": 1,
+            "title": "Quantity",
+            "type": "integer"
+          },
+          "reference_image_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Reference Image Ids"
+          },
+          "model": {
+            "default": "leaflow/gemini-3.1-flash-image-preview",
+            "title": "Model",
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ],
+        "title": "CanvasGenerateImageArgs",
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_read",
+      "description": "Read canvas content. Returns nodes and connections with optional filtering. Use scope='selection' to read only selected nodes, or 'viewport' for visible area. Use 'where' for filtering: { \"type\": \"text\", \"content\": { \"$contains\": \"keyword\" } }",
+      "parameters": {
+        "description": "Canvas as Code - Read canvas content",
+        "properties": {
+          "scope": {
+            "enum": [
+              "all",
+              "selection",
+              "viewport"
+            ],
+            "type": "string",
+            "title": "Scope"
+          },
+          "where": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Where",
+            "required": []
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          }
+        },
+        "title": "CaCReadArgs",
+        "type": "object",
+        "additionalProperties": true,
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "canvas_write",
+      "description": "Create new content on canvas. Supports multiple layouts: 'stack' (vertical), 'row' (horizontal), 'grid', 'mindmap', 'tree'. Use 'anchor' for position: 'selection.right', 'viewport.center', 'node:id.below'. Use 'nodes' for flat list or 'tree' for hierarchical mindmap structure. Connections: { preset: 'chain'|'star'|'tree' } or { items: [{from, to}] }.",
+      "parameters": {
+        "description": "Canvas as Code - Create new content",
+        "properties": {
+          "layout": {
+            "enum": [
+              "stack",
+              "row",
+              "grid",
+              "mindmap",
+              "tree",
+              "freeform"
+            ],
+            "type": "string",
+            "title": "Layout"
+          },
+          "anchor": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {},
+            "required": [],
+            "title": "Anchor"
+          },
+          "spacing": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {},
+            "required": [],
+            "title": "Spacing"
+          },
+          "columns": {
+            "type": "integer",
+            "title": "Columns"
+          },
+          "nodes": {
+            "items": {
+              "additionalProperties": true,
+              "description": "Single node descriptor for canvas_write.\n\nKeep validation permissive (extra allowed + best-effort coercion) to reduce\nargs_validation_error while still giving the model a helpful schema.",
+              "properties": {
+                "type": {
+                  "default": "text",
+                  "enum": [
+                    "text",
+                    "todo",
+                    "table",
+                    "code",
+                    "media",
+                    "group",
+                    "column",
+                    "canvas-link"
+                  ],
+                  "title": "Type",
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string",
+                  "title": "Content"
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title"
+                },
+                "$id": {
+                  "type": "string",
+                  "title": "$Id"
+                },
+                "x": {
+                  "type": "number",
+                  "title": "X"
+                },
+                "y": {
+                  "type": "number",
+                  "title": "Y"
+                },
+                "width": {
+                  "type": "number",
+                  "title": "Width"
+                },
+                "height": {
+                  "type": "number",
+                  "title": "Height"
+                },
+                "codeType": {
+                  "enum": [
+                    "mermaid",
+                    "svg",
+                    "html"
+                  ],
+                  "type": "string",
+                  "title": "Codetype"
+                },
+                "data": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Data",
+                  "required": []
+                },
+                "children": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Children"
+                },
+                "groupMode": {
+                  "enum": [
+                    "normal",
+                    "mindmap"
+                  ],
+                  "type": "string",
+                  "title": "Groupmode"
+                },
+                "targetCanvasId": {
+                  "type": "string",
+                  "title": "Targetcanvasid"
+                },
+                "style": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Style",
+                  "required": []
+                }
+              },
+              "title": "CaCWriteNodeArgs",
+              "type": "object",
+              "required": []
+            },
+            "type": "array",
+            "title": "Nodes"
+          },
+          "connections": {
+            "additionalProperties": true,
+            "description": "Connections input for canvas_write.\n\nCanonical shape (preferred):\n  { \"preset\": \"chain\" } or { \"items\": [ { \"from\": \"...\", \"to\": \"...\" } ] }\n\nBackwards-compatible:\n  \"chain\" | \"star\" | \"none\" | \"tree\"\n  [ { \"from\": \"...\", \"to\": \"...\" }, ... ]",
+            "properties": {
+              "preset": {
+                "enum": [
+                  "none",
+                  "chain",
+                  "star",
+                  "tree"
+                ],
+                "type": "string",
+                "title": "Preset"
+              },
+              "items": {
+                "items": {
+                  "additionalProperties": true,
+                  "description": "Connection descriptor for canvas_write.",
+                  "properties": {
+                    "from": {
+                      "title": "From",
+                      "type": "string"
+                    },
+                    "to": {
+                      "title": "To",
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "string",
+                      "title": "Label"
+                    },
+                    "style": {
+                      "enum": [
+                        "line",
+                        "arrow"
+                      ],
+                      "type": "string",
+                      "title": "Style"
+                    },
+                    "dashed": {
+                      "type": "boolean",
+                      "title": "Dashed"
+                    }
+                  },
+                  "required": [
+                    "from",
+                    "to"
+                  ],
+                  "title": "CaCWriteConnectionItemArgs",
+                  "type": "object"
+                },
+                "type": "array",
+                "title": "Items"
+              }
+            },
+            "title": "CaCWriteConnectionsArgs",
+            "type": "object",
+            "required": []
+          },
+          "tree": {
+            "additionalProperties": true,
+            "description": "Tree input for canvas_write (mindmap/tree).",
+            "properties": {
+              "content": {
+                "title": "Content",
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "text",
+                  "todo",
+                  "table",
+                  "code",
+                  "media",
+                  "group",
+                  "column",
+                  "canvas-link"
+                ],
+                "type": "string",
+                "title": "Type",
+                "default": "text"
+              },
+              "$id": {
+                "type": "string",
+                "title": "$Id"
+              },
+              "style": {
+                "additionalProperties": true,
+                "type": "object",
+                "title": "Style",
+                "required": []
+              },
+              "children": {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "required": []
+                },
+                "type": "array",
+                "title": "Children"
+              }
+            },
+            "required": [
+              "content"
+            ],
+            "title": "CaCTreeArgs",
+            "type": "object"
+          }
+        },
+        "title": "CaCWriteArgs",
+        "type": "object",
+        "additionalProperties": true,
+        "required": []
+      }
+    }
+  }
+]

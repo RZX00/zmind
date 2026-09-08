@@ -1,0 +1,101 @@
+{
+  "expo": {
+    "name": "Zmind",
+    "slug": "zmind",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "zmind",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "description": "Zmind is a fully open source AI assistant that helps you accomplish real-world tasks with ease. Through natural conversation, Zmind becomes your digital companion for research, data analysis, and everyday challenges.",
+    "primaryColor": "#121215",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "keywords": [
+      "AI",
+      "artificial intelligence",
+      "browser automation",
+      "web scraping",
+      "file management",
+      "AI assistant",
+      "open source",
+      "research",
+      "data analysis"
+    ],
+    "githubUrl": "https://github.com/RZX00/zmind",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "so.zmind.mobile",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+      "CFBundleDisplayName": "Zmind",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "so.zmind.mobile",
+      "versionCode": 1,
+      "permissions": [
+        "INTERNET",
+        "CAMERA",
+        "RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "name": "Zmind - Open Source Generalist AI Agent",
+      "shortName": "Zmind",
+      "description": "Zmind is an open source visual thinking studio for collaborative canvases and AI-assisted work.",
+      "startUrl": "/",
+      "display": "standalone",
+      "orientation": "portrait",
+      "themeColor": "#121215",
+      "backgroundColor": "#121215",
+      "lang": "en",
+      "scope": "/",
+      "crossorigin": "use-credentials"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/zmind-splash.png",
+          "imageWidth": 400,
+          "resizeMode": "contain",
+          "backgroundColor": "#121215"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "metadata": {
+        "applicationName": "Zmind",
+        "authors": "Zmind Team",
+        "creator": "Zmind Team",
+        "publisher": "Zmind Team",
+        "category": "Technology",
+        "siteUrl": "https://zmind.so",
+        "twitterHandle": "@zmind"
+      }
+    }
+  }
+}

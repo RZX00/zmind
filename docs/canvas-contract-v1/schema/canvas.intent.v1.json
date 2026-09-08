@@ -1,0 +1,104 @@
+{
+  "$id": "canvas.intent.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canvas Intent v1",
+  "type": "object",
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "connections": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/connection" }
+    },
+    "groups": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/group" }
+    },
+    "layout": { "$ref": "#/$defs/layout" }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "node": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["text", "todo", "code", "table", "media", "column", "group", "canvas-link"]
+        },
+        "content": { "type": "string" },
+        "title": { "type": "string" },
+        "code_type": { "type": "string", "enum": ["mermaid", "html", "svg"] },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "data": { "type": "object" },
+        "metadata": { "type": "object" },
+        "side": { "type": "string", "enum": ["left", "right"] },
+        "column": { "type": "string", "enum": ["left", "right"] }
+      },
+      "additionalProperties": true
+    },
+    "connection": {
+      "type": "object",
+      "properties": {
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "from_index": { "type": "integer", "minimum": 0 },
+        "to_index": { "type": "integer", "minimum": 0 },
+        "label": { "type": "string" },
+        "style": { "type": "string", "enum": ["line", "arrow"] },
+        "dashed": { "type": "boolean" },
+        "curveAnchor": { "$ref": "#/$defs/point" },
+        "anchorParams": { "$ref": "#/$defs/anchorParams" },
+        "curveMode": { "type": "string", "enum": ["auto", "tension", "manual", "orthogonal"] },
+        "tension": { "type": "number" },
+        "fromPoint": { "$ref": "#/$defs/point" },
+        "toPoint": { "$ref": "#/$defs/point" }
+      },
+      "additionalProperties": true
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "node_ids": { "type": "array", "items": { "type": "string" } },
+        "node_indices": { "type": "array", "items": { "type": "integer", "minimum": 0 } }
+      },
+      "additionalProperties": true
+    },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "mode": { "type": "string", "enum": ["stack", "two_column"] },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "row_spacing": { "type": "number" },
+        "left_x": { "type": "number" },
+        "right_x": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "point": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "required": ["x", "y"],
+      "additionalProperties": false
+    },
+    "anchorParams": {
+      "type": "object",
+      "properties": {
+        "u": { "type": "number" },
+        "v": { "type": "number" }
+      },
+      "required": ["u", "v"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "env": ".env",
+  "graphs": {
+    "default": "core/langgraph_engine/dev_app.py:graph"
+  }
+}

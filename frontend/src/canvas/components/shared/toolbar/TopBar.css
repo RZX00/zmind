@@ -1,0 +1,193 @@
+/* 🎨 TopBar 组件样式增强 */
+
+/* 顶部栏基础样式 */
+.top-bar {
+  /* 确保在所有元素之上 */
+  z-index: 1000;
+  /* 固定高度，防止内容变化时跳动 */
+  height: 56px;
+  min-height: 56px;
+  /* 扁平化设计 */
+  background: var(--canvas-topbar-bg, #ffffff);
+  border-bottom: var(--stroke-1) solid var(--canvas-topbar-border, #e5e7eb);
+  box-shadow: var(--shadow-elev-2);
+}
+
+/* Logo区域样式 */
+.logo-area {
+  /* 防止Logo区域被压缩 */
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+.logo-button {
+  /* 平滑的悬停效果 */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-button:hover {
+  background-color: var(--canvas-topbar-hover, #f9fafb);
+  transform: translateY(-1px);
+}
+
+.logo-icon {
+  /* Logo图标的3D效果 */
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  box-shadow: var(--shadow-accent-sm);
+  transition: transform 0.2s ease;
+}
+
+.logo-button:hover .logo-icon {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-accent-md);
+}
+
+/* 中间标题区域样式 */
+.title-area {
+  /* 标题区域占据剩余空间但有最大宽度 */
+  flex: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 var(--space-16);
+}
+
+/* 右侧功能区域样式 */
+.actions-area {
+  /* 防止功能区域被压缩 */
+  flex-shrink: 0;
+  min-width: 140px;
+  justify-content: flex-end;
+}
+
+.action-button {
+  /* 统一的按钮样式 */
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.action-button:hover {
+  background-color: var(--canvas-topbar-hover, #f3f4f6);
+  transform: translateY(-1px);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+/* 历史记录按钮的特殊样式 */
+.history-button {
+  position: relative;
+}
+
+.history-badge {
+  /* 历史记录数量标记 */
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: var(--space-16);
+  height: var(--space-16);
+  background: #3b82f6;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-2);
+  box-shadow: var(--shadow-elev-3);
+}
+
+/* 响应式设计 */
+@media (max-width: 640px) {
+  .top-bar {
+    padding-left: var(--space-12);
+    padding-right: var(--space-12);
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  .title-area {
+    padding: 0 var(--space-8);
+  }
+  
+  .action-button {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+  
+  .title-area {
+    max-width: none;
+    padding: 0 var(--space-4);
+  }
+}
+
+/* 暗色主题支持 */
+.dark .top-bar {
+  background: #1f2937;
+  border-bottom-color: #374151;
+  color: #f9fafb;
+}
+
+.dark .logo-button:hover {
+  background-color: #374151;
+}
+
+.dark .action-button:hover {
+  background-color: #374151;
+}
+
+.dark .history-badge {
+  box-shadow: var(--shadow-elev-4);
+}
+
+/* 动画效果 */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.history-dropdown {
+  animation: slideDown 0.2s ease-out;
+}
+
+/* 无障碍访问增强 */
+.action-button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.logo-button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.dark .action-button:focus,
+.dark .logo-button:focus {
+  outline-color: #93c5fd;
+}
+
+/* 打印样式 */
+@media print {
+  .top-bar {
+    display: none;
+  }
+}

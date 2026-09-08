@@ -1,0 +1,43 @@
+{
+  "$schema": "https://docs.openclaw.ai/schemas/plugin-manifest.schema.json",
+  "id": "zmind",
+  "name": "ZMind",
+  "version": "0.1.0",
+  "description": "Operate connected ZMind canvases and docs from OpenClaw",
+  "skills": [
+    "skills"
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "baseUrl": {
+        "type": "string",
+        "title": "ZMind Backend URL"
+      },
+      "supabaseUrl": {
+        "type": "string",
+        "title": "Supabase URL"
+      },
+      "supabaseAnonKey": {
+        "type": "string",
+        "title": "Supabase Anon Key",
+        "format": "password"
+      }
+    }
+  },
+  "uiHints": {
+    "baseUrl": {
+      "label": "ZMind Backend URL",
+      "placeholder": "https://api.zmind.so"
+    },
+    "supabaseUrl": {
+      "label": "Supabase URL",
+      "placeholder": "https://project.supabase.co"
+    },
+    "supabaseAnonKey": {
+      "label": "Supabase Anon Key",
+      "sensitive": true
+    }
+  }
+}

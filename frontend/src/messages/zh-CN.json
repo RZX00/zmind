@@ -1,0 +1,2534 @@
+{
+  "footer": {
+    "columns": {
+      "zmind": "Zmind",
+      "resources": "资源",
+      "legal": "法律"
+    },
+    "linkById": {
+      "1": "关于我们",
+      "3": "联系",
+      "4": "招聘",
+      "5": "文档",
+      "7": "Discord",
+      "9": "隐私政策",
+      "10": "服务条款",
+      "11": "Apache 2.0 许可证"
+    },
+    "aria": {
+      "x": "X (Twitter)",
+      "docs": "文档",
+      "xhs": "小红书",
+      "wechat": "微信"
+    },
+    "wechatModal": {
+      "title": "扫码加入微信社群",
+      "desc": "扫描二维码进入微信社群，获取邀请码和最新动态。",
+      "loading": "正在获取最新二维码...",
+      "error": "二维码加载失败，点击重试。",
+      "alt": "微信社群二维码"
+    }
+  },
+  "notFound": {
+    "badge": "404 错误",
+    "title": "页面未找到",
+    "description": "你访问的页面不存在或已被移动。",
+    "returnHome": "返回首页"
+  },
+  "auth": {
+    "dialog": {
+      "title": "登录以继续",
+      "description": "进入你的思考工作室，开始组织你的想法",
+      "orEmail": "或继续使用邮箱",
+      "signInWithEmail": "使用邮箱登录",
+      "createNewAccount": "创建新账户",
+      "tos": "服务条款",
+      "privacy": "隐私政策"
+    },
+    "success": {
+      "title": "请查收邮箱",
+      "sent": "我们已发送确认链接至：",
+      "help": "点击邮件中的链接以激活你的账户。如果没有收到，请检查垃圾邮件。",
+      "returnHome": "返回首页",
+      "backToSignIn": "返回登录"
+    },
+    "form": {
+      "createTitle": "创建你的账户",
+      "loginTitle": "登录你的账户",
+      "orEmail": "或使用邮箱",
+      "email": "邮箱地址",
+      "password": "密码",
+      "confirmPassword": "确认密码",
+      "creating": "正在创建账户...",
+      "signing": "正在登录...",
+      "create": "创建账户",
+      "signIn": "登录",
+      "forgot": "忘记密码？",
+      "already": "已有账户？去登录",
+      "noAccount": "没有账户？去注册"
+    },
+    "forgot": {
+      "title": "重置密码",
+      "desc": "输入你的邮箱地址，我们会发送重置密码的链接给你。",
+      "cancel": "取消",
+      "send": "发送重置链接",
+      "invalidEmail": "请输入有效的邮箱地址"
+    },
+    "reset": {
+      "invalidCode": "重置代码无效或缺失。请重新申请密码重置链接。",
+      "invalidCodeShort": "无效的重置代码",
+      "successTitle": "密码重置完成",
+      "successDesc": "你的密码已成功更新。现在可以使用新密码登录。",
+      "goToSignIn": "前往登录",
+      "backToSignIn": "返回登录",
+      "title": "重置密码",
+      "subtitle": "为你的账户设置一个新密码",
+      "newPassword": "新密码",
+      "confirmPassword": "确认新密码",
+      "updating": "正在更新密码...",
+      "submit": "重置密码"
+    },
+    "buttons": {
+      "getStarted": "免费开始",
+      "requestInvite": "获取内测资格"
+    },
+    "loginFailed": "登录失败",
+    "signupFailed": "注册失败",
+    "banner": {
+      "is": "是",
+      "tagline": "AI agent 驱动的全能可视化思维画布"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "",
+      "titleLine1": "全模态·无限画布",
+      "titleLine2": "与 AI 一起",
+      "highlight": "思考",
+      "subtitle": "Zmind用苏格拉底式引导思考 + 全模态可视化呈现，打造all in one的思考空间，让深度思考10x效率发生",
+      "toPrefix": "与 AI 一起",
+      "words": [
+        "看见",
+        "重构",
+        "分析"
+      ],
+      "canvas": {
+        "minimap": "缩略图",
+        "tools": {
+          "select": "选择",
+          "write": "写作",
+          "ai": "AI 助手",
+          "layout": "排版",
+          "code": "代码"
+        },
+        "flow": {
+          "title": "Mermaid 流程",
+          "status": "流程图可立即导出"
+        },
+        "svg": {
+          "title": "SVG 节点图",
+          "status": "写作与媒体堆栈保持同步"
+        }
+      }
+    },
+    "share": {
+      "invite": {
+        "title": "协作邀请",
+        "desc": "发送协作链接给伙伴，登录后即可一起编辑",
+        "inviteCreate": "开启协作",
+        "inviteCreating": "创建中",
+        "inviteCreated": "协作邀请已准备好，把链接发给对方即可",
+        "inviteCreateFailed": "生成协作链接失败",
+        "inviteRevoked": "协作已关闭",
+        "inviteRevokeFailed": "关闭协作失败",
+        "latest": "当前协作",
+        "code": "邀请码",
+        "link": "链接",
+        "copy": "复制协作链接",
+        "note": "任何拿到链接的人都可以编辑。",
+        "preparing": "正在准备协作链接...",
+        "regen": "重新生成链接（旧链接失效）",
+        "regenerated": "已生成新链接",
+        "regenConfirm": "重新生成会使旧链接失效，是否继续？",
+        "stopConfirm": "关闭协作后链接将失效，是否继续？",
+        "list": "邀请列表",
+        "empty": "暂无协作链接，点击开启即可邀请。",
+        "noExpiry": "默认 7 天 / 5 次",
+        "expires": "截止",
+        "uses": "次数"
+      }
+    },
+    "core_value": {
+      "labels": {
+        "workflow": "工作流程",
+        "deepThinking": "深度思考",
+        "collaboration": "协作"
+      },
+      "canvas": {
+        "title": "全模态·无限画布",
+        "subtitle": "打破传统笔记的线性束缚，在 Zmind 的无限画布上，你可以自由放文本、图片、视频、语音，甚至代码和网页。把所有想法摆到同一个空间里，让思路真正“展开”，更全面、更立体、更高效地看清全局。"
+      },
+      "ai": {
+        "title": "全能 AI 思考助手",
+        "subtitle": "Zmind Agent 通过苏格拉底式对话引导你理清复杂思路，生成结构化框架，轻松发现思维盲点，做出更精准决策。"
+      },
+      "collaboration": {
+        "title": "与团队协作共创",
+        "subtitle": "支持多人协作共创画布，随时调整 AI 建议、二次编辑、添加批注和补充，让大家的思路自由流动，轻松共创思维成果。"
+      }
+    },
+    "templates": {
+      "label": "社区精选",
+      "title": "从模板快速开始",
+      "subtitle": "调用社区创建的画布模板，快速启动调研、规划与创作流程。",
+      "viewMore": "查看全部模板"
+    },
+    "faq": {
+      "title": "常见问题",
+      "subtitle": "关于 Zmind 你需要了解的一切",
+      "items": [
+        {
+          "question": "Zmind 适合谁？",
+          "answer": "Zmind 适合所有热爱深度思考和创作的人 —— 无论是学生、研究人员分析复杂资料，还是内容创作者、设计师整理灵感，亦或是团队协作完成项目。写作、学习、规划还是产品开发，Zmind 都能顺应你的工作方式。"
+        },
+        {
+          "question": "我可以导入哪些文件类型？",
+          "answer": "你可以把任何内容拖入 Zmind 画布：文档（PDF、Word、Markdown、HTML）、图片、视频、音频、网页链接和纯文本。AI 会自动处理并整理多种内容，让所有资料都能被搜索和关联。"
+        },
+        {
+          "question": "Zmind 的 AI “深度思考” 是怎么工作的？",
+          "answer": "我们的 AI 不只是回答问题，更帮你理清思路。它能拆解复杂文章、把凌乱笔记整理成结构化大纲、提示思维间的联系、把文字生成可视化图表，并引导你完成研究或决策所需的分析框架。"
+        },
+        {
+          "question": "我可以用 Zmind 做学术研究吗？",
+          "answer": "当然可以。Zmind 非常适合研究工作：上传多篇论文或文章，AI 会帮你提取核心信息、对比观点、绘制文献关系图，甚至生成引用。无论是文献综述、论文写作，还是任何深度分析工作，Zmind 都能助你高效完成。"
+        },
+        {
+          "question": "Zmind 的协作功能如何？",
+          "answer": "每个工作空间都可以与团队成员或合作者共享。你们可以在同一个无限画布上实时协作、发表评论、分配任务、追踪修改 —— 无论是设计项目、演示文稿，还是战略规划，都能轻松协作。"
+        },
+        {
+          "question": "Zmind 能生成图片和视频吗？",
+          "answer": "可以！Zmind 内置 AI 媒体生成功能，你可以直接在工作空间创建自定义图片、图表，甚至视频，为创意提供视觉支持，非常适合设计、展示或讲故事。"
+        },
+        {
+          "question": "Zmind 和 Notion、Obsidian 等笔记软件有什么区别？",
+          "answer": "不同于传统笔记工具，Zmind 提供无限空间画布，让想法自由排列，而不只是页或文件夹。AI 深度融入，帮你理清思路，而不仅仅是存储信息。并且支持所有媒介类型 —— 文字、图片、视频、音频 —— 在一个统一空间中管理。"
+        },
+        {
+          "question": "Zmind 的数据安全吗？",
+          "answer": "你的隐私是我们的首要任务。所有内容都经过加密，你完全掌控分享权限。工作空间默认私密，你可以决定谁可以访问共享空间。"
+        }
+      ]
+    },
+    "flow": {
+      "title": "从混沌到清晰",
+      "subtitle": "在一个统一的工作流中无缝连接你的输入、智能与输出。"
+    },
+    "cta": {
+      "title": "准备好革新你的思考方式了吗？",
+      "button": "获取内测资格",
+      "contactButton": "联系我们",
+      "contactTitle": "联系 Zmind 团队",
+      "contactDescription": "添加微信或发送邮件，直接沟通你的需求。",
+      "contactWeChatLabel": "微信",
+      "contactQrAlt": "内测微信群二维码",
+      "contactQrNote": "扫码加入内测微信群，获取邀请码和最新动态。",
+      "contactQrLoading": "正在加载二维码...",
+      "contactQrError": "二维码加载失败，点击重试。",
+      "contactEmailLabel": "邮箱",
+      "subtext": "和成千上万位创作者一起升级你的思考流程"
+    },
+    "capabilities": {
+      "title": "完整的思考工具箱",
+      "subtitle": "8 种专用节点覆盖所有思考形态——从快速笔记到复杂图表。让思维自然流动，AI 帮你保持结构与秩序。",
+      "items": [
+        {
+          "title": "快速捕捉想法",
+          "description": "用富文本即时记录灵感。适用于头脑风暴、会议笔记与创作草稿。"
+        },
+        {
+          "title": "可视化复杂系统",
+          "description": "创建流程图、关系图与可视化地图，让抽象概念变成清晰的视觉叙事。"
+        },
+        {
+          "title": "结构化你的呈现",
+          "description": "从思考过程直接生成演示内容，从构思自然过渡到专业幻灯片。"
+        },
+        {
+          "title": "研究与信息收集",
+          "description": "连接外部知识与研究结果，基于实时与可信来源构建知识地图。"
+        },
+        {
+          "title": "数据分析与洞察",
+          "description": "把原始信息转化为可执行洞见，生成可视化与分析框架，辅助更优决策。"
+        },
+        {
+          "title": "组织任务流程",
+          "description": "将思考转化为结构化行动计划，以智能任务管理与优先级安排应对复杂项目。"
+        },
+        {
+          "title": "构建知识体系",
+          "description": "创建互联的知识系统，用有意义的关系组织信息，打造个人知识图谱。"
+        },
+        {
+          "title": "持续思考",
+          "description": "你的思考工作室从不打烊。AI 智能体在后台提出连接、识别模式，增强思考过程。"
+        }
+      ]
+    }
+  },
+  "dashboard": {
+    "greeting": "Hi，{name}",
+    "guest": "那里",
+    "title": "今天有什么新思考？",
+    "inputPlaceholder": "和我谈谈你关于世界的任何见解和疑问···",
+    "workspaceHeader": {
+      "title": "我的画布",
+      "subtitle": "浏览和管理你的画布",
+      "loading": "正在加载你的画布..."
+    },
+    "tour": {
+      "welcome": {
+        "title": "欢迎来到你的控制台",
+        "content": "欢迎！这里是你的起点。在这里创建新的思考、管理画布并组织你的知识。"
+      },
+      "chat": {
+        "title": "开始对话",
+        "content": "描述你的需求。你可以添加文件、配置模型，Zmind 会为你的任务创建画布。"
+      },
+      "agent": {
+        "title": "模型与设置",
+        "content": "从这里选择模型并调整设置。需要时可升级以使用高级模型。"
+      },
+      "workspace": {
+        "title": "工作区",
+        "content": "你的画布在这里。可打开、重命名、整理到文件夹，或创建新画布开始。"
+      },
+      "knowledge": {
+        "title": "知识库",
+        "content": "上传文件或连接数据源，提供更丰富的上下文。Zmind 会在各画布中使用这些知识。"
+      }
+    }
+  },
+  "teamSettings": {
+    "title": "团队设置",
+    "description": "管理团队账户信息与成员。",
+    "errors": {
+      "loadFailed": "加载账户数据失败",
+      "notFound": "未找到该账户"
+    },
+    "account": {
+      "title": "账户",
+      "description": "团队基础设置。",
+      "openWorkspace": "打开工作区",
+      "teamName": "团队名称",
+      "teamUrl": "团队链接",
+      "save": "保存",
+      "saving": "保存中..."
+    },
+    "members": {
+      "title": "成员与邀请",
+      "description": "搜索、筛选并管理团队成员与邀请。",
+      "membersCount": "成员：{count}",
+      "pendingCount": "待邀请：{count}",
+      "searchPlaceholder": "搜索姓名或邮箱",
+      "newInvite": "新建邀请",
+      "noResults": "暂无结果",
+      "pendingInvite": "待处理邀请",
+      "created": "创建于{time}",
+      "close": "关闭"
+    },
+    "roles": {
+      "owner": "管理员",
+      "member": "成员",
+      "primaryOwner": "主管理员"
+    },
+    "labels": {
+      "teamRole": "团队角色",
+      "invitationType": "邀请类型"
+    },
+    "placeholders": {
+      "invitationType": "选择邀请类型",
+      "memberType": "选择成员类型"
+    },
+    "invites": {
+      "create": "创建邀请",
+      "creating": "创建中...",
+      "type24h": "24 小时",
+      "typeOneTime": "一次性"
+    },
+    "actions": {
+      "openMenu": "打开菜单",
+      "changeRole": "修改角色",
+      "removeMember": "移除成员",
+      "updateRoleTitle": "更新成员角色",
+      "updateRoleDesc": "修改该成员在团队中的角色",
+      "updateRole": "更新角色",
+      "makePrimaryOwner": "将该成员设为主管理员",
+      "removeMemberTitle": "移除成员",
+      "removeMemberDesc": "确定要将该成员移出团队吗？",
+      "removePending": "移除中...",
+      "updatePending": "更新中...",
+      "deleteInviteTitle": "删除邀请",
+      "deleteInviteDesc": "确定要删除这条邀请吗？此操作不可撤销。",
+      "cancel": "取消",
+      "delete": "删除",
+      "deleting": "删除中..."
+    },
+    "url": {
+      "copySuccess": "链接已复制",
+      "copyFailed": "复制失败",
+      "copyAria": "复制团队链接",
+      "copyTitle": "复制链接"
+    }
+  },
+  "userMenu": {
+    "personalAccount": "个人账户",
+    "teams": "团队",
+    "admin": "管理",
+    "adminBilling": "账单管理",
+    "inviteCodes": "邀请码",
+    "adminAudit": "审计与事件",
+    "plans": "我的订阅",
+    "billing": "我的账单",
+    "integrations": "集成",
+    "localEnv": "本地 .Env 管理器",
+    "skills": "技能市场",
+    "triggers": "触发器",
+    "tutorials": "教程",
+    "settings": "设置",
+    "language": "语言",
+    "theme": "主题",
+    "logout": "退出登录",
+    "createTeam": {
+      "title": "创建新团队",
+      "desc": "创建团队以与他人协作。"
+    },
+    "languageToggle": "中文 / English"
+  },
+  "tutorialsBanner": {
+    "dismiss": "关闭教程提示",
+    "title": "第一次使用 Zmind？从这里开始",
+    "description": "7 个交互式教程，帮你快速掌握核心工作流。",
+    "walkthroughs": "交互式引导",
+    "cta": "查看教程"
+  },
+  "sidebar": {
+    "openMenu": "打开菜单",
+    "expand": "展开侧栏",
+    "toggleSidebar": "切换侧栏（CMD+B）",
+    "newThinking": "主页",
+    "workspace": "工作区",
+    "knowledge": "知识库",
+    "skills": "技能市场",
+    "triggers": "触发器",
+    "template": "模板",
+    "obsidian": "Obsidian",
+    "trash": "回收站",
+    "canvasFiles": "Canvas 文件",
+    "recent": "最近",
+    "upgrade": "升级",
+    "inviteCard": {
+      "title": "邀请码",
+      "desc": "兑换后可激活 AI 功能使用权限，并获得 10 美元使用额度。",
+      "remaining": "可用 {count}/3",
+      "inactive": "未兑换",
+      "openCta": "查看邀请码",
+      "modalTitle": "你的邀请码",
+      "modalTitlePending": "兑换邀请码",
+      "modalDesc": "好友兑换后可激活 AI 功能使用权限，并获得 10 美元使用额度。",
+      "copyLink": "复制邀请链接",
+      "copySuccess": "邀请链接已复制",
+      "copyFailed": "复制失败",
+      "used": "已使用",
+      "loading": "加载邀请码…",
+      "loadFailed": "邀请码加载失败",
+      "retry": "重试",
+      "pending": "邀请码正在准备，稍后刷新即可。",
+      "redeemHint": "兑换邀请码后即可获得 3 个分享码。",
+      "redeemCta": "兑换邀请码",
+      "redeemGo": "去兑换"
+    },
+    "manage": "管理",
+    "rename": "重命名",
+    "duplicate": "复制",
+    "delete": "删除",
+    "openclaw": "OpenClaw"
+  },
+  "obsidianIntegration": {
+    "page": {
+      "title": "Obsidian 兼容",
+      "subtitle": "导入完整 Markdown Vault，并将工作区笔记导出为 Obsidian 格式。"
+    },
+    "importWizard": {
+      "title": "Obsidian 导入向导",
+      "subtitle": "使用两遍解析迁移 Markdown Vault。",
+      "sourceTypeZip": "Zip Vault",
+      "sourceTypeDirectory": "目录批量",
+      "createJob": "创建任务",
+      "commitImport": "执行导入",
+      "selectVaultDirectory": "选择 Vault 目录",
+      "uploadMarkdownFiles": "上传 Markdown 文件",
+      "uploadVaultZip": "上传 Vault Zip",
+      "toasts": {
+        "createJobSuccess": "已创建 Obsidian 导入任务。",
+        "createJobFailed": "创建导入任务失败",
+        "createJobFirst": "请先创建任务。",
+        "noMarkdownFiles": "所选文件中没有 Markdown 文件。",
+        "uploadMixedSuccess": "已上传 {docCount} 个 Markdown 文件和 {assetCount} 个附件。",
+        "uploadMarkdownSuccess": "已上传 {count} 个 Markdown 文件。",
+        "uploadMarkdownFailed": "上传 Markdown 文件失败",
+        "uploadZipSuccess": "已上传 Zip 包：{name}",
+        "uploadZipFailed": "上传 Zip 文件失败",
+        "commitSuccess": "导入执行成功。",
+        "commitFailed": "执行导入失败"
+      }
+    },
+    "importJobStatus": {
+      "empty": "尚未创建导入任务。",
+      "jobLabel": "任务 {id}",
+      "totalFiles": "总文件数：{count}",
+      "importedDocs": "已导入文档：{count}",
+      "references": "已建引用：{count}",
+      "unresolved": "未解析：{count}"
+    },
+    "importReport": {
+      "unavailable": "导入报告不可用。",
+      "title": "导入报告",
+      "mappedDocs": "映射文档：{count}",
+      "unresolvedLinks": "未解析链接：{count}",
+      "unresolvedAssets": "未解析附件：{count}",
+      "unresolvedLinksTitle": "未解析链接",
+      "unresolvedAssetsTitle": "未解析附件",
+      "unknown": "未知"
+    },
+    "exportCard": {
+      "title": "Obsidian 导出",
+      "subtitle": "将当前工作区导出为 Vault Zip 包。",
+      "createExport": "创建导出",
+      "empty": "尚未创建导出任务。",
+      "jobLabel": "任务 {id}",
+      "exportedDocs": "导出文档：{count}",
+      "downloadZip": "下载 Zip",
+      "preparing": "正在准备导出包...",
+      "toasts": {
+        "startSuccess": "已启动 Obsidian 导出任务。",
+        "startFailed": "创建导出任务失败"
+      }
+    }
+  },
+  "pricing": {
+    "mostPopular": "最受欢迎",
+    "perMonth": "/月",
+    "billedYearly": "按年计费",
+    "savePerYear": "每年节省 {amount}",
+    "upgradeMessage": "订阅已从 {from} 积分升级到 {to} 积分",
+    "updateSuccess": "订阅更新成功",
+    "billing": {
+      "monthly": "按月",
+      "yearly": "按年",
+      "discount": "立减 2 个月"
+    },
+    "title": "选择适合你的方案",
+    "subtitle": "选择最适合你的方案。",
+    "bottomNote": "所有方案均包含完整 API 访问、详细分析与优先级客服支持。可随时升级或降级。",
+    "cta": "选择方案",
+    "paymentsDisabled": "即将上线",
+    "inviteRequired": "请先兑换邀请码，开通购买资格。",
+    "tiers": {
+      "plus": {
+        "tagline": "适合个人与小团队",
+        "button": "开始使用",
+        "features": [
+          "2000 积分/月",
+          "存储空间：总 200MB / 单文件 50MB",
+          "总计 200 个画布节点",
+          "私有项目",
+          "100+ 集成",
+          "高级 AI 模型",
+          "进阶 AI 能力"
+        ]
+      },
+      "pro": {
+        "tagline": "适合成长型团队",
+        "button": "开始使用",
+        "features": [
+          "4000 积分/月",
+          "存储空间：总 1GB / 单文件 50MB",
+          "总计 500 个画布节点",
+          "私有项目",
+          "100+ 集成",
+          "高级 AI 模型",
+          "进阶 AI 能力"
+        ]
+      },
+      "business": {
+        "tagline": "适合成熟型企业",
+        "button": "开始使用",
+        "features": [
+          "10000 积分/月",
+          "存储空间：总 1GB / 单文件 50MB",
+          "画布节点无限制",
+          "私有项目",
+          "100+ 集成",
+          "高级 AI 模型",
+          "进阶 AI 能力"
+        ]
+      },
+      "ultra": {
+        "tagline": "适合重度用户",
+        "button": "开始使用",
+        "features": [
+          "10000 积分/月",
+          "存储空间：总 1GB / 单文件 50MB",
+          "画布节点无限制",
+          "私有项目",
+          "100+ 集成",
+          "高级 AI 模型",
+          "优先级支持",
+          "进阶 AI 能力"
+        ]
+      },
+      "max": {
+        "tagline": "适合重度用户",
+        "button": "开始使用",
+        "features": [
+          "无限积分",
+          "存储空间：总 1GB / 单文件 50MB",
+          "画布节点无限制",
+          "私有项目",
+          "100+ 集成",
+          "高级 AI 模型",
+          "优先级支持",
+          "进阶 AI 能力"
+        ]
+      },
+      "enterprise": {
+        "tagline": "适合大型团队",
+        "button": "开始使用",
+        "features": [
+          "40000 积分/月",
+          "存储空间：总 1GB / 单文件 50MB",
+          "画布节点无限制",
+          "私有项目",
+          "100+ 集成",
+          "高级 AI 模型",
+          "优先级支持",
+          "进阶 AI 能力"
+        ]
+      },
+      "scale": {
+        "tagline": "适合扩张型团队",
+        "button": "开始使用",
+        "features": [
+          "80000 积分/月",
+          "存储空间：总 1GB / 单文件 50MB",
+          "画布节点无限制",
+          "私有项目",
+          "100+ 集成",
+          "高级 AI 模型",
+          "优先级支持",
+          "进阶 AI 能力",
+          "客户成功经理"
+        ]
+      }
+    },
+    "model": {
+      "title": "模型定价",
+      "desc": "查看各模型积分与示例",
+      "viewDetails": "查看详情",
+      "hideDetails": "收起详情"
+    },
+    "invite": {
+      "title": "获取 1000 积分测试额度",
+      "subtitle": "无需支付 · 通过邀请码 30 天内有效",
+      "cta": "获取邀请码"
+    },
+    "info": {
+      "title": "什么是积分？",
+      "body": "积分用于 AI 使用消耗，任务越复杂消耗越多。"
+    },
+    "modelPricing": {
+      "loading": "正在加载定价数据...",
+      "unavailable": {
+        "title": "无法获取定价",
+        "desc": "获取模型定价失败，请刷新页面。"
+      },
+      "tokenPricing": {
+        "title": "模型计费",
+        "subtitle": "对比不同模型的价格与积分消耗。"
+      },
+      "tokens": {
+        "title": "如何计算用量",
+        "body": "用量按输入与输出文本量估算，页面展示为积分，便于你理解与规划。"
+      },
+      "pricingWork": {
+        "title": "积分如何计算",
+        "body": "积分由输入与输出文本量估算，实际消耗与模型选择和任务规模相关。"
+      },
+      "examples": {
+        "title": "用量示例",
+        "subtitle": "查看不同任务类型下的积分消耗估算。",
+        "model": "模型",
+        "input": "输入量",
+        "output": "输出量",
+        "cost": "预计消耗",
+        "selectHint": "先选择上方模型"
+      },
+      "select": {
+        "label": "选择模型查看积分估算：",
+        "placeholder": "选择一个模型"
+      },
+      "pointsUnit": "积分",
+      "table": {
+        "title": "模型计费",
+        "desc": "按每 100 万输入/输出单位计价（积分）。",
+        "model": "模型",
+        "inputCost": "输入单价",
+        "outputCost": "输出单价",
+        "perMillion": "每 100 万单位"
+      }
+    },
+    "cases": {
+      "title": "案例",
+      "subtitle": "来自社区的真实画布",
+      "viewMore": "在模板中查看更多"
+    }
+  },
+  "history": {
+    "title": "历史记录",
+    "empty": "暂无历史记录",
+    "recentCount": "最近 {count} 条记录",
+    "showing": "显示最近 {max} 条，共 {count} 条记录",
+    "index": "{index}"
+  },
+  "versionHistory": {
+    "title": "版本历史",
+    "save": "保存当前版本",
+    "saving": "保存中...",
+    "refresh": "刷新",
+    "copy": "复制",
+    "copied": "已复制",
+    "clearAll": "清空历史",
+    "stats": {
+      "total": "总版本数",
+      "auto": "自动保存",
+      "manual": "手动保存",
+      "storage": "存储大小"
+    },
+    "empty": {
+      "title": "暂无历史版本",
+      "hint": "开始创建内容，系统会自动保存版本历史"
+    },
+    "autoTag": "自动",
+    "nodes": "{count} 个节点",
+    "connections": "{count} 个连接",
+    "load": "加载",
+    "delete": "删除",
+    "confirmClear": {
+      "title": "确认清空历史",
+      "desc": "此操作将删除所有历史版本，且无法恢复。确定要继续吗？",
+      "cancel": "取消",
+      "confirm": "确认清空"
+    },
+    "processing": "处理中..."
+  },
+  "enterprise": {
+    "redirecting": "正在跳转到方案…",
+    "moved": "企业相关咨询已迁移。请升级会员以解锁高级功能。",
+    "goPricing": "前往定价"
+  },
+  "maintenance": {
+    "badge": "系统维护中",
+    "title": "我们很快回来",
+    "localHint": "后端服务似乎未运行。请确认后端已启动并重试。",
+    "cloudHint": "我们正在进行计划内维护以提升体验，团队正努力尽快恢复全部服务。",
+    "offline": "服务离线",
+    "paused": "所有 Agent 执行已暂停。",
+    "checking": "检查状态中...",
+    "check": "检查系统状态",
+    "lastChecked": "上次检查：{time}",
+    "helpLocal": "需要帮助？请查看文档中的本地部署说明。",
+    "helpCloud": "如遇紧急问题，请联系支持团队。",
+    "scheduled": "计划维护",
+    "inProgress": "计划维护进行中",
+    "completed": "维护已完成",
+    "startingNow": "即将开始",
+    "startingIn": "{time} 后开始",
+    "expected": "预计完成时间：{time}",
+    "starts": "开始时间：{time}",
+    "ends": "结束时间：{time}",
+    "duration": "持续时间：{time}",
+    "remainingHm": "剩余 {hours} 小时 {minutes} 分钟",
+    "remainingM": "剩余 {minutes} 分钟",
+    "almostDone": "即将完成！",
+    "dismiss": "关闭维护提示"
+  },
+  "legal": {
+    "back": "返回",
+    "title": "法律<span class=\"text-brand-600\">信息</span>",
+    "tabs": {
+      "terms": "服务条款",
+      "privacy": "隐私政策"
+    },
+    "terms": {
+      "title": "服务条款",
+      "lastUpdated": "最后更新：{date}",
+      "combined": "服务条款与隐私政策",
+      "effective": "最后更新与生效日期：2024 年 8 月 13 日"
+    },
+    "loading": "加载中...",
+    "error": "内容加载失败。",
+    "privacy": {
+      "title": "隐私政策",
+      "lastUpdated": "最后更新：{date}"
+    }
+  },
+  "knowledge": {
+    "title": "知识库",
+    "subtitle": "把文件变成随时可问的知识库，上传后自动解析，可在聊天和画布中引用。",
+    "upload": "上传文件",
+    "connect": "连接数据源",
+    "viewAll": "查看全部 →",
+    "empty": "暂无最近文件。点击“上传文件”开始构建你的知识库。",
+    "noSummary": "暂无摘要",
+    "loading": "加载中…",
+    "entry": "知识条目",
+    "recent": {
+      "title": "最近添加",
+      "files": "{count} 个文件"
+    },
+    "files": {
+      "managementTitle": "文件管理",
+      "title": "全部文件",
+      "subtitle": "查看大小并直接删除，释放空间。",
+      "empty": "还没有文件，先上传一份开始使用。",
+      "emptyFolder": "空文件夹",
+      "emptyFiltered": "没有符合条件的文件。",
+      "unfiled": "未归档",
+      "delete": "删除",
+      "count": "{count} 个文件"
+    },
+    "views": {
+      "quick": "快速视图",
+      "all": "全部文件",
+      "recent": "最近 7 天",
+      "largest": "最大文件",
+      "older": "30 天前",
+      "folders": "文件夹",
+      "unfiled": "未归档"
+    },
+    "dropzone": {
+      "title": "拖拽上传",
+      "subtitle": "直接上传到知识库",
+      "folderLabel": "上传到",
+      "folderPlaceholder": "文件夹",
+      "browse": "选择文件",
+      "empty": "先建文件夹",
+      "limit": "上限 {max}"
+    },
+    "filters": {
+      "searchPlaceholder": "搜索文件名或内容…",
+      "type": "类型",
+      "typeAll": "全部类型",
+      "typeDoc": "文档",
+      "typeSheet": "表格",
+      "typeSlides": "演示",
+      "typeImage": "图片",
+      "typeAudio": "音频",
+      "typeVideo": "视频",
+      "typeText": "文本",
+      "typeOther": "其他",
+      "sort": "排序",
+      "sortRecent": "最近更新",
+      "sortSize": "按大小",
+      "sortName": "按名称"
+    },
+    "table": {
+      "name": "文件",
+      "folder": "文件夹",
+      "size": "大小",
+      "updated": "更新时间",
+      "actions": "操作"
+    },
+    "folders": {
+      "title": "文件夹管理",
+      "subtitle": "按文件夹整理，支持拖拽移动。",
+      "renameLabel": "文件夹名称"
+    },
+    "actions": {
+      "createFolder": "新建文件夹",
+      "renameFolder": "重命名",
+      "newEntry": "新建文本",
+      "saveAssignments": "保存分配",
+      "explorePlaza": "思考广场"
+    },
+    "plaza": {
+      "title": "思考广场",
+      "desc": "浏览公开分享的画布与思考，支持时间线回放",
+      "enter": "进入广场"
+    },
+    "emptyFolders": "暂无文件夹。创建你的第一个文件夹开始使用。",
+    "confirm": {
+      "deleteFolder": {
+        "title": "删除文件夹",
+        "desc": "确定要删除文件夹“{name}”吗？此操作将永久删除其中的所有文件，且无法撤销。"
+      },
+      "deleteFile": {
+        "title": "删除文件",
+        "desc": "确定要删除文件“{name}”吗？此操作无法撤销。"
+      }
+    },
+    "deleting": "正在删除...",
+    "source": {
+      "label": "来源",
+      "manual": "手动"
+    },
+    "quota": {
+      "title": "存储空间",
+      "subtitle": "所有上传都会计入额度。",
+      "inline": "{used} / {total}",
+      "inlineUnavailable": "存储不可用",
+      "manage": "管理",
+      "manageTitle": "存储管理",
+      "manageDesc": "升级套餐或删除文件来释放空间。",
+      "manageUpgrade": "升级空间",
+      "manageCleanup": "删除文件",
+      "usage": "已用 {used} / {total}",
+      "remaining": "剩余 {remaining}",
+      "perFile": "单文件上限 {max}",
+      "blocked": "超出后将无法上传",
+      "managePlan": "管理订阅",
+      "unavailable": "暂时无法获取配额信息。"
+    },
+    "today": "今天",
+    "yesterday": "昨天",
+    "daysAgo": "{count} 天前",
+    "toasts": {
+      "authError": "认证错误",
+      "createFolderSuccess": "文件夹创建成功",
+      "createFolderFailed": "创建文件夹失败",
+      "folderNameExists": "已存在同名文件夹",
+      "renameFolderSuccess": "文件夹重命名成功",
+      "renameFolderFailed": "重命名文件夹失败",
+      "updateSummarySuccess": "摘要已更新",
+      "updateSummaryFailed": "更新摘要失败",
+      "moveFileSuccess": "文件移动成功",
+      "moveFileFailed": "文件移动失败",
+      "deleteFolderSuccess": "文件夹已删除",
+      "deleteFileSuccess": "文件已删除",
+      "deleteFolderFailed": "删除文件夹失败",
+      "deleteFileFailed": "删除文件失败",
+      "saveAssignmentsSuccess": "知识库访问已更新",
+      "saveAssignmentsFailed": "保存分配失败",
+      "uploadCompleted": "上传完成",
+      "uploadFailed": "上传失败",
+      "selectFolder": "请选择要上传的文件夹",
+      "uploadFileFailed": "上传 {name} 失败：{status} {message}"
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "全局偏好",
+    "nav": {
+      "all": "全部设置",
+      "account": "账户",
+      "connections": "外观与连接",
+      "guides": "智能指南线",
+      "keymap": "键盘快捷键",
+      "instructions": "指令"
+    },
+    "account": {
+      "title": "账户信息",
+      "subtitle": "管理你的账户资料和登录信息",
+      "loading": "正在加载账户信息...",
+      "stats": {
+        "subscription": "订阅状态",
+        "balance": "积分",
+        "pointsUnit": "积分",
+        "canvases": "画布数量",
+        "nodes": "节点总数",
+        "statusActive": "已订阅",
+        "statusTrialing": "试用中",
+        "statusCanceled": "已取消",
+        "statusPastDue": "逾期",
+        "statusUnpaid": "未支付",
+        "statusNone": "未订阅",
+        "planFree": "免费版"
+      }
+    },
+    "mindmap": {
+      "tunnel": {
+        "label": "思维导图：隧道图模式（自然横向）",
+        "help": "子节点从各自父节点边缘起步。短分支保持紧凑，长分支继续向外展开，减小整体宽度。"
+      }
+    },
+    "connections": {
+      "aiPanel": {
+        "title": "AI 面板",
+        "expandRatio": {
+          "label": "展开宽度（%）",
+          "hint": "仅在 AI 面板展开时生效。"
+        },
+        "backgroundOpacity": {
+          "label": "背景透明度（%）",
+          "hint": "数值越高越实，越低越轻。"
+        }
+      },
+      "focus": {
+        "title": "聚焦（双空格）",
+        "fillRatio": {
+          "label": "填充比例（%）",
+          "hint": "在聚焦选中内容（双空格）时，选区应占据视口的比例。"
+        },
+        "padding": {
+          "label": "内边距（px）",
+          "hint": "聚焦选区周围的额外留白。"
+        }
+      },
+      "screenshot": {
+        "title": "截图",
+        "aspect": {
+          "label": "默认纵横比",
+          "options": {
+            "11": "1:1（方形）",
+            "43": "4:3",
+            "169": "16:9（宽屏）",
+            "original": "原始（不裁切）"
+          },
+          "help": "截图将按所选比例居中裁切。"
+        }
+      },
+      "endpoint": {
+        "title": "端点策略",
+        "options": {
+          "centerRay": "中心射线（推荐）",
+          "sideMidpoints": "侧中点（旧版）"
+        }
+      },
+      "mindmapWidth": {
+        "title": "思维导图节点宽度",
+        "options": {
+          "auto": "自动扩宽（150–450）",
+          "fixed": "固定 300（与文本节点一致）"
+        }
+      },
+      "direction": {
+        "title": "方向偏好",
+        "options": {
+          "auto": "默认（自动）",
+          "horizontal": "仅水平",
+          "vertical": "仅垂直"
+        }
+      },
+      "advanced": {
+        "title": "高级设置"
+      },
+      "guides": {
+        "title": "智能指南线",
+        "enabled": {
+          "label": "启用智能指南线"
+        },
+        "tolerance": {
+          "label": "吸附容差（屏幕像素）",
+          "hint": "容差会随缩放自动换算。值越小越严格，越大越容易吸附。"
+        },
+        "equal": {
+          "label": "等距分布吸附"
+        },
+        "lines": {
+          "label": "显示指南线"
+        },
+        "distance": {
+          "label": "显示间距标注"
+        },
+        "gridFallback": {
+          "label": "无参考线时回退到网格吸附"
+        },
+        "color": {
+          "label": "线条颜色（莫兰迪配色）"
+        },
+        "style": {
+          "label": "线条样式",
+          "solid": "实线",
+          "dashed": "虚线"
+        },
+        "tips": "提示：松手才会吸附。按住 Shift 显示对齐提示线，按住 Alt/Option 可临时禁用吸附。"
+      },
+      "thresholds": {
+        "title": "阈值（px）",
+        "horiz": {
+          "label": "水平间隙阈值",
+          "hint": "仅当水平净间隙超过该值时，优先连接左右方向"
+        },
+        "vert": {
+          "label": "垂直间隙阈值",
+          "hint": "仅当垂直净间隙超过该值时，优先连接上下方向"
+        }
+      },
+      "micro": {
+        "title": "微阈值（px）",
+        "horiz": {
+          "label": "水平微阈值",
+          "hint": "当间距很小，使用该最小偏差来倾向左右方向"
+        },
+        "vert": {
+          "label": "垂直微阈值",
+          "hint": "当间距很小，使用该最小偏差来倾向上下方向"
+        }
+      },
+      "reset": "恢复默认设置"
+    },
+    "keymap": {
+      "title": "键盘快捷键",
+      "search": {
+        "placeholder": "搜索快捷键..."
+      },
+      "categories": {
+        "all": "全部",
+        "basics": "基础",
+        "selectEdit": "选择与编辑",
+        "tools": "工具",
+        "editor": "编辑器",
+        "files": "文件"
+      },
+      "empty": "没有匹配的快捷键",
+      "shortcuts": {
+        "save": "保存画布",
+        "undo": "撤销",
+        "redo": "重做",
+        "redoShift": "重做",
+        "selectAll": "全选节点",
+        "duplicate": "复制节点 / 切换待办",
+        "delete": "删除所选",
+        "backspace": "删除所选",
+        "escape": "取消选择",
+        "multiSelect": "多选",
+        "boxSelect": "框选",
+        "multiBoxSelect": "添加到框选",
+        "rightDragCanvas": "平移画布",
+        "selectTool": "选择工具",
+        "handTool": "抓手工具",
+        "panTemp": "临时平移",
+        "focusSelection": "聚焦所选（双击空格）",
+        "smartGuidesToggle": "开/关智能对齐吸附",
+        "editorSave": "保存并退出编辑",
+        "editorCancel": "取消编辑",
+        "tableTab": "下一个单元格",
+        "tableShiftTab": "上一个单元格",
+        "closeSidebar": "关闭侧栏"
+      }
+    }
+  },
+  "workspace": {
+    "switchGuard": {
+      "title": "现在切换会中断当前的 AI 任务",
+      "description": "这里的 AI 还在工作。要停止当前任务并继续吗？",
+      "confirm": "停止并继续",
+      "cancel": "取消"
+    },
+    "menu": {
+      "newCanvas": "新建画布",
+      "newDoc": "新建文档",
+      "newFolder": "新建文件夹",
+      "expandAll": "展开所有文件夹",
+      "collapseAll": "折叠所有文件夹"
+    },
+    "doc": {
+      "untitled": "未命名文档",
+      "version": "版本 {version}",
+      "newTitle": "新建文档"
+    },
+    "nodes": "{count} 个节点",
+    "updated": "{date}",
+    "search": {
+      "open": "搜索",
+      "ariaOpen": "打开搜索",
+      "ariaLabel": "画布搜索",
+      "ariaSearchLabel": "搜索画布",
+      "placeholder": "搜索画布...",
+      "ariaClose": "关闭搜索"
+    },
+    "folder": {
+      "release": "松开以移动到该文件夹",
+      "expanded": "已展开",
+      "new": "新建文件夹",
+      "rename": "重命名",
+      "delete": "删除",
+      "items": "{count} 个项目",
+      "pinned": "已置顶",
+      "confirmDelete": "删除该文件夹？其中的画布将移动到上级/根目录。"
+    },
+    "header": {
+      "chat": "对话",
+      "canvas": "画布"
+    },
+    "openclawCard": {
+      "title": "让 OpenClaw 直接操作你的真实画布和文档",
+      "description": "统一配置谁可以使用 OpenClaw、它能编辑什么，并在一个地方回滚高风险改动。",
+      "enabled": "已启用",
+      "disabled": "已停用",
+      "manage": "管理 OpenClaw",
+      "setup": "设置 OpenClaw"
+    }
+  },
+  "assets": {
+    "loading": "加载中…",
+    "empty": "尚无资产。将文件拖拽到画布即可添加。",
+    "open": "打开",
+    "download": "下载",
+    "rename": "重命名",
+    "delete": "删除",
+    "copyLink": "复制链接",
+    "grid": "网格",
+    "list": "列表",
+    "tab": {
+      "assets": "资产",
+      "knowledge": "知识库"
+    },
+    "aria": {
+      "panelTitle": "素材库"
+    }
+  },
+  "common": {
+    "language": {
+      "english": "英语",
+      "chinese": "中文"
+    },
+    "yes": "是",
+    "no": "否",
+    "refresh": "刷新",
+    "clearFilters": "清除筛选",
+    "copy": "复制",
+    "copied": "已复制",
+    "delete": "删除",
+    "cancel": "取消",
+    "theme": "主题",
+    "themeLight": "浅色",
+    "themeDark": "深色",
+    "themeSystem": "跟随系统",
+    "toggleTheme": "切换主题",
+    "vncPreloaderTitle": "VNC 预加载",
+    "processing": "处理中...",
+    "requestFailed": "这次请求没有完成，请再试一次。"
+  },
+  "table": {
+    "csvData": "CSV 数据",
+    "xlsxData": "电子表格",
+    "rowsColumns": "- {rows} 行，{cols} 列",
+    "filteredFrom": "共 {total} 条中过滤",
+    "page": "第 {current} / {total} 页",
+    "columns": "列",
+    "showHideColumns": "显示/隐藏列",
+    "searchPlaceholder": "搜索数据...",
+    "showing": "显示第 {from} - {to} 条，共 {total} 条",
+    "previous": "上一页",
+    "next": "下一页",
+    "noData": "暂无数据",
+    "csvEmpty": "该 CSV 文件为空或无效。",
+    "clearSearch": "清除搜索",
+    "noResultsFor": "未找到与“{term}”匹配的结果"
+  },
+  "webSearch": {
+    "status": {
+      "success": "搜索完成",
+      "failed": "搜索失败"
+    },
+    "loading": {
+      "title": "正在搜索网页"
+    },
+    "images": "图片",
+    "results": "条结果",
+    "visitSite": "访问网站",
+    "source": "来源",
+    "noResults": {
+      "title": "未找到结果",
+      "suggestion": "试试优化你的搜索词以获得更好结果"
+    },
+    "unknownQuery": "未知查询"
+  },
+  "mcp": {
+    "searchResultsCount": "{count} 条搜索结果",
+    "cost": "费用：${amount}",
+    "query": "查询",
+    "copyUrl": "复制链接",
+    "tableData": "表格数据（{count} 行）",
+    "structuredData": "结构化数据",
+    "properties": "属性",
+    "urlsCount": "URL（{count}）",
+    "errorDetails": "错误详情",
+    "markdownContent": "Markdown 内容",
+    "codeOutput": "代码输出",
+    "byAuthor": "作者 {author}"
+  },
+  "connectCredential": {
+    "expired": "已过期",
+    "remainingHm": "{hours} 小时 {minutes} 分",
+    "remainingMs": "{minutes} 分 {seconds} 秒",
+    "remainingS": "{seconds} 秒",
+    "linkGenerated": "链接已生成",
+    "generationFailed": "生成失败",
+    "generating": "正在生成连接链接",
+    "linkTitle": "连接链接",
+    "expiresIn": "{time} 后过期",
+    "expiresOn": "链接将于 {time} 过期",
+    "connectAccount": "连接账户",
+    "linkExpired": "连接链接已过期",
+    "expiredHelp": "该连接链接已过期，需要重新生成以继续连接账户。",
+    "none": "尚未生成连接链接",
+    "failedFor": "为“{name}”生成链接失败"
+  },
+  "billing": {
+    "modal": {
+      "title": "充值积分"
+    },
+    "unlimited": "无限",
+    "page": {
+      "title": "订阅与积分",
+      "subtitle": "在同一处查看订阅、积分和消耗情况。",
+      "viewModelPricing": "查看模型定价",
+      "manageSubscription": "管理订阅",
+      "currentPlan": "当前订阅",
+      "nextRefresh": "下次更新：{date}",
+      "availableCredits": "可用积分",
+      "totalCredits": "本期总积分",
+      "usedCredits": "已用 {used} / {total}",
+      "extraCredits": "额外积分 {amount}",
+      "pointsUnit": "积分",
+      "plan": "方案",
+      "status": "状态",
+      "nextBill": "下次扣费",
+      "balance": "积分",
+      "localDisabled": "本地开发模式下，账单功能已禁用。",
+      "detailsTitle": "账单详情",
+      "collapse": "收起",
+      "expand": "展开",
+      "errorLoading": "加载账单详情出错：{message}",
+      "creditsBalance": "积分",
+      "tierMonthlyCredits": "月度积分",
+      "none": "暂无账单信息。",
+      "error": "错误",
+      "failedAccountLoad": "账户数据加载失败",
+      "accountNotFound": "未找到账户",
+      "accountNotFoundDesc": "无法找到你的个人账户。"
+    },
+    "balanceCard": {
+      "failedLoad": "积分加载失败",
+      "creditBalance": "积分",
+      "pointsUnit": "积分",
+      "buyCredits": "补充积分",
+      "totalAvailable": "可用积分",
+      "purchaseAdditional": "补充当月积分",
+      "purchaseCredits": "补充积分",
+      "amountUSD": "积分数量",
+      "enterAmount": "输入积分",
+      "rateNote": "积分会在结算时自动换算，最低 100 积分",
+      "invalidAmount": "请输入有效积分",
+      "redirectingCheckout": "正在跳转到结算...",
+      "failedCreateCheckout": "创建结算失败：{message}",
+      "purchaseX": "购买 {amount} 积分",
+      "neverExpireNote": "购买的积分永久有效，仅在方案积分用尽后才会使用。"
+    },
+    "dailyLogin": {
+      "toastGranted": "今日登录奖励 +{points} 积分已到账"
+    },
+    "paymentPending": {
+      "title": "正在支付中",
+      "description": "请在新页面完成支付，我们会在这里同步结果。",
+      "status": {
+        "waiting": "等待支付确认…",
+        "checking": "正在检查支付状态…",
+        "notConfirmed": "暂时还没收到支付确认，可能需要一点时间。",
+        "timeout": "仍在等待。如已完成支付，请点击“已完成支付”。"
+      },
+      "actions": {
+        "confirm": "已完成支付",
+        "cancel": "取消支付"
+      },
+      "error": "暂时无法验证支付，请稍后再试。",
+      "popupBlocked": "无法打开支付页面，请允许弹窗后再试。",
+      "successToast": "支付已确认，正在更新账号。"
+    },
+    "transactions": {
+      "title": "积分明细",
+      "loading": "正在加载交易记录...",
+      "error": "错误",
+      "failedLoad": "交易记录加载失败",
+      "currentBalanceTitle": "积分概览",
+      "breakdown": "积分构成",
+      "totalBalance": "总积分",
+      "expiringCredits": "即将过期积分",
+      "nonExpiringCredits": "永久积分",
+      "historyTitle": "交易历史",
+      "historyDesc": "所有积分增加与扣减",
+      "none": "暂无交易记录。",
+      "noneFiltered": "未找到 {type} 类型的交易。",
+      "showMore": "展开更多",
+      "showing": "显示第 {from}-{to} 条，共 {total} 条交易",
+      "previous": "上一页",
+      "next": "下一页",
+      "table": {
+        "date": "日期",
+        "type": "类型",
+        "description": "描述",
+        "creditType": "积分类型",
+        "tokens": "输入+输出",
+        "amount": "积分变动",
+        "balanceAfter": "剩余积分",
+        "expiring": "临时",
+        "permanent": "永久",
+        "noDescription": "无描述"
+      },
+      "badges": {
+        "tier_grant": "方案发放",
+        "purchase": "购买",
+        "admin_grant": "管理员发放",
+        "promotional": "活动奖励",
+        "welcome_bonus": "欢迎奖励",
+        "daily_login": "每日登录",
+        "usage": "使用",
+        "refund": "退款",
+        "adjustment": "调整",
+        "expired": "已过期",
+        "initial": "初始化"
+      }
+    }
+  },
+  "admin": {
+    "userTable": {
+      "user": "用户",
+      "account": "账户",
+      "accountType": "类型",
+      "personal": "个人",
+      "team": "团队",
+      "allAccounts": "全部账户",
+      "teamAccount": "团队账户",
+      "owner": "负责人",
+      "createdOn": "创建于 {date}",
+      "tier": "方案",
+      "creditBalance": "信用余额",
+      "actions": "操作",
+      "details": "详情",
+      "searchByAccount": "按邮箱或团队名搜索...",
+      "searchByEmail": "按邮箱搜索...",
+      "joinedOn": "加入于 {date}",
+      "emptyMessage": "没有符合条件的用户"
+    },
+    "details": {
+      "title": "账户详情 - {email}",
+      "subtitle": "管理账户计费并执行管理操作",
+      "tabs": {
+        "overview": "概览",
+        "transactions": "交易",
+        "activity": "活动",
+        "actions": "管理操作"
+      },
+      "accountInfo": "账户信息",
+      "teamName": "团队名称",
+      "email": "邮箱",
+      "ownerEmail": "负责人邮箱",
+      "userId": "用户 ID",
+      "accountId": "账户 ID",
+      "slug": "团队标识",
+      "joined": "加入时间",
+      "created": "创建时间",
+      "accountType": "账户类型",
+      "tier": "方案",
+      "creditSummary": "额度汇总",
+      "currentBalance": "当前余额",
+      "purchased": "已购买",
+      "used": "已使用",
+      "subscription": "订阅",
+      "recentActivity": "最近活动"
+    },
+    "audit": {
+      "events": {
+        "columns": {
+          "event": "事件",
+          "aggregate": "对象",
+          "tenant": "工作区",
+          "actor": "用户",
+          "occurred": "发生时间"
+        }
+      },
+      "failures": {
+        "columns": {
+          "projection": "视图",
+          "event": "事件",
+          "aggregate": "对象",
+          "failures": "失败次数",
+          "error": "最新错误"
+        }
+      }
+    },
+    "invites": {
+      "title": "邀请码 - 管理",
+      "subtitle": "生成和管理邀请码，并查看兑换记录。",
+      "createTitle": "创建邀请码",
+      "count": "数量",
+      "countHint": "一次生成多个邀请码",
+      "code": "自定义邀请码（6位）",
+      "codePlaceholder": "精确邀请码（数量需为 1）",
+      "copy": "复制邀请码",
+      "usedCount": "已被使用 {count} 次",
+      "usedUp": "已全部使用",
+      "account": "账户",
+      "redeemed": "兑换时间",
+      "reward": "奖励金额",
+      "creditExpiry": "额度有效期",
+      "campaign": "活动",
+      "tag": "标签",
+      "expiresInDays": "过期时间（天）",
+      "maxRedemptions": "最大兑换次数",
+      "active": "激活",
+      "advancedOptions": "高级选项",
+      "selectedCount": "已选择 {count} 个邀请码",
+      "deleteSelected": "删除选中",
+      "confirmDelete": "确定要删除 {count} 个邀请码吗？此操作不可撤销。",
+      "default": "默认",
+      "inactive": "未激活",
+      "deleteMode": "删除",
+      "cancelDelete": "取消删除",
+      "redemptions": "兑换记录",
+      "noRedemptions": "暂无兑换记录",
+      "totalRedemptions": "已兑换：{count}",
+      "expand": "展开",
+      "collapse": "收起"
+    }
+  },
+  "canvas": {
+    "selection": {
+      "title": "选择或创建画布",
+      "placeholder": "输入画布名称...",
+      "recent": "最近使用的画布",
+      "clickToLink": "点击关联",
+      "exists": "已存在",
+      "hintArrows": "↑↓ 选择",
+      "hintConfirm": "Enter 确认 • ESC 取消"
+    },
+    "screenshot": {
+      "title": "截图",
+      "capturing": "截图中...",
+      "noPreview": "点击右上角相机立即截图。",
+      "retry": "重新截图",
+      "download": "下载 PNG",
+      "copied": "截图已复制到剪贴板",
+      "clipboardUnavailable": "剪贴板不可用，可直接下载图片。",
+      "copyHint": "默认会尝试复制到剪贴板，也可直接下载。",
+      "missingContainer": "未找到画布容器，无法截图。",
+      "failed": "截图失败，请重试。",
+      "partial": "截图已生成，部分媒体可能仍在加载。",
+      "downloaded": "已准备好下载。",
+      "close": "关闭",
+      "aspect": {
+        "original": "原图比例"
+      }
+    },
+    "syncing": "同步中...",
+    "openFailed": "打开失败，已展示上次保存内容。",
+    "retrying": "正在重试...",
+    "retryNoCache": "重试",
+    "clearLocal": "清除本地",
+    "status": {
+      "saveFailed": "保存失败",
+      "saveFailedDetail": "无法同步你的修改，但本地草稿仍然保留。",
+      "retry": "重试",
+      "saving": "保存中...",
+      "localDraft": "本地草稿已保存",
+      "savedAt": "已于 {time} 保存",
+      "offline": "未连接",
+      "unsaved": "有未保存的修改",
+      "saved": "已保存"
+    },
+    "menu": {
+      "open": "打开画布",
+      "openNew": "在新标签页打开",
+      "duplicate": "复制画布",
+      "delete": "删除画布",
+      "deleteCanvas": "删除画布",
+      "renameFolder": "重命名文件夹",
+      "collapseFolder": "折叠文件夹",
+      "expandFolder": "展开文件夹",
+      "createSubfolder": "创建子文件夹",
+      "deleteFolder": "删除文件夹",
+      "thisFolder": "该文件夹",
+      "confirmDelete": {
+        "title": "确认删除",
+        "message": "删除画布 \"{title}\"？\n\n此操作无法撤销。"
+      },
+      "confirmDeleteFolder": {
+        "message": "删除文件夹 \"{name}\"？\n\n其中的项目将移动到上级。"
+      },
+      "rename": "重命名",
+      "pin": "置顶",
+      "unpin": "取消置顶",
+      "createText": "新建文本节点",
+      "createTodo": "新建待办节点",
+      "createMermaid": "新建 Mermaid 图表",
+      "createHTML": "新建 HTML 节点",
+      "createColumn": "新建列",
+      "createTable": "新建表格节点",
+      "optimizeSizes": "优化节点尺寸",
+      "leaveGroup": "移出分组",
+      "group": {
+        "rename": "重命名分组",
+        "ungroup": "取消分组",
+        "group": "分组",
+        "switchToGroup": "切换为分组",
+        "switchToMindmap": "切换为思维导图"
+      },
+      "align": {
+        "title": "对齐",
+        "alignAndDistribute": "对齐与分布",
+        "left": "左对齐",
+        "right": "右对齐",
+        "top": "上对齐",
+        "bottom": "下对齐",
+        "centerH": "水平居中",
+        "centerV": "垂直居中",
+        "distributeH": "水平分布",
+        "distributeV": "垂直分布"
+      },
+      "node": {
+        "edit": "编辑节点",
+        "expandEdit": "展开编辑",
+        "optimize": "优化尺寸",
+        "lock": "锁定节点",
+        "unlock": "解锁节点",
+        "ai": {
+          "mark": "标记为 AI",
+          "unmark": "取消 AI 标记",
+          "markSelected": "标记为 AI（选中）",
+          "unmarkSelected": "取消 AI 标记（选中）"
+        }
+      },
+      "media": {
+        "downloadOriginal": "下载原图",
+        "downloadStarted": "已开始下载"
+      },
+      "table": {
+        "insertRowAbove": "在上方插入一行",
+        "insertRowBelow": "在下方插入一行",
+        "insertColLeft": "在左侧插入一列",
+        "insertColRight": "在右侧插入一列",
+        "quickAdd": "快速扩展行/列",
+        "deleteRow": "删除行",
+        "deleteColumn": "删除列"
+      },
+      "connection": {
+        "editLabel": "编辑标签",
+        "style": {
+          "title": "样式",
+          "solid": "实线",
+          "dashed": "虚线",
+          "toggleEnd": "切换箭头（终点）",
+          "toggleStart": "切换箭头（起点）",
+          "color": "颜色：{name}"
+        },
+        "deleteOne": "删除连线",
+        "deleteConnections": "删除 {count} 条连线"
+      },
+      "duplicateNode": "复制节点",
+      "duplicateNodes": "复制 {count} 个节点",
+      "deleteNode": "删除节点",
+      "deleteNodes": "删除 {count} 个节点",
+      "selectedCount": "已选择 {count} 个节点"
+    },
+    "node": {
+      "text": {
+        "placeholder": "输入内容",
+        "openExpanded": "打开完整编辑器",
+        "editorPlaceholder": "输入 '/' 打开命令",
+        "expanded": {
+          "subtitle": "专注写作，修改会自动保存。",
+          "autosave": "自动保存已开启",
+          "close": "关闭",
+          "aiUnavailable": "AI 不可用：缺少画布上下文"
+        }
+      }
+    },
+    "link": {
+      "brokenConfirm": "画布链接“{title}”的目标画布已被删除。\n\n是否重新选择或创建新的目标画布？",
+      "brokenAlert": "画布链接已损坏且无法自动修复，请删除后重新创建。"
+    },
+    "untitled": "未命名画布",
+    "create": "新建画布",
+    "blank": "从空白画布开始",
+    "emptyHint": {
+      "title": "如何开始",
+      "subtitle": "输入 / 整理 / 输出",
+      "inputLabel": "输入",
+      "inputDesc": "双击 / 拖拽 / 粘贴",
+      "processLabel": "整理",
+      "processDesc": "连接 / AI 整理",
+      "outputLabel": "输出",
+      "outputDesc": "PPT / 视频 / 图片",
+      "a11y": "输入：双击、拖拽、粘贴。整理：连接或 AI 整理。输出：PPT、视频、图片。"
+    },
+    "driftHint": {
+      "message": "你已离开内容区，双击空白处可快速回到画布内容",
+      "a11y": "你已离开内容区。双击空白处可快速回到画布内容。"
+    },
+    "codeEditor": {
+      "title": "代码编辑器",
+      "editing": "编辑：{id}...",
+      "noCode": "无代码节点",
+      "placeholder": "// 在此编写代码...",
+      "tip": {
+        "select": "选择一个代码节点开始编辑",
+        "create": "或在画布中创建新的代码节点"
+      },
+      "lines": "行数：{count}",
+      "chars": "字符：{count}"
+    },
+    "floatingEditor": {
+      "title": "code.editor",
+      "idle": "空闲",
+      "unsaved": "有未保存更改",
+      "undo": "撤销",
+      "redo": "重做",
+      "restore": "还原",
+      "maximize": "最大化",
+      "close": "关闭",
+      "editing": "编辑:",
+      "status": "状态:",
+      "noSelection": "未选择节点",
+      "chars": "{count} 个字符",
+      "lang": "语言: {lang}",
+      "clickToEdit": "点击开始编辑",
+      "clickNode": "点击画布中的节点进行编辑"
+    },
+    "toolbar": {
+      "shareCanvas": "分享画布",
+      "shareToFriend": "分享给好友",
+      "publishToTemplates": "公开到模板库",
+      "backToCanvas": "返回画布",
+      "switchToOutline": "切换到大纲",
+      "stop": "停止",
+      "play": "播放",
+      "screenshot": "截图",
+      "openExpandedEditor": "展开编辑",
+      "openAssetLibrary": "打开素材库",
+      "closeAssetLibrary": "关闭素材库",
+      "collaborate": "协作邀请",
+      "openSidePanel": "打开侧边栏",
+      "closeSidePanel": "收起侧边栏"
+    },
+    "aiAssistant": {
+      "title": "AI 助手"
+    },
+    "toolbarLeft": {
+      "createText": "拖拽以创建文本节点",
+      "createTodo": "拖拽以创建待办节点",
+      "createMermaid": "拖拽以创建 Mermaid 节点",
+      "createHTML": "拖拽以创建 HTML 节点",
+      "createColumn": "拖拽以创建收集栏节点",
+      "createTable": "拖拽以创建表格节点",
+      "createAudio": "拖拽以创建音频录制节点",
+      "createLink": "拖拽以创建双向链接节点",
+      "sections": {
+        "text": "文本",
+        "code": "代码",
+        "structure": "结构",
+        "visual": "可视化",
+        "media": "媒体",
+        "link": "链接"
+      },
+      "items": {
+        "text": "文本",
+        "todo": "待办",
+        "column": "收集栏",
+        "table": "表格",
+        "mermaid": "Mermaid",
+        "html": "HTML",
+        "audio": "音频",
+        "link": "双向链接"
+      },
+      "tools": {
+        "select": "选择",
+        "create": "创建",
+        "structure": "结构",
+        "text": "文本",
+        "code": "代码",
+        "line": "连线工具",
+        "style": "画布样式"
+      },
+      "modes": {
+        "select": "选择模式",
+        "drag": "拖拽模式",
+        "chat": "对话模式"
+      },
+      "panels": {
+        "create": "创建",
+        "text": "文本",
+        "code": "代码",
+        "structure": "结构",
+        "nodeStyle": "节点样式",
+        "groupStyle": "组样式",
+        "connectionStyle": "连线样式"
+      },
+      "actions": {
+        "closePanel": "关闭面板"
+      }
+    },
+    "selectionOverlay": {
+      "chat": "对话",
+      "chatPlaceholder": "告诉我你的请求。",
+      "infographic": "信息图",
+      "generateInfographic": "根据选中内容生成信息图",
+      "infographicGenerated": "信息图生成成功",
+      "infographicFailed": "信息图生成失败",
+      "noContent": "选区没有可用内容",
+      "generating": "正在生成...",
+      "styleSettings": "信息图风格设置",
+      "styleSettingsTitle": "信息图风格",
+      "styleSettingsDesc": "选择预设风格，或上传参考图。",
+      "styleSystemDefault": "系统默认风格",
+      "styleCustom": "自定义风格",
+      "styleLoadFailed": "加载信息图风格设置失败",
+      "styleSaved": "信息图默认配置已保存",
+      "styleSaveFailed": "保存信息图默认配置失败",
+      "style": "风格",
+      "loadingStyleSettings": "加载中...",
+      "styleMarket": "风格市场",
+      "stylePreset": "预设风格",
+      "stylePresetSelect": "选择风格预设",
+      "styleUseResolvedDefault": "使用解析后的默认值（用户/工作区/系统）",
+      "mergeMode": "提示词合并模式",
+      "mergeModeAppend": "追加",
+      "mergeModePrepend": "前置",
+      "mergeModeReplace": "替换风格意图",
+      "styleLock": "风格锁",
+      "styleLockSoft": "柔性锁定",
+      "styleLockStrict": "严格锁定",
+      "styleLockOff": "关闭",
+      "customPrompt": "补充说明",
+      "customPromptPlaceholder": "例：用更大的标题，增强对比度...",
+      "customPromptHint": "当前面板设置会立即用于本画布的生成。点击“保存为默认”即可持久化到你的账号。",
+      "reloadStyleSettings": "重新加载",
+      "close": "关闭",
+      "saving": "保存中...",
+      "saveAsDefault": "存为默认",
+      "styleResolvedChain": "解析后的默认值链路",
+      "styleSearchPlaceholder": "搜索风格",
+      "styleNoMarketResult": "暂无可用风格",
+      "marketFilterAll": "全部",
+      "marketFilterOfficial": "官方",
+      "marketFilterWorkspace": "工作区",
+      "marketSortRecommended": "推荐",
+      "marketSortFeatured": "精选优先",
+      "marketSortRecent": "最近使用",
+      "marketSortName": "名称 A-Z",
+      "marketFeaturedBadge": "精选",
+      "styleRecentUsed": "最近使用",
+      "styleClearRecent": "清空",
+      "stylePreview": "风格预览",
+      "stylePreviewResolvedDefault": "解析后的默认风格",
+      "stylePreviewNoDescription": "该风格暂无描述信息。",
+      "stylePreviewTagsFallback": "暂无风格标签",
+      "sourceTemporary": "临时覆盖",
+      "sourceUserDefault": "用户默认",
+      "sourceWorkspaceDefault": "工作区默认",
+      "sourceSystemDefault": "系统默认",
+      "sourceUnknown": "未知",
+      "resolvedRecipeSourceLabel": "配方",
+      "resolvedPromptSourceLabel": "提示词",
+      "resolvedMergeSourceLabel": "合并",
+      "resolvedLockSourceLabel": "锁定",
+      "styleAppliedTemporary": "已将风格临时应用到当前画布",
+      "styleTemporaryCleared": "当前画布已恢复使用解析后的默认值",
+      "styleSavedWorkspace": "工作区默认配置已保存",
+      "styleSavedUser": "你的默认配置已保存",
+      "styleUseResolvedForCanvas": "当前画布使用解析后的默认值",
+      "styleSaveAsMyDefault": "存为我的默认",
+      "styleSaveAsWorkspaceDefault": "存为工作区默认",
+      "styleApplyToCanvas": "应用",
+      "stylePromptOnly": "仅使用自定义提示词覆盖",
+      "stylePresetsLabel": "风格预设",
+      "refImageLabel": "参考图",
+      "optionalHint": "（可选）",
+      "refImageAttached": "已上传",
+      "refImageDropOrClick": "点击或拖拽上传参考图",
+      "refImageUploading": "上传中...",
+      "refImageInvalidType": "请上传图片文件（PNG、JPG、WebP、GIF）",
+      "refImageTooLarge": "图片大小不能超过 10MB",
+      "refImageUploadFailed": "上传参考图失败"
+    },
+    "htmlEditor": {
+      "previewTitle": "HTML 预览",
+      "presentationHeader": "PPT HTML 编辑器",
+      "header": "HTML 编辑器",
+      "saveAndExit": "保存并退出",
+      "placeholder": "输入 HTML 代码...",
+      "presentationPreview": "演示预览",
+      "edit": "编辑 HTML",
+      "refresh": "刷新",
+      "refreshPreview": "刷新预览",
+      "interact": "在浮层中交互",
+      "interactBtn": "交互",
+      "previewSnapshot": "静态预览",
+      "previewLive": "实时预览",
+      "rotateStatic": "静态预览"
+    },
+    "codeNode": {
+      "previewTitle": "HTML 预览",
+      "togglePreview": "切换预览",
+      "saveHint": "保存（Ctrl+Enter）",
+      "cancelHint": "取消（Esc）",
+      "edit": "编辑代码",
+      "clickToSelect": "点击选中节点"
+    },
+    "svgInteraction": {
+      "hint": "点击选择 SVG 元素；点击文字可直接编辑"
+    },
+    "ai": {
+      "title": "AI 助手",
+      "closePanel": "关闭面板",
+      "contextNode": "节点上下文",
+      "contextSelection": "已选择 {count} 项",
+      "contextCanvas": "整个画布",
+      "statusRunning": "运行中",
+      "statusConnecting": "连接中",
+      "statusQueuePaused": "队列已暂停（{count}）",
+      "statusQueue": "队列 {count}",
+      "statusIdle": "空闲",
+      "historyTitle": "历史记录",
+      "historyAria": "历史会话",
+      "historySearchAria": "搜索历史会话",
+      "historySearchPlaceholder": "搜索会话",
+      "historyClearSearch": "清空搜索",
+      "historySearchEmpty": "没有匹配的会话",
+      "historyPanelTitle": "对话历史",
+      "historyPanelCurrent": "当前：#{index}",
+      "historyPanelHint": "点击切换",
+      "historyPanelActive": "当前会话",
+      "historyPanelChat": "会话 #{index}",
+      "historyPanelBadge": "当前",
+      "historyMessageCount": "{count} 条消息",
+      "historyGroupRecent": "本周内",
+      "historyGroupEarlier": "更早",
+      "historyDeleteTitle": "删除这条记录？",
+      "historyDeleteDescription": "将永久删除「{title}」中的所有消息，无法恢复。",
+      "historyDeleteFailed": "删除失败，请稍后再试。",
+      "historyDeleteBlocked": "请先停止当前运行，再删除。",
+      "noHistory": "暂无历史会话",
+      "noHistoryHint": "开始新对话后会显示在这里。",
+      "newSession": "新建对话",
+      "expandPanel": "展开面板",
+      "collapsePanel": "收起面板"
+    },
+    "svgTextEditor": {
+      "editHint": "✏️ 编辑文字（Enter 保存 / ESC 取消）",
+      "updateNote": "💾 修改将直接更新 SVG 代码",
+      "placeholder": "输入文字..."
+    },
+    "tools": {
+      "selectToHand": "选择工具 — 点击切换为手型工具",
+      "handToSelect": "手型工具 — 点击切换为选择工具",
+      "hideMinimap": "隐藏小地图",
+      "showMinimap": "显示小地图",
+      "centerView": "视图居中",
+      "resetView": "重置视图（100% 缩放并居中）",
+      "unlockCanvas": "解锁画布",
+      "lockCanvas": "锁定画布"
+    },
+    "mindmap": {
+      "orientation": {
+        "title": "导图方向",
+        "right": "右向",
+        "both": "双向"
+      }
+    },
+    "connection": {
+      "placeholder": "标签..."
+    },
+    "titleEditor": {
+      "hint": "点击打开文件管理器，双击编辑标题"
+    },
+    "share": {
+      "title": "分享画布",
+      "subtitle": "为此画布分享只读公开链接",
+      "migrationNote": "请应用画布公开分享的 SQL 迁移后再重试。",
+      "publicLabel": "public",
+      "plazaHint": "开启后，该画布将会分享到“模板”页，所有访客均可发现。",
+      "goToPlaza": "前往 模板",
+      "publicInfo": "该画布已公开，持有链接的任何人均可查看此画布及其对话时间线。",
+      "includeTimeline": "包含对话时间线",
+      "includeTimelineHelp": "开启后，访客在分享页可以查看该画布的 AI 对话时间线。",
+      "linkLabel": "分享链接",
+      "copy": "复制链接",
+      "note": "任何拿到链接的人都可以查看（只读）。",
+      "disable": "关闭分享",
+      "disabledNote": "分享已关闭，重新开启后会生成新链接。",
+      "enable": "重新开启分享",
+      "advanced": "高级设置",
+      "retry": "重试",
+      "unavailable": "分享暂不可用，请稍后再试。",
+      "create": "创建分享链接",
+      "creating": "正在创建...",
+      "remove": "移除链接",
+      "removing": "正在移除...",
+      "created": "分享链接创建成功",
+      "createFailed": "创建分享链接失败",
+      "removed": "分享链接已移除",
+      "removeFailed": "移除分享链接失败",
+      "copied": "链接已复制到剪贴板",
+      "help": "创建一个分享链接，允许他人公开查看此画布及其 AI 时间线。",
+      "timeline": "在分享页显示时间线",
+      "inviteCreate": "生成邀请",
+      "inviteCreating": "创建中",
+      "inviteCreated": "协作邀请已准备好，把链接发给对方即可",
+      "inviteCreateFailed": "生成邀请失败",
+      "inviteRevoked": "已撤销邀请",
+      "inviteRevokeFailed": "撤销邀请失败",
+      "inviteLoadFailed": "邀请加载失败",
+      "codeHidden": "邀请码仅创建时可见",
+      "copyFailed": "复制失败",
+      "private": {
+        "title": "私有链接",
+        "subtitle": "创建仅持有链接可见的分享链接",
+        "enable": "启用分享链接",
+        "help": "仅持有链接的人可访问，不会在模板库展示。"
+      },
+      "invite": {
+        "title": "协作邀请",
+        "desc": "点击邀请，生成链接给伙伴一起编辑。",
+        "inviteCreate": "邀请协作",
+        "inviteCreating": "邀请中",
+        "inviteCreated": "协作邀请已准备好，把链接发给对方即可",
+        "inviteCreateFailed": "发送邀请失败",
+        "inviteRevoked": "协作已关闭",
+        "inviteRevokeFailed": "关闭邀请失败",
+        "latest": "当前邀请",
+        "code": "邀请码",
+        "link": "链接",
+        "copy": "复制协作链接",
+        "note": "任何拿到链接的人都可以编辑。",
+        "preparing": "正在准备协作链接...",
+        "regen": "重新生成链接（旧链接失效）",
+        "regenerated": "已生成新链接",
+        "regenConfirm": "重新生成会使旧链接失效，是否继续？",
+        "stopConfirm": "关闭协作后链接将失效，是否继续？",
+        "list": "邀请列表",
+        "empty": "暂无邀请，点击“邀请协作”即可开始。",
+        "noExpiry": "默认 7 天 / 5 次",
+        "expires": "截止",
+        "uses": "次数",
+        "inviteLoadFailed": "邀请加载失败",
+        "codeHidden": "邀请码只在创建时显示，请记下来",
+        "inviteActive": "协作已开启",
+        "inviteStop": "关闭协作",
+        "active": "协作已开启",
+        "stop": "关闭协作",
+        "limitNote": "默认有效期 7 天 / 5 次，随时可关闭协作。",
+        "closeTip": "关闭后当前链接立即失效，需要重新开启生成新链接。",
+        "ownerOnly": "仅工作区所有者可以创建或撤销协作邀请。"
+      },
+      "publish": {
+        "title": "公开到模板库",
+        "subtitle": "将此画布发布到模板库中",
+        "enable": "发布到模板库",
+        "help": "发布后，所有访客可在模板库中发现此画布。",
+        "unlist": "下架模板"
+      },
+      "ownerOnly": "仅工作区所有者可管理分享设置。",
+      "inviteActive": "协作已开启",
+      "inviteStop": "关闭"
+    },
+    "column": {
+      "placeholder": "输入列标题",
+      "editHint": "双击编辑标题"
+    },
+    "style": {
+      "buttonTitle": "样式设置",
+      "globalTitle": "全局样式",
+      "customBackgroundColor": "自定义背景颜色",
+      "customPatternColor": "自定义图案颜色"
+    }
+  },
+  "docs": {
+    "breadcrumbs": {
+      "docs": "文档",
+      "introduction": "介绍"
+    },
+    "intro": {
+      "header": {
+        "title": "Zmind：可视化 AI 思考画布",
+        "subtitle": "用 AI Agent + 多模态画布，让想法可视、可改、可复用",
+        "lastUpdated": "2025 年 3 月"
+      },
+      "imageAlt": "Zmind 多模态思考画布",
+      "overviewTitle": "Zmind 是什么？",
+      "overviewP1": "Zmind 是全模态的 AI 学习与思考助手。AI 原生的无限画布配合引导式 Agent，让你把上下文和逻辑可视化地摆出来，随时编辑、复用，AI 改的就是你看到的。",
+      "meet": {
+        "title": "它为何帮你更好思考",
+        "p1": "我们解决把 AI 真正用于思考的最大阻碍：意图不清、上下文混乱。",
+        "li1": "引导式提问，帮你说清真正需求和背后的假设",
+        "li2": "可视化上下文，关系与决策不再淹没在对话里",
+        "li3": "多模态输入（文本/图片/文档）都落在同一画布图谱",
+        "li4": "Agent 负责总结、剪枝、延展分支，线程不断线",
+        "li5": "输出都是可编辑、可协作的节点，而不是一次性回复",
+        "p2": "结果 = Intelligence^2：人的思考 x AI 能力，由你掌控。"
+      },
+      "build": {
+        "title": "你可以在这里做什么",
+        "p": "为必须把模糊问题变成清晰计划的人而生：",
+        "li1": "把复杂决策拆成可视化分支，AI 适时提示风险与下一步",
+        "li2": "跨文档/图片/链接学习与整理，在一张结构化画布中串联",
+        "li3": "会议、研讨、研究共创，同步上下文并沉淀可复用输出"
+      },
+      "how": {
+        "title": "它如何在画布上运作",
+        "p": "同一张画布，AI 改的就是你看到的结构：",
+        "li1": "统一的画布 JSON，让人和 Agent 对齐同一个状态",
+        "li2": "引导式提示，澄清目标、风险、下一步和缺失信息",
+        "li3": "多模态理解与生成，即将支持剪藏等集成",
+        "li4": "节点与模板可复用，下一次思考更快启动"
+      },
+      "why": {
+        "title": "你会感受到什么",
+        "p": "这是为思考而生的工作区，而不是聊天框：",
+        "li1": "看得见并能掌控：分支、优先级和决策都在眼前",
+        "li2": "一切可编辑：AI 输出都是节点，随时重组、连线、复用",
+        "li3": "天然协作：共享画布、多人共编，完整上下文始终在线"
+      },
+      "cta": {
+        "title": "打开 Zmind 开始画布思考"
+      }
+    }
+  },
+  "nodeStylePanel": {
+    "mixed": "{count} 个混合节点样式",
+    "text": "{count, plural, one {文本节点样式} other {{count} 个文本节点样式}}",
+    "chart": "{count, plural, one {图表节点样式} other {{count} 个图表节点样式}}",
+    "svg": "{count, plural, one {SVG 节点样式} other {{count} 个 SVG 节点样式}}",
+    "table": "{count, plural, one {表格节点样式} other {{count} 个表格节点样式}}",
+    "column": "{count, plural, one {收集栏样式} other {{count} 个收集栏样式}}",
+    "generic": "节点样式设置"
+  },
+  "landing": {
+    "nav": {
+      "home": "首页",
+      "capabilities": "能力",
+      "pricing": "定价",
+      "blog": "博客",
+      "core-values": "功能",
+      "faq": "Q&A",
+      "templates": "模板",
+      "tutorials": "教程",
+      "enterprise": "企业版",
+      "dashboard": "控制台",
+      "tryFree": "获取内测资格"
+    },
+    "bento": {
+      "title": "人类创造力与 AI 智能的交汇",
+      "subtitle": "体验面向未来的思考方式：AI 智能理解你的可视化思维过程，并主动参与你的创作旅程。",
+      "items": {
+        "intelligent": {
+          "title": "智能画布理解",
+          "desc": "真正理解你可视化工作区的 AI 智能体。看见想法之间的关系，提出改进建议，帮助你发现新的连接。"
+        },
+        "realtime": {
+          "title": "实时思维协作伙伴",
+          "desc": "四个专长 AI 智能体与你并肩工作：Canvas Agent 负责空间理解，Thinking Agent 增强认知，Logic Agent 构建逻辑，Decision Agent 支持决策。"
+        },
+        "adaptive": {
+          "title": "自适应智能层",
+          "desc": "AI 学习你的思维模式并适配你的工作流，提供个性化建议、智能自动化和贴合你的洞察。"
+        }
+      }
+    },
+    "cases": {
+      "title": "案例",
+      "subtitle": "看看来自社区的真实画布",
+      "viewMore": "查看更多"
+    },
+    "footer": {
+      "description": "Zmind —— 你的数字化思维工作室，在这里 AI 与视觉创意相遇。组织思路，智能协作，让想法转化为可执行的策略。"
+    }
+  },
+  "globalSearch": {
+    "placeholder": "搜索所有画布...",
+    "open": "搜索所有画布",
+    "results": "搜索结果",
+    "recent": "最近更新",
+    "loading": "搜索中...",
+    "unavailable": "搜索暂时不可用，请稍后再试",
+    "noResults": "没有找到与「{query}」相关的内容",
+    "noResultsHint": "试试更短的词，或换一个关键词",
+    "filters": "筛选",
+    "filtersCurrentCanvas": "仅当前画布",
+    "filtersCurrentCanvasHint": "打开画布后可用",
+    "filtersIncludeArchived": "包含归档画布",
+    "rootFolder": "根目录",
+    "untitledCanvas": "未命名画布",
+    "untitledFolder": "未命名文件夹",
+    "noPreview": "无预览内容",
+    "minLength": "至少输入 {count} 个字符",
+    "nodeMissing": "这个节点可能已被删除",
+    "badgeDoc": "文档",
+    "badgeLink": "链接",
+    "badgeCanvas": "画布",
+    "createCanvas": "新建画布",
+    "createCanvasWithTitle": "新建画布“{title}”",
+    "createDoc": "新建文档",
+    "createDocWithTitle": "新建文档“{title}”",
+    "description": "快速新建画布或文档，或跳转到已有内容。",
+    "hint": "输入以搜索文档、画布、节点和链接。在操作项上按 Enter 快速执行。",
+    "quickActions": "快捷操作",
+    "quickCanvasHint": "立即打开一个新画布",
+    "quickDocHint": "立即在新文档中开始书写",
+    "action": "前往",
+    "recentEmpty": "还没有文档或画布。",
+    "recentNow": "刚刚",
+    "untitled": "未命名",
+    "resultHint": "打开此结果",
+    "emptyHelp": "使用上方的快捷操作，或继续输入以搜索此工作区中的全部内容。"
+  },
+  "activateTrial": {
+    "nav": {
+      "home": "首页",
+      "dashboard": "控制台",
+      "logout": "退出登录"
+    },
+    "title": "欢迎使用 Zmind",
+    "subtitle": "通过邀请码解锁 AI 使用与购买权限",
+    "section": {
+      "title": "邀请码提前体验",
+      "desc": "输入你的邀请码可获得 10 美元使用额度（约 1000 积分，30 天内有效），同时开通购买资格。"
+    },
+    "input": {
+      "placeholder": "请输入你的邀请码"
+    },
+    "redeem": {
+      "redeeming": "兑换中...",
+      "cta": "兑换邀请码"
+    },
+    "how": {
+      "title": "如何获取邀请码",
+      "desc": "加入我们的微信群，并向管理员申请邀请码。扫描下方二维码加入。",
+      "qrAlt": "微信群二维码",
+      "qrPlaceholder": "二维码即将上线",
+      "tipPrefix": "提示：准备好后，将微信群二维码图片上传到",
+      "tipSuffix": "即可在此显示。",
+      "tipUpload": "扫码加入微信群，如果暂时没有二维码，请联系管理员获取最新入口。"
+    },
+    "toast": {
+      "invalidCode": "请输入有效的邀请码。",
+      "redeemedSuccess": "兑换成功，已获得 10 美元使用额度。",
+      "alreadyRedeemed": "该账号已兑换过邀请码。",
+      "invalidOrExpired": "邀请码无效或已过期。",
+      "alreadyUsed": "该邀请码已被使用。",
+      "onlyNewAccounts": "仅限新账号可兑换。",
+      "redeemedSuccessWithBalance": "兑换成功，已获得 10 美元使用额度（约 1000 积分）。",
+      "redeemFailed": "兑换失败，请稍后重试。"
+    }
+  },
+  "skillsMarketplace": {
+    "page": {
+      "title": "技能市场",
+      "subtitle": "为你的 AI 智能体发现、安装并管理能力。社区已有 63,000+ 个技能可用。",
+      "tabs": {
+        "marketplace": "浏览市场",
+        "available": "可用技能"
+      },
+      "import": "导入技能"
+    },
+    "stats": {
+      "totalAvailable": "可用总数",
+      "compatible": "兼容",
+      "partial": "部分兼容",
+      "sources": "来源"
+    },
+    "filters": {
+      "searchPlaceholder": "筛选可用技能...",
+      "sourcePlaceholder": "来源",
+      "compatibilityPlaceholder": "兼容性",
+      "toggle": {
+        "enabledOnly": "仅启用",
+        "allSkills": "全部技能"
+      }
+    },
+    "source": {
+      "all": "全部来源",
+      "github": "GitHub",
+      "manual": "手动",
+      "marketplace": "市场",
+      "builtin": "内置",
+      "user": "自定义",
+      "file": "本地"
+    },
+    "compatibility": {
+      "all": "全部状态",
+      "compatible": "兼容",
+      "partial": "部分兼容",
+      "incompatible": "不兼容",
+      "unknown": "未知",
+      "reason": "原因：{reason}"
+    },
+    "errors": {
+      "loadSkills": "加载技能失败，请稍后再试。"
+    },
+    "empty": {
+      "title": "未找到技能",
+      "description": {
+        "filtered": "尝试调整筛选条件以查看更多结果。",
+        "noSkills": "暂时还没有技能。前往市场开始吧。"
+      },
+      "actions": {
+        "browseMarketplace": "浏览市场"
+      }
+    },
+    "skillCard": {
+      "noDescription": "暂无描述。",
+      "sourceLink": "来源",
+      "details": "详情",
+      "hide": "收起",
+      "deleteTitle": "删除技能？",
+      "deleteDescription": "确定要永久删除“{name}”吗？",
+      "allowedTools": "允许的工具",
+      "model": "模型",
+      "license": "许可",
+      "installed": "安装时间",
+      "updated": "更新时间"
+    },
+    "importDialog": {
+      "trigger": "导入技能",
+      "title": "导入技能",
+      "description": "从 GitHub 导入 Claude Code 技能，或手动粘贴 SKILL.md 内容。",
+      "tabs": {
+        "github": "GitHub 链接",
+        "manual": "手动粘贴"
+      },
+      "github": {
+        "label": "GitHub Blob 链接",
+        "placeholder": "https://github.com/user/repo/blob/main/skill/SKILL.md",
+        "hint": "粘贴指向 SKILL.md 的 GitHub blob 链接（必须包含“/blob/”并以“.md”结尾）",
+        "invalid": "GitHub 链接格式无效。示例：https://github.com/user/repo/blob/branch/path/SKILL.md",
+        "exampleLabel": "示例："
+      },
+      "manual": {
+        "label": "SKILL.md 内容",
+        "placeholder": "---\nname: my-skill\ndescription: A helpful skill\n---\n\nYour prompt here...",
+        "hint": "粘贴完整的 SKILL.md 内容，需包含 frontmatter",
+        "alert": "文件应以 frontmatter（--- 之间）开头，且至少包含“name”和“description”字段。"
+      },
+      "overwrite": {
+        "label": "已存在则覆盖",
+        "hint": "用同名技能替换现有版本"
+      },
+      "result": {
+        "success": "导入完成：{message}"
+      },
+      "actions": {
+        "import": "导入技能",
+        "importing": "导入中..."
+      }
+    },
+    "marketplaceSearch": {
+      "description": "浏览 63,000+ 个 Claude Code 技能。默认显示最受欢迎的技能，或使用 AI 语义搜索用自然语言描述你的需求。",
+      "error": {
+        "title": "搜索失败",
+        "generic": "搜索市场失败，请稍后再试。",
+        "integration": "SkillsMP 集成可能未配置。请确认后端环境已设置 SKILLSMP_API_KEY。"
+      },
+      "empty": {
+        "title": "未找到技能",
+        "noMatch": "没有技能匹配你的搜索词“{query}”。",
+        "noSkills": "当前没有可用技能。",
+        "tips": {
+          "keywords": "尝试使用不同的关键词",
+          "compatibility": "关闭兼容性筛选",
+          "semantic": "尝试 AI 语义搜索"
+        }
+      },
+      "results": {
+        "found": "找到 {count} 个技能",
+        "showing": "显示 {count} 个技能",
+        "browsingAll": "（浏览全部）",
+        "compatibleOnly": "（仅显示兼容）",
+        "loadingMore": "加载更多...",
+        "displaying": "显示 {shown} / {total}"
+      },
+      "loadMore": {
+        "label": "加载更多",
+        "loading": "加载中...",
+        "remaining": "（还有 {count} 个技能）"
+      }
+    },
+    "marketplaceFilters": {
+      "placeholder": {
+        "ai": "描述你的需求...（例如：“我需要一个可视化数据的工具”）",
+        "keyword": "按关键词搜索...（例如：“python”、“analysis”）"
+      },
+      "searchButton": {
+        "label": "搜索",
+        "loading": "搜索中..."
+      },
+      "searchType": {
+        "ai": "AI 语义",
+        "keyword": "关键词"
+      },
+      "sort": {
+        "placeholder": "排序",
+        "stars": "最受欢迎",
+        "recent": "最新"
+      },
+      "compatibilityOnly": "仅兼容",
+      "tip": {
+        "label": "提示",
+        "ai": "AI 搜索理解意图，试着描述任务而不是仅输入关键词。",
+        "keyword": "关键词搜索匹配精确词条，适合查找特定工具。"
+      }
+    },
+    "marketplaceCard": {
+      "unknownAuthor": "未知作者",
+      "added": "已添加",
+      "install": "安装",
+      "installing": "安装中..."
+    },
+    "marketplaceDetail": {
+      "errorTitle": "加载技能详情失败",
+      "unknownError": "未知错误",
+      "byAuthor": "作者：{author}",
+      "installs": "{count} 次安装",
+      "description": "描述",
+      "compatibilityNote": "兼容性说明",
+      "requiredTools": "所需工具（{count}）",
+      "documentation": "技能文档",
+      "license": "许可：{license}",
+      "created": "创建：{date}",
+      "updated": "更新：{date}",
+      "viewOnSkillsMp": "在 SkillsMP 查看",
+      "installed": "已安装",
+      "installSkill": "安装技能",
+      "installing": "安装中..."
+    }
+  },
+  "openclawIntegration": {
+    "page": {
+      "title": "OpenClaw 工作区桥接",
+      "subtitle": "为这个工作区开启 OpenClaw，决定谁可以使用它，并且无需离开 ZMind 就能回滚高风险写入。"
+    },
+    "status": {
+      "title": "桥接状态",
+      "description": "这里是 OpenClaw 真实访问你的画布和文档的控制台。",
+      "enabled": "已启用",
+      "disabled": "已停用",
+      "toggleLabel": "允许 OpenClaw",
+      "toggleHint": "关闭后，OpenClaw 请求会在触达工作区前被拦截。",
+      "lastVerified": "最近验证",
+      "neverVerified": "还没有成功的 OpenClaw 请求",
+      "recentActivity": "最近写入（7天）",
+      "pendingRollbacks": "可回滚操作"
+    },
+    "access": {
+      "title": "访问规则",
+      "description": "先保持最严格默认值，只开放团队已经确认安全的动作。",
+      "rolesTitle": "谁可以在这里使用 OpenClaw",
+      "capabilitiesTitle": "OpenClaw 可以做什么",
+      "groups": {
+        "read": "读取权限",
+        "write": "写入权限"
+      },
+      "save": "保存访问规则",
+      "saved": "访问规则已保存",
+      "helper": "更稳妥的默认值：在流程稳定前，把写入和回滚都先限制给 Owner。",
+      "ownerOnlyTitle": "需要 Owner 权限",
+      "ownerOnlyDescription": "只有工作区 Owner 可以在这个页面修改 OpenClaw 规则或执行回滚。"
+    },
+    "roles": {
+      "owner": {
+        "label": "Owner",
+        "description": "最适合线上使用的默认值。Owner 可以启用、修改并撤销 OpenClaw 的改动。"
+      },
+      "member": {
+        "label": "成员",
+        "description": "等团队确认流程稳定后，再把 OpenClaw 开放给整个工作区。"
+      }
+    },
+    "capabilities": {
+      "canvasRead": {
+        "label": "读取画布",
+        "description": "允许 OpenClaw 列出画布并查看它们的内容。"
+      },
+      "canvasCreate": {
+        "label": "创建画布",
+        "description": "允许 OpenClaw 在这个工作区内创建新的画布。"
+      },
+      "canvasWrite": {
+        "label": "编辑画布",
+        "description": "允许 OpenClaw 新增或更新画布节点与连接线。"
+      },
+      "docRead": {
+        "label": "读取文档",
+        "description": "允许 OpenClaw 列出文档并读取当前内容。"
+      },
+      "docCreate": {
+        "label": "创建文档",
+        "description": "允许 OpenClaw 在这个工作区内创建新的文档。"
+      },
+      "docWrite": {
+        "label": "编辑文档",
+        "description": "允许 OpenClaw 执行结构化文档编辑。"
+      },
+      "rollbackExecute": {
+        "label": "执行回滚",
+        "description": "允许 Owner 直接在活动列表中撤销支持的 OpenClaw 写入。"
+      }
+    },
+    "guide": {
+      "title": "工作方式",
+      "description": "保持设置简单：桥接开启一次，之后插件每次都复用同一套工作区规则。",
+      "tipTitle": "重要",
+      "tipDescription": "画布写入还要求你的自托管环境中 `canvas-realtime` 服务保持在线。",
+      "steps": {
+        "one": {
+          "title": "1. 先打开桥接",
+          "description": "在任何人从 CLI 或插件连接前，先在这里启用 OpenClaw。"
+        },
+        "two": {
+          "title": "2. 从 OpenClaw 登录",
+          "description": "使用 ZMind CLI 或 OpenClaw 插件，以同一个工作区账号登录。"
+        },
+        "three": {
+          "title": "3. 观察并回滚",
+          "description": "所有支持的 OpenClaw 写入都会显示在下方，并附带最快的安全回滚路径。"
+        }
+      }
+    },
+    "activity": {
+      "title": "最近 OpenClaw 活动",
+      "description": "查看 OpenClaw 在这个工作区做了什么，并在需要时逆转支持的操作。",
+      "refresh": "刷新",
+      "loading": "正在加载 OpenClaw 活动…",
+      "empty": "还没有 OpenClaw 活动。第一次成功写入后会显示在这里。",
+      "rollback": "回滚",
+      "rollbackDone": "已回滚",
+      "rollbackDisabled": "回滚功能已在访问规则中关闭。",
+      "rollbackOwnerOnly": "只有工作区 Owner 可以回滚 OpenClaw 写入。",
+      "unknownTime": "未知时间",
+      "status": {
+        "succeeded": "成功",
+        "rolled_back": "已回滚",
+        "failed": "失败"
+      }
+    },
+    "settingsPane": {
+      "title": "OpenClaw 桥接",
+      "description": "打开专属页面来控制访问、审计写入，并回滚支持的改动。",
+      "cta": "打开 OpenClaw 控制台"
+    },
+    "toasts": {
+      "saved": "OpenClaw 访问规则已更新。",
+      "saveFailed": "更新 OpenClaw 访问规则失败。",
+      "rollbackSuccess": "OpenClaw 活动已回滚。",
+      "rollbackFailed": "回滚这条 OpenClaw 活动失败。"
+    },
+    "errors": {
+      "loadTitle": "无法加载 OpenClaw 设置",
+      "loadDescription": "请刷新页面，或稍后再试。"
+    }
+  }
+}

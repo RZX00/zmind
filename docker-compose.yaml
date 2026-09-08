@@ -1,0 +1,170 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    # Increase log verbosity so you can see activity in `docker compose logs`.
+    # Use `notice` for moderate logs; switch to `verbose` for detailed.
+    command: redis-server --save 60 1 --loglevel notice
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  backend:
+    image: ghcr.io/zmind-ai/zmind-backend:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+      args:
+        APT_DEBIAN_MIRROR: ${APT_DEBIAN_MIRROR:-deb.debian.org/debian}
+        APT_SECURITY_MIRROR: ${APT_SECURITY_MIRROR:-security.debian.org/debian-security}
+    ports:
+      - "18013:8013"
+    volumes:
+      - ./backend/.env:/app/.env
+      # If you use Vertex, add a compose override to mount your service-account JSON
+      # and set GOOGLE_APPLICATION_CREDENTIALS for this container.
+      - ./prompts:/app/prompts
+    env_file:
+      - ./backend/.env
+    environment:
+      - ENV_MODE=staging
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - REDIS_SSL=False
+      - ZMIND_PROMPTS_PATH=/app/prompts
+    depends_on:
+      redis:
+        condition: service_healthy
+      worker:
+        condition: service_started
+
+  worker:
+    image: ghcr.io/zmind-ai/zmind-worker:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+      args:
+        APT_DEBIAN_MIRROR: ${APT_DEBIAN_MIRROR:-deb.debian.org/debian}
+        APT_SECURITY_MIRROR: ${APT_SECURITY_MIRROR:-security.debian.org/debian-security}
+    command: uv run dramatiq --skip-logging --processes 4 --threads 4 run_agent_background
+    volumes:
+      - ./backend/.env:/app/.env:ro
+      - ./prompts:/app/prompts:ro
+    env_file:
+      - ./backend/.env
+    environment:
+      - ENV_MODE=staging
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - REDIS_SSL=False
+      - ZMIND_PROMPTS_PATH=/app/prompts
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  outbox-relay:
+    image: ghcr.io/zmind-ai/zmind-worker:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+      args:
+        APT_DEBIAN_MIRROR: ${APT_DEBIAN_MIRROR:-deb.debian.org/debian}
+        APT_SECURITY_MIRROR: ${APT_SECURITY_MIRROR:-security.debian.org/debian-security}
+    command: uv run python run_outbox_relay.py
+    volumes:
+      - ./backend/.env:/app/.env:ro
+      - ./prompts:/app/prompts:ro
+    env_file:
+      - ./backend/.env
+    environment:
+      - ENV_MODE=staging
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - REDIS_SSL=False
+      - ZMIND_PROMPTS_PATH=/app/prompts
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  projection-worker:
+    image: ghcr.io/zmind-ai/zmind-worker:latest
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+      args:
+        APT_DEBIAN_MIRROR: ${APT_DEBIAN_MIRROR:-deb.debian.org/debian}
+        APT_SECURITY_MIRROR: ${APT_SECURITY_MIRROR:-security.debian.org/debian-security}
+    command: uv run python run_projection_worker.py
+    volumes:
+      - ./backend/.env:/app/.env:ro
+      - ./prompts:/app/prompts:ro
+    env_file:
+      - ./backend/.env
+    environment:
+      - ENV_MODE=staging
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - REDIS_SSL=False
+      - ZMIND_PROMPTS_PATH=/app/prompts
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  canvas-realtime:
+    build:
+      context: ./services/canvas-realtime
+      dockerfile: Dockerfile
+      args:
+        NODE_BASE_IMAGE: ${CANVAS_NODE_BASE_IMAGE:-node:20-alpine}
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org}
+    ports:
+      - "6020:6020"
+    env_file:
+      - ./backend/.env
+    environment:
+      - NODE_ENV=development
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_SSL=False
+      - CANVAS_REALTIME_HOST=0.0.0.0
+      - CANVAS_REALTIME_PORT=6020
+      - CANVAS_REALTIME_ALLOWED_ORIGINS=https://zmind.so,https://www.zmind.so,http://localhost:3000,http://localhost:4200
+      - CANVAS_REALTIME_JWT_AUDIENCE=authenticated
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  frontend:
+    init: true
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NPM_REGISTRY: https://registry.npmmirror.com
+    ports:
+      - "4200:3000"
+    env_file:
+      - ./frontend/.env.local
+    environment:
+      # SSR code inside the frontend container must call the backend via Docker DNS, not localhost.
+      - BACKEND_INTERNAL_URL=http://backend:8013/api
+    volumes:
+      - ./frontend/.env.local:/app/.env.local:ro
+    depends_on:
+      - backend
+
+volumes:
+  redis_data:

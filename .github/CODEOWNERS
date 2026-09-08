@@ -1,0 +1,11 @@
+# Default owner for all paths
+* @RZX00
+
+# Core platform ownership
+/backend/ @RZX00
+/frontend/ @RZX00
+/services/ @RZX00
+/apps/ @RZX00
+/supabase/ @RZX00
+/docs/ @RZX00
+/.github/ @RZX00

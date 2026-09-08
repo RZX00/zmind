@@ -1,0 +1,654 @@
+import React, { useState, useMemo, useEffect } from 'react';
+import Image from 'next/image';
+import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Card } from '@/components/ui/card';
+import { Search, Settings, ChevronLeft, ChevronRight, Loader2, Server } from 'lucide-react';
+import { useComposioCategories, useComposioToolkitsInfinite } from '@/hooks/react-query/composio/use-composio';
+import { useComposioProfiles } from '@/hooks/react-query/composio/use-composio-profiles';
+import { useAgent } from '@/hooks/react-query/agents/use-agents';
+import { useUpdateAgentMCPs } from '@/hooks/react-query/agents/use-update-agent-mcps';
+import { ComposioConnector } from './composio-connector';
+import { ComposioToolsManager } from './composio-tools-manager';
+import type { ComposioToolkit, ComposioProfile } from '@/hooks/react-query/composio/utils';
+import { toast } from 'sonner';
+import { cn } from '@/lib/utils';
+import { useQueryClient } from '@tanstack/react-query';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { CustomMCPDialog } from '../mcp/custom-mcp-dialog';
+
+const CATEGORY_EMOJIS: Record<string, string> = {
+  'popular': '🔥',
+  'productivity': '📊',
+  'crm': '👥',
+  'marketing': '📢',
+  'analytics': '📈',
+  'communication': '💬',
+  'project-management': '📋',
+  'scheduling': '📅',
+};
+
+interface ConnectedApp {
+  toolkit: ComposioToolkit;
+  profile: ComposioProfile;
+  mcpConfig: {
+    name: string;
+    type: string;
+    config: Record<string, any>;
+    enabledTools: string[];
+  };
+}
+
+interface ComposioRegistryProps {
+  onToolsSelected?: (profileId: string, selectedTools: string[], appName: string, appSlug: string) => void;
+  onAppSelected?: (app: ComposioToolkit) => void;
+  mode?: 'full' | 'profile-only';
+  onClose?: () => void;
+  showAgentSelector?: boolean;
+  selectedAgentId?: string;
+  onAgentChange?: (agentId: string | undefined) => void;
+  initialSelectedApp?: string | null;
+}
+
+const getAgentConnectedApps = (
+  agent: any,
+  profiles: ComposioProfile[],
+  toolkits: ComposioToolkit[]
+): ConnectedApp[] => {
+  if (!agent?.custom_mcps || !profiles?.length || !toolkits?.length) return [];
+
+  const connectedApps: ConnectedApp[] = [];
+
+  agent.custom_mcps.forEach((mcpConfig: any) => {
+    if (mcpConfig.config?.profile_id) {
+      const profile = profiles.find(p => p.profile_id === mcpConfig.config.profile_id);
+      const toolkit = toolkits.find(t => t.slug === profile?.toolkit_slug);
+      if (profile && toolkit) {
+        connectedApps.push({
+          toolkit,
+          profile,
+          mcpConfig
+        });
+      }
+    }
+  });
+
+  return connectedApps;
+};
+
+const isAppConnectedToAgent = (
+  agent: any,
+  appSlug: string,
+  profiles: ComposioProfile[]
+): boolean => {
+  if (!agent?.custom_mcps) return false;
+
+  return agent.custom_mcps.some((mcpConfig: any) => {
+    if (mcpConfig.config?.profile_id) {
+      const profile = profiles.find(p => p.profile_id === mcpConfig.config.profile_id);
+      return profile?.toolkit_slug === appSlug;
+    }
+    return false;
+  });
+};
+
+const AppCardSkeleton = () => (
+  <div className="border border-border/50 rounded-xl p-4">
+    <div className="flex items-center gap-3 mb-3">
+      <Skeleton className="w-10 h-10 rounded-lg" />
+      <div className="flex-1">
+        <Skeleton className="w-3/4 h-4 mb-2" />
+        <Skeleton className="w-full h-3" />
+      </div>
+    </div>
+    <div className="flex flex-wrap gap-1 mb-3">
+      <Skeleton className="w-16 h-5" />
+      <Skeleton className="w-20 h-5" />
+    </div>
+    <div className="flex justify-between items-center">
+      <Skeleton className="w-24 h-6" />
+      <Skeleton className="w-20 h-8" />
+    </div>
+  </div>
+);
+
+const ConnectedAppSkeleton = () => (
+  <div className="border border-border/50 rounded-2xl p-4">
+    <div className="flex items-start gap-3 mb-3">
+      <Skeleton className="w-10 h-10 rounded-lg" />
+      <div className="flex-1">
+        <Skeleton className="w-3/4 h-4 mb-2" />
+        <Skeleton className="w-full h-3" />
+      </div>
+      <Skeleton className="w-8 h-8 rounded" />
+    </div>
+    <div className="flex justify-between items-center">
+      <Skeleton className="w-32 h-4" />
+    </div>
+  </div>
+);
+
+const ConnectedAppCard = ({
+  connectedApp,
+  onConfigure,
+  onManageTools,
+  isUpdating
+}: {
+  connectedApp: ConnectedApp;
+  onConfigure: (app: ComposioToolkit, profile: ComposioProfile) => void;
+  onManageTools: (connectedApp: ConnectedApp) => void;
+  isUpdating: boolean;
+}) => {
+  const { toolkit, profile, mcpConfig } = connectedApp;
+  const hasEnabledTools = mcpConfig.enabledTools && mcpConfig.enabledTools.length > 0;
+
+  return (
+    <div
+      className="group border bg-card rounded-2xl p-4 transition-all duration-200 cursor-pointer"
+    >
+      <div className="flex items-start gap-3 mb-3">
+        {toolkit.logo ? (
+          <Image
+            src={toolkit.logo}
+            alt={toolkit.name}
+            width={40}
+            height={40}
+            unoptimized
+            loader={({ src }) => src}
+            className="w-10 h-10 rounded-xl object-cover p-2 bg-muted border"
+          />
+        ) : (
+          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <span className="text-primary text-sm font-medium">{toolkit.name.charAt(0)}</span>
+          </div>
+        )}
+        <div className="flex-1 min-w-0">
+          <h3 className="font-medium text-sm leading-tight truncate mb-1">{toolkit.name}</h3>
+          <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+            Connected as "{profile.profile_name}"
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => onManageTools(connectedApp)}
+            disabled={isUpdating}
+            type="button"
+          >
+            <Settings className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 text-xs text-green-600 dark:text-green-400">
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+            {hasEnabledTools ? `${mcpConfig.enabledTools.length} tools enabled` : 'Connected (no tools)'}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const AppCard = ({ app, profiles, onConnect, onConfigure, isConnectedToAgent, currentAgentId, mode }: {
+  app: ComposioToolkit;
+  profiles: ComposioProfile[];
+  onConnect: () => void;
+  onConfigure: (profile: ComposioProfile) => void;
+  isConnectedToAgent: boolean;
+  currentAgentId?: string;
+  mode?: 'full' | 'profile-only';
+}) => {
+  const connectedProfiles = profiles.filter(p => p.is_connected);
+  const canConnect = mode === 'profile-only' ? true : (!isConnectedToAgent && currentAgentId);
+
+  const getStatusInfo = () => {
+    if (mode === 'profile-only') {
+      return connectedProfiles.length > 0
+        ? { text: `${connectedProfiles.length} profile${connectedProfiles.length !== 1 ? 's' : ''}`, color: 'text-green-600 dark:text-green-400' }
+        : { text: 'Not connected', color: 'text-muted-foreground' };
+    }
+    if (isConnectedToAgent) {
+      return { text: 'Connected', color: 'text-blue-600 dark:text-blue-400' };
+    }
+    if (connectedProfiles.length > 0) {
+      return { text: `${connectedProfiles.length} profile${connectedProfiles.length !== 1 ? 's' : ''}`, color: 'text-green-600 dark:text-green-400' };
+    }
+    return { text: 'Not connected', color: 'text-muted-foreground' };
+  };
+
+  const status = getStatusInfo();
+
+  return (
+    <Card
+      className={cn(
+        'p-4 flex flex-col transition-all duration-200 gap-1 relative',
+        canConnect ? 'hover:bg-muted cursor-pointer' : 'opacity-60 cursor-not-allowed',
+      )}
+      onClick={canConnect ? (connectedProfiles.length > 0 ? () => onConfigure(connectedProfiles[0]) : onConnect) : undefined}
+    >
+      <div className={cn('absolute top-4 right-4 text-xs', status.color)}>
+        {status.text}
+      </div>
+
+      <div className="w-[40px] h-[40px] rounded-xl border border-border bg-background flex items-center justify-center mb-4">
+        {app.logo ? (
+          <Image
+            src={app.logo}
+            alt={app.name}
+            width={20}
+            height={20}
+            unoptimized
+            loader={({ src }) => src}
+            className="w-5 h-5 object-contain"
+          />
+        ) : (
+          <span className="text-foreground text-sm font-medium">{app.name.charAt(0)}</span>
+        )}
+      </div>
+
+      <h3 className="font-medium text-lg leading-tight">{app.name}</h3>
+
+      <p className="text-sm text-muted-foreground flex-1 line-clamp-2 leading-snug mb-4 mt-1">
+        {app.description || 'Connect this app to automate workflows with your agent.'}
+      </p>
+
+      <Button
+        variant="default"
+        className="w-full"
+        disabled={!canConnect}
+      >
+        <span className="text-lg font-light mr-2">+</span> Add
+      </Button>
+    </Card>
+  );
+};
+
+export const ComposioRegistry: React.FC<ComposioRegistryProps> = ({
+  onToolsSelected,
+  onAppSelected,
+  mode = 'full',
+  onClose,
+  showAgentSelector = false,
+  selectedAgentId,
+  onAgentChange,
+  initialSelectedApp,
+}) => {
+  const [search, setSearch] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedApp, setSelectedApp] = useState<ComposioToolkit | null>(null);
+  const [showConnector, setShowConnector] = useState(false);
+  const [showConnectedApps, setShowConnectedApps] = useState(false);
+  const [showToolsManager, setShowToolsManager] = useState(false);
+  const [selectedConnectedApp, setSelectedConnectedApp] = useState<ConnectedApp | null>(null);
+  const [showCustomMCPDialog, setShowCustomMCPDialog] = useState(false);
+
+  const [internalSelectedAgentId, setInternalSelectedAgentId] = useState<string | undefined>(selectedAgentId);
+  const queryClient = useQueryClient();
+
+  const { data: categoriesData, isLoading: isLoadingCategories } = useComposioCategories();
+  const {
+    data: toolkitsInfiniteData,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isError
+  } = useComposioToolkitsInfinite(search, selectedCategory);
+  const { data: profiles, isLoading: isLoadingProfiles } = useComposioProfiles();
+
+  const allToolkits = useMemo(() => {
+    if (!toolkitsInfiniteData?.pages) return [];
+    return toolkitsInfiniteData.pages.flatMap(page => page.toolkits || []);
+  }, [toolkitsInfiniteData]);
+
+  const currentAgentId = selectedAgentId ?? internalSelectedAgentId;
+  const { data: agent, isLoading: isLoadingAgent } = useAgent(currentAgentId || '');
+  const { mutate: updateAgent, isPending: isUpdatingAgent } = useUpdateAgentMCPs();
+
+  const handleAgentSelect = (agentId: string | undefined) => {
+    if (onAgentChange) {
+      onAgentChange(agentId);
+    } else {
+      setInternalSelectedAgentId(agentId);
+    }
+  };
+
+  const profilesByToolkit = useMemo(() => {
+    const grouped: Record<string, ComposioProfile[]> = {};
+    profiles?.forEach(profile => {
+      if (profile.is_connected) {
+        if (!grouped[profile.toolkit_slug]) {
+          grouped[profile.toolkit_slug] = [];
+        }
+        grouped[profile.toolkit_slug].push(profile);
+      }
+    });
+    return grouped;
+  }, [profiles]);
+
+  const connectedApps = useMemo(() => {
+    if (!currentAgentId || !agent) return [];
+    return getAgentConnectedApps(agent, profiles || [], allToolkits);
+  }, [agent, profiles, allToolkits, currentAgentId]);
+
+  const isLoadingConnectedApps = currentAgentId && (isLoadingAgent || isLoadingProfiles || isLoading);
+
+  const filteredToolkits = useMemo(() => {
+    if (!allToolkits) return [];
+    return allToolkits;
+  }, [allToolkits]);
+
+  useEffect(() => {
+    if (initialSelectedApp && allToolkits.length > 0 && !selectedApp) {
+      const appToSelect = allToolkits.find(
+        toolkit => toolkit.slug?.toLowerCase() === initialSelectedApp.toLowerCase()
+      );
+      if (appToSelect) {
+        setSelectedApp(appToSelect);
+        setShowConnector(true);
+        setShowConnectedApps(false);
+      }
+    }
+  }, [initialSelectedApp, allToolkits, selectedApp]);
+
+  const handleConnect = (app: ComposioToolkit) => {
+    if (mode !== 'profile-only' && !currentAgentId && showAgentSelector) {
+      toast.error('Please select an agent first');
+      return;
+    }
+    setSelectedApp(app);
+    setShowConnector(true);
+  };
+
+  const handleConfigure = (app: ComposioToolkit, profile: ComposioProfile) => {
+    if (mode !== 'profile-only' && !currentAgentId) {
+      toast.error('Please select an agent first');
+      return;
+    }
+    setSelectedApp(app);
+    setShowConnector(true);
+  };
+
+  const handleConnectedAppClick = (connectedApp: ConnectedApp) => {
+    setSelectedConnectedApp(connectedApp);
+    setShowToolsManager(true);
+  };
+
+  const handleConnectionComplete = (profileId: string, appName: string, appSlug: string) => {
+    setShowConnector(false);
+    queryClient.invalidateQueries({ queryKey: ['composio', 'profiles'] });
+
+    if (currentAgentId) {
+      queryClient.invalidateQueries({ queryKey: ['agents', 'detail', currentAgentId] });
+    }
+
+    if (onToolsSelected) {
+      onToolsSelected(profileId, [], appName, appSlug);
+    }
+  };
+
+  const handleCustomMCPSave = async (customConfig: any): Promise<void> => {
+    if (!currentAgentId) {
+      throw new Error('Please select an agent first');
+    }
+
+    const mcpConfig = {
+      name: customConfig.name || 'Custom MCP',
+      type: customConfig.type || 'sse',
+      config: customConfig.config || {},
+      enabledTools: customConfig.enabledTools || [],
+    };
+
+    const currentCustomMcps = agent?.custom_mcps || [];
+    const updatedCustomMcps = [...currentCustomMcps, mcpConfig];
+
+    return new Promise((resolve, reject) => {
+      updateAgent({
+        agentId: currentAgentId,
+        custom_mcps: updatedCustomMcps,
+        configured_mcps: agent?.configured_mcps || [],
+        replace_mcps: true,
+      } as any, {
+        onSuccess: () => {
+          toast.success(`Custom MCP "${customConfig.name}" added successfully`);
+          queryClient.invalidateQueries({ queryKey: ['agents', 'detail', currentAgentId] });
+          resolve();
+        },
+        onError: (error: any) => {
+          reject(new Error(error.message || 'Failed to add custom MCP'));
+        }
+      });
+    });
+  };
+
+  const categories = categoriesData?.categories || [];
+
+  return (
+    <div className="h-full w-full overflow-hidden flex">
+      <div className="flex-1 h-full overflow-hidden">
+        <div className="h-full flex flex-col">
+          <div className="flex-shrink-0 border-b p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex-1 min-w-0 pr-4">
+                <h2 className="text-xl font-semibold">
+                  {mode === 'profile-only' ? 'Connect New App' : 'App Integrations'}
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  {mode === 'profile-only'
+                    ? 'Create a connection profile for your favorite apps'
+                    : `Connect your favorite apps with ${currentAgentId ? 'this agent' : 'your agent'}`
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3 items-center">
+              <div className="relative flex-1 min-w-[200px] max-w-md">
+                <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search apps..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="pl-9"
+                />
+              </div>
+
+              <div className="flex items-center gap-2">
+                {categories.map((category) => (
+                  <Badge
+                    key={category.id}
+                    variant={selectedCategory === category.id ? 'default' : 'outline'}
+                    className="cursor-pointer text-xs py-1 px-2"
+                    onClick={() => setSelectedCategory(
+                      selectedCategory === category.id ? '' : category.id,
+                    )}
+                  >
+                    {CATEGORY_EMOJIS[category.id] || '📁'} {category.name}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-1 min-h-0 flex">
+            <div
+              className={cn(
+                'border-r flex flex-col bg-background transition-all duration-200',
+                showConnectedApps ? 'w-[340px]' : 'w-[32px]',
+              )}
+            >
+              <div
+                className={cn(
+                  'flex items-center border-b h-10',
+                  showConnectedApps ? 'justify-between px-4' : 'justify-center',
+                )}
+              >
+                {showConnectedApps && (
+                  <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                    Connected Apps
+                  </h3>
+                )}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-7 w-7"
+                  type="button"
+                  onClick={() => setShowConnectedApps(!showConnectedApps)}
+                >
+                  {showConnectedApps ? (
+                    <ChevronLeft className="h-4 w-4" />
+                  ) : (
+                    <ChevronRight className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
+              <Collapsible open={showConnectedApps} onOpenChange={setShowConnectedApps} className="flex-1 min-h-0">
+                <CollapsibleContent className="h-full">
+                  <ScrollArea className="h-full">
+                    <div className="p-4 space-y-3">
+                      {isLoadingConnectedApps ? (
+                        <>
+                          <ConnectedAppSkeleton />
+                          <ConnectedAppSkeleton />
+                        </>
+                      ) : (
+                        <>
+                          {connectedApps.map((connectedApp) => (
+                            <ConnectedAppCard
+                              key={`${connectedApp.toolkit.slug}-${connectedApp.profile.profile_id}`}
+                              connectedApp={connectedApp}
+                              onConfigure={(app, profile) => {
+                                setSelectedApp(app);
+                                setShowConnector(true);
+                              }}
+                              onManageTools={handleConnectedAppClick}
+                              isUpdating={isUpdatingAgent}
+                            />
+                          ))}
+                          {connectedApps.length === 0 && (
+                            <div className="text-xs text-muted-foreground text-center py-6">
+                              No apps connected yet.
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </ScrollArea>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
+
+            <div className="flex-1 min-h-0">
+              {isLoading && !toolkitsInfiniteData && (
+                <div className="flex items-center justify-center h-full">
+                  <Loader2 className="h-5 w-5 animate-spin mr-2" />
+                  <span className="text-sm text-muted-foreground">Loading apps...</span>
+                </div>
+              )}
+
+              {!isLoading && toolkitsInfiniteData && (
+                <ScrollArea className="h-full">
+                  <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {filteredToolkits.map((toolkit) => {
+                      const toolkitProfiles = profilesByToolkit[toolkit.slug] || [];
+                      const isConnectedToAgentValue =
+                        !!currentAgentId &&
+                        !!agent &&
+                        isAppConnectedToAgent(agent, toolkit.slug, profiles || []);
+
+                      return (
+                        <AppCard
+                          key={toolkit.slug}
+                          app={toolkit}
+                          profiles={toolkitProfiles}
+                          onConnect={() => handleConnect(toolkit)}
+                          onConfigure={(profile) => handleConfigure(toolkit, profile)}
+                          isConnectedToAgent={isConnectedToAgentValue}
+                          currentAgentId={currentAgentId}
+                          mode={mode}
+                        />
+                      );
+                    })}
+                  </div>
+
+                  {hasNextPage && (
+                    <div className="flex justify-center py-4">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => fetchNextPage()}
+                        disabled={isFetchingNextPage}
+                        type="button"
+                      >
+                        {isFetchingNextPage ? 'Loading more...' : 'Load more'}
+                      </Button>
+                    </div>
+                  )}
+
+                  {isError && (
+                    <div className="flex items-center justify-center py-4">
+                      <span className="text-xs text-red-500">
+                        Failed to load apps. Please try again later.
+                      </span>
+                    </div>
+                  )}
+                </ScrollArea>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CustomMCPDialog
+        open={showCustomMCPDialog}
+        onOpenChange={setShowCustomMCPDialog}
+        onSave={async (config) => {
+          try {
+            await handleCustomMCPSave(config);
+            setShowCustomMCPDialog(false);
+          } catch (error: any) {
+            toast.error(error.message || 'Failed to add custom MCP');
+          }
+        }}
+      />
+
+      {selectedApp && showConnector && (
+        <Dialog open={showConnector} onOpenChange={setShowConnector}>
+          <DialogContent className="max-w-xl p-0 overflow-hidden">
+            <DialogHeader className="px-6 pt-6 pb-2">
+              <DialogTitle>Connect {selectedApp.name}</DialogTitle>
+            </DialogHeader>
+            <ComposioConnector
+              app={selectedApp}
+              mode={mode}
+              onConnected={handleConnectionComplete}
+              onClose={() => setShowConnector(false)}
+            />
+          </DialogContent>
+        </Dialog>
+      )}
+
+      {selectedConnectedApp && (
+        <ComposioToolsManager
+          agentId={currentAgentId || ''}
+          open={showToolsManager}
+          onOpenChange={setShowToolsManager}
+          profileId={selectedConnectedApp.profile.profile_id}
+          profileInfo={selectedConnectedApp.profile}
+          onToolsUpdate={() => {
+            setShowToolsManager(false);
+            setSelectedConnectedApp(null);
+          }}
+        />
+      )}
+    </div>
+  );
+};

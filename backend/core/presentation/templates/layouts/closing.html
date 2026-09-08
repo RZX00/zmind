@@ -1,0 +1,14 @@
+<h1 class="slide-title">{{ slide.title }}</h1>
+{% if slide.subtitle %}
+<p class="slide-subtitle">{{ slide.subtitle }}</p>
+{% endif %}
+{% if slide.content %}
+<div class="slide-content" style="text-align:center; margin-top:1em; opacity:0.7;">{{ slide.content }}</div>
+{% endif %}
+{% if slide.points %}
+<ul class="slide-points" style="list-style:none; text-align:center; margin-top:1em;">
+  {% for point in slide.points %}
+  <li style="padding-left:0;">{{ point }}</li>
+  {% endfor %}
+</ul>
+{% endif %}

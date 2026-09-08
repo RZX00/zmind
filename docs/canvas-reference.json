@@ -1,0 +1,400 @@
+{
+  "id": "canvas_78d2c81206d7",
+  "title": "Untitled Canvas 3",
+  "createdAt": 1769956766564,
+  "updatedAt": 1769957809305,
+  "version": "1.0.0",
+  "serverVersion": 58,
+  "backgroundColor": null,
+  "backgroundStyleId": null,
+  "patternColor": null,
+  "cornerStyle": null,
+  "fontStyle": null,
+  "textOpacityPreset": "opaque",
+  "textLayoutPreset": "classic",
+  "metadata": {
+    "connectionStyles": {
+      "connection_ml3urlre_36b0aba8f4134a9793a8f4d2cb59c5e4": {
+        "arrow": {
+          "end": true,
+          "size": 16,
+          "shape": "triangle",
+          "start": false,
+          "filled": true
+        },
+        "theme": "solid",
+        "width": 2,
+        "dashed": false,
+        "opacity": 1
+      },
+      "connection_ml3us907_da8139b50cde4e1ba8896cf6a24241f3": {
+        "arrow": {
+          "end": true,
+          "size": 16,
+          "shape": "triangle",
+          "start": false,
+          "filled": true
+        },
+        "theme": "solid",
+        "width": 2,
+        "dashed": false,
+        "opacity": 1
+      }
+    },
+    "groupAttachments": {},
+    "connectionAnchors": {},
+    "connectionAnchorParams": {}
+  },
+  "nodes": [
+    {
+      "x": 320.7147087892631,
+      "y": 390.8588313423552,
+      "id": "text_ml3ulfxi_8caabf39f2c347cdb422fcbd307e7c82",
+      "type": "text",
+      "width": 300,
+      "height": 60,
+      "content": "请问",
+      "createdAt": 1769956826598,
+      "updatedAt": 1769957368344,
+      "textStyles": {
+        "accentColor": "#fbbf24"
+      }
+    },
+    {
+      "x": 491,
+      "y": 498.88888507419165,
+      "id": "todo_ml3ulhav_016d6bb34cca4e84945e4798ddc9d561",
+      "type": "todo",
+      "width": 300,
+      "height": 60,
+      "content": "",
+      "completed": false,
+      "createdAt": 1769956828375,
+      "updatedAt": 1769956942664,
+      "textStyles": {},
+      "parentGroupId": "group_1769956942664"
+    },
+    {
+      "x": 515,
+      "y": 644.8888850741916,
+      "id": "code_ml3uli5i_02620450b8ad4e2abd8ec86bc595b0b3",
+      "type": "code",
+      "width": 350,
+      "height": 250,
+      "content": "graph TD\n    A[节点A] --> B[节点B]",
+      "codeType": "mermaid",
+      "createdAt": 1769956829478,
+      "updatedAt": 1769956942664,
+      "mermaidTheme": {
+        "look": "neo",
+        "theme": "base",
+        "themeVariables": {
+          "mainBkg": "#ffe7d1",
+          "nodeBkg": "#ffffff",
+          "fontSize": "14px",
+          "lineColor": "#e98a36",
+          "background": "#ffffff",
+          "clusterBkg": "#fff0e3",
+          "fontFamily": "\"Nunito\", system-ui, sans-serif",
+          "nodeBorder": "#e98a36",
+          "primaryColor": "#e98a36",
+          "clusterBorder": "#f5c29b",
+          "tertiaryColor": "#ffffff",
+          "secondaryColor": "#fff0e3",
+          "primaryTextColor": "#4b2e1f",
+          "secondaryBkgColor": "#fff7ef",
+          "primaryBorderColor": "#f5c29b"
+        }
+      },
+      "parentGroupId": "group_1769956942664",
+      "mermaidThemeId": "echarts-macarons"
+    },
+    {
+      "x": -303,
+      "y": 522.9999961853027,
+      "id": "code_ml3umm3f_ba78d82cbaf04fa6a77055a74fcc0382",
+      "type": "code",
+      "width": 650,
+      "height": 540,
+      "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n  <title>Mini Landing</title>\n  <style>\n    :root {\n      --bg: #f7f7f7;\n      --fg: #111;\n      --muted: #666;\n      --card: #fff;\n      --ring: #0ea5e9;\n      --radius-xs: 4px;\n      --radius-sm: 6px;\n      --radius-md: 8px;\n      --radius-lg: 10px;\n      --radius-xl: 12px;\n      --radius-2xl: 16px;\n      --radius-full: 9999px;\n    }\n    [data-theme=\"dark\"] { --bg:#0b0c0e; --fg:#eaeaea; --muted:#9aa0a6; --card:#14161a; --ring:#38bdf8; }\n    * { box-sizing: border-box; }\n    body {\n      margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;\n      background: var(--bg); color: var(--fg);\n      display: grid; min-height: 100svh; place-items: center; padding: 24px;\n    }\n    .wrap { width: min(880px, 100%); }\n    .nav {\n      display:flex; justify-content: space-between; align-items:center; gap:12px; margin-bottom: 20px;\n    }\n    .brand { font-weight:700; letter-spacing:.4px; }\n    .btn {\n      padding: 8px 14px; border:1px solid color-mix(in oklab, var(--fg) 20%, transparent);\n      background: transparent; color: var(--fg); border-radius: var(--radius-xl); cursor: pointer;\n    }\n    .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }\n    .hero {\n      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);\n      background: var(--card); border-radius: var(--radius-2xl); padding: 28px;\n      display:grid; gap:16px;\n      box-shadow: 0 8px 30px color-mix(in oklab, #000 18%, transparent);\n    }\n    h1 { margin:0; font-size: clamp(26px, 4vw, 40px); line-height:1.2; }\n    p.lead { margin:0; color: var(--muted); font-size: clamp(14px, 2.5vw, 18px); }\n    .grid { display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); margin-top: 8px; }\n    .card {\n      border:1px dashed color-mix(in oklab, var(--fg) 18%, transparent);\n      border-radius: var(--radius-xl); padding:14px; background: color-mix(in oklab, var(--card) 92%, var(--bg));\n    }\n    .card h3 { margin:0 0 6px; font-size: 16px; }\n    .card p { margin:0; color: var(--muted); font-size:14px; }\n    .cta { display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px; }\n    .primary {\n      background: var(--fg); color: var(--bg); border: none;\n    }\n    footer { margin-top: 16px; color: var(--muted); font-size: 12px; text-align:center; }\n  </style>\n</head>\n<body>\n  <div class=\"wrap\">\n    <header class=\"nav\" aria-label=\"Top navigation\">\n      <div class=\"brand\">Thinking Studio</div>\n      <button class=\"btn\" id=\"themeBtn\" aria-pressed=\"false\" aria-label=\"Toggle theme\">Toggle Theme</button>\n    </header>\n\n    <main class=\"hero\" role=\"main\">\n      <h1>Think Clearly</h1>\n      <p class=\"lead\">Structure your reasoning on a clean canvas.</p>\n\n      <section class=\"grid\" aria-label=\"Highlights\">\n        <article class=\"card\">\n          <h3>Visualize</h3>\n          <p>Present chains of thought with nodes and links.</p>\n        </article>\n        <article class=\"card\">\n          <h3>Reflect</h3>\n          <p>Capture premises, counterexamples, and evidence.</p>\n        </article>\n        <article class=\"card\">\n          <h3>Collaborate</h3>\n          <p>Edit and discuss in parallel with others.</p>\n        </article>\n        <article class=\"card\">\n          <h3>Export</h3>\n          <p>Export to PDF/Markdown with one click.</p>\n        </article>\n      </section>\n\n      <div class=\"cta\">\n        <button class=\"btn primary\">Get Started</button>\n        <button class=\"btn\">Learn More</button>\n      </div>\n    </main>\n\n    <footer> 2025 Thinking Studio. All rights reserved.</footer>\n  </div>\n\n  <script>\n    // Theme toggle with localStorage\n    (function() {\n      const KEY = \"theme\";\n      const root = document.documentElement;\n      const btn = document.getElementById(\"themeBtn\");\n      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;\n      const saved = localStorage.getItem(KEY);\n      const initial = saved || (prefersDark ? \"dark\" : \"light\");\n      root.setAttribute(\"data-theme\", initial);\n      btn.setAttribute(\"aria-pressed\", String(initial === \"dark\"));\n      btn.addEventListener(\"click\", () => {\n        const next = root.getAttribute(\"data-theme\") === \"dark\" ? \"light\" : \"dark\";\n        root.setAttribute(\"data-theme\", next);\n        localStorage.setItem(KEY, next);\n        btn.setAttribute(\"aria-pressed\", String(next === \"dark\"));\n      });\n    })();\n  </script>\n</body>\n</html>",
+      "codeType": "html",
+      "createdAt": 1769956881243,
+      "updatedAt": 1769956883593
+    },
+    {
+      "x": -72.29000000000002,
+      "y": 276.7099961853027,
+      "id": "column_ml3umpcq_c3b50a1157594640abf368f052e54c7c",
+      "type": "column",
+      "width": 300,
+      "height": 200,
+      "content": "",
+      "createdAt": 1769956885466,
+      "updatedAt": 1769956886458
+    },
+    {
+      "x": 399.429,
+      "y": 263.71399618530273,
+      "id": "table_ml3umri0_86534fb20d1f4348bcb3caa743246f4f",
+      "data": {
+        "rows": [
+          [
+            "Header 1",
+            "Header 2"
+          ],
+          [
+            "123",
+            ""
+          ]
+        ],
+        "rowHeights": [
+          40,
+          40
+        ],
+        "columnWidths": [
+          160,
+          160
+        ]
+      },
+      "type": "table",
+      "width": 320,
+      "height": 85.703125,
+      "content": "",
+      "createdAt": 1769956888248,
+      "updatedAt": 1769957809305
+    },
+    {
+      "x": 417.1428571428571,
+      "y": 966.4285671900187,
+      "id": "media_ml3unk2o_28e0feb0a680466eb27f9f4f153ac505",
+      "type": "media",
+      "width": 667.0158469664034,
+      "height": 535.8146588904497,
+      "content": "",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/Auxs8ZsHRI4?autoplay=0",
+      "fileName": "A child psychologists guide to working with difficult adults | Dr. Becky Kennedy",
+      "fileSize": 0,
+      "fileType": "text/html",
+      "createdAt": 1769956925280,
+      "mediaType": "video",
+      "updatedAt": 1769957119436,
+      "externalUrl": "https://www.youtube.com/watch?v=Auxs8ZsHRI4",
+      "mediaSource": "external",
+      "uploadStatus": "mock",
+      "fileExtension": "url",
+      "externalProvider": "youtube"
+    },
+    {
+      "x": 491,
+      "y": 498.88888507419165,
+      "id": "group_1769956942664",
+      "type": "group",
+      "width": 374,
+      "height": 396,
+      "content": "组1",
+      "children": [
+        "todo_ml3ulhav_016d6bb34cca4e84945e4798ddc9d561",
+        "code_ml3uli5i_02620450b8ad4e2abd8ec86bc595b0b3"
+      ],
+      "createdAt": 1769956942664,
+      "updatedAt": 1769957168989,
+      "accentColor": "#A493C7",
+      "parentGroupId": "group_1769957168989"
+    },
+    {
+      "x": -138.91516022170748,
+      "y": 1123.2212621101592,
+      "id": "code_ml3urja1_d87f3397afcf4f5bb92a3e2a7c9b07a6",
+      "type": "code",
+      "width": 400,
+      "height": 400,
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\">\n  <defs>\n    <marker id=\"arrowhead\" markerWidth=\"10\" markerHeight=\"7\" refX=\"0\" refY=\"3.5\" orient=\"auto\">\n      <polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#333\" id=\"svg-el-polygon-1762829793910-0\"/>\n    </marker>\n  </defs>\n\n  <!-- Circle of Concern -->\n  <circle cx=\"200\" cy=\"200\" r=\"180\" fill=\"#f0f0f0\" stroke=\"#ccc\" stroke-width=\"2\" id=\"svg-el-circle-1762829793910-1\"/>\n  <text x=\"200\" y=\"380\" text-anchor=\"middle\" font-size=\"20\" fill=\"#666\" id=\"svg-el-text-1762829793910-2\">关注圈 (Circle of Concern)</text>\n\n  <!-- Circle of Influence -->\n  <circle cx=\"200\" cy=\"200\" r=\"100\" fill=\"#d0e0f0\" stroke=\"#6699cc\" stroke-width=\"2\" id=\"svg-el-circle-1762829793910-3\"/>\n  <text x=\"200\" y=\"210\" text-anchor=\"middle\" font-size=\"20\" font-weight=\"bold\" fill=\"#336699\" id=\"svg-el-text-1762829793910-4\">影响圈 (Circle of Influence)</text>\n\n  <!-- Arrows indicating focus -->\n  <line x1=\"200\" y1=\"200\" x2=\"280\" y2=\"120\" stroke=\"#333\" stroke-width=\"2\" marker-end=\"url(#arrowhead)\" id=\"svg-el-line-1762829793910-5\"/>\n  <text x=\"290\" y=\"110\" font-size=\"14\" fill=\"#333\" id=\"svg-el-text-1762829793910-6\">积极主动者关注</text>\n\n  <line x1=\"200\" y1=\"200\" x2=\"120\" y2=\"280\" stroke=\"#333\" stroke-width=\"2\" marker-end=\"url(#arrowhead)\" id=\"svg-el-line-1762829793910-7\"/>\n  <text x=\"100\" y=\"295\" font-size=\"14\" fill=\"#333\" id=\"svg-el-text-1762829793910-8\">消极被动者关注</text>\n\n  <text x=\"200\" y=\"50\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"bold\" fill=\"#333\" id=\"svg-el-text-1762829793910-9\">积极主动原理</text>\n</svg>",
+      "codeType": "svg",
+      "createdAt": 1769957110872,
+      "updatedAt": 1769957112197
+    },
+    {
+      "x": 915.942028985507,
+      "y": 602.8079641038092,
+      "id": "media_ml3us4o2_e9bea402bee346e6b25200485aed1196",
+      "type": "media",
+      "width": 591,
+      "height": 296,
+      "content": "File: 微信图片_20241204200946.jpg",
+      "fileName": "微信图片_20241204200946.jpg",
+      "fileSize": 313802,
+      "fileType": "image/jpeg",
+      "createdAt": 1769957138636,
+      "mediaType": "image",
+      "updatedAt": 1769957661511,
+      "storagePath": "9f24d5b6-388e-4eb4-9d83-84136d82566d/canvas/2026/02/01/c05a8da6-b65c-4d18-a201-54d6c8ea0388-__20241204200946.jpg",
+      "uploadStatus": "uploaded",
+      "fileExtension": "jpg",
+      "parentGroupId": "group_1769957168989",
+      "mediaHasTransparentBg": false
+    },
+    {
+      "x": 491,
+      "y": 498.88888507419165,
+      "id": "group_1769957168989",
+      "type": "group",
+      "width": 1015.942028985507,
+      "height": 399.9190790296176,
+      "content": "组2",
+      "children": [
+        "group_1769956942664",
+        "media_ml3us4o2_e9bea402bee346e6b25200485aed1196"
+      ],
+      "createdAt": 1769957168989,
+      "updatedAt": 1769957168989,
+      "accentColor": "#7FAFA2"
+    },
+    {
+      "x": 864.2391304347825,
+      "y": 191,
+      "id": "text_ml3ustzd_015ca94b81ac4254b42d9f2462a2279d",
+      "type": "text",
+      "width": 300,
+      "height": 60,
+      "content": "",
+      "createdAt": 1769957171401,
+      "updatedAt": 1769957178306,
+      "textStyles": {
+        "opacity": 1
+      },
+      "parentGroupId": "group_ml3usvgv_3d0366bbced84f0e8f67143e35001479"
+    },
+    {
+      "x": 864.2391304347825,
+      "y": 101,
+      "id": "group_ml3usvgv_3d0366bbced84f0e8f67143e35001479",
+      "type": "group",
+      "width": 1091.7608695652175,
+      "height": 240,
+      "content": "思维导图",
+      "mindmap": {
+        "rootId": "text_ml3ustzd_015ca94b81ac4254b42d9f2462a2279d",
+        "spacingX": 96,
+        "spacingY": 30,
+        "collapsed": {},
+        "orientation": "right",
+        "showCrossLinks": true
+      },
+      "children": [
+        "text_ml3ustzd_015ca94b81ac4254b42d9f2462a2279d",
+        "text_ml3usvh1_c3fbf0c4c57147bd8b876c057ec8a0f8",
+        "text_ml3usw9v_002972d1042a4eeabd82a21b9cfccb2b",
+        "text_ml3uswz3_d84b901f99c24bbc9e181f9129e32018",
+        "text_ml3usydl_4b9ca4a6d72e40b4ba0cd69757fa6bf3"
+      ],
+      "createdAt": 1769957173327,
+      "groupMode": "mindmap",
+      "updatedAt": 1769957178306,
+      "accentColor": "#60a5fa",
+      "groupStyles": {
+        "bgOpacity": 0
+      }
+    },
+    {
+      "x": 1260,
+      "y": 101,
+      "id": "text_ml3usvh1_c3fbf0c4c57147bd8b876c057ec8a0f8",
+      "type": "text",
+      "width": 300,
+      "height": 60,
+      "content": "",
+      "createdAt": 1769957173333,
+      "updatedAt": 1769957178306,
+      "textStyles": {
+        "opacity": 1
+      },
+      "parentGroupId": "group_ml3usvgv_3d0366bbced84f0e8f67143e35001479"
+    },
+    {
+      "x": 1260,
+      "y": 191,
+      "id": "text_ml3usw9v_002972d1042a4eeabd82a21b9cfccb2b",
+      "type": "text",
+      "width": 300,
+      "height": 60,
+      "content": "",
+      "createdAt": 1769957174371,
+      "updatedAt": 1769957178306,
+      "textStyles": {
+        "opacity": 1
+      },
+      "parentGroupId": "group_ml3usvgv_3d0366bbced84f0e8f67143e35001479"
+    },
+    {
+      "x": 1260,
+      "y": 281,
+      "id": "text_ml3uswz3_d84b901f99c24bbc9e181f9129e32018",
+      "type": "text",
+      "width": 300,
+      "height": 60,
+      "content": "",
+      "createdAt": 1769957175279,
+      "updatedAt": 1769957178306,
+      "textStyles": {
+        "opacity": 1
+      },
+      "parentGroupId": "group_ml3usvgv_3d0366bbced84f0e8f67143e35001479"
+    },
+    {
+      "x": 1656,
+      "y": 191,
+      "id": "text_ml3usydl_4b9ca4a6d72e40b4ba0cd69757fa6bf3",
+      "type": "text",
+      "width": 300,
+      "height": 60,
+      "content": "",
+      "createdAt": 1769957177097,
+      "updatedAt": 1769957178306,
+      "textStyles": {
+        "opacity": 1
+      },
+      "parentGroupId": "group_ml3usvgv_3d0366bbced84f0e8f67143e35001479"
+    },
+    {
+      "x": 1244.812664524014,
+      "y": 1062.5578956175618,
+      "id": "text_ml3uzq82_4f1e80d25ba548a39cd820a244cb936a",
+      "type": "text",
+      "width": 300,
+      "height": 60,
+      "content": "",
+      "createdAt": 1769957493122,
+      "updatedAt": 1769957494508,
+      "textStyles": {
+        "opacity": 1
+      }
+    }
+  ],
+  "connections": [
+    {
+      "id": "connection_ml3v6asp_d78d6f117b514a1fae78a922f241934c",
+      "fromPoint": {
+        "x": 1233.9913144137417,
+        "y": 1385.256236744682
+      },
+      "toPoint": {
+        "x": 1903.4610679611653,
+        "y": 1240.7917109791854
+      },
+      "createdAt": 1769957799721,
+      "appearance": {
+        "width": 2,
+        "opacity": 1,
+        "dashed": false,
+        "arrow": {
+          "start": false,
+          "end": true,
+          "size": 16,
+          "shape": "triangle",
+          "filled": true
+        },
+        "theme": "solid"
+      }
+    }
+  ]
+}

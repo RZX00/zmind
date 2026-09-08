@@ -1,0 +1,22 @@
+{
+  "name": "zmind",
+  "version": "1.1.0",
+  "description": "ZMind CLI for local-first and remote workspace operations",
+  "type": "commonjs",
+  "bin": {
+    "zmind": "bin/zmind.js"
+  },
+  "main": "src/cli.js",
+  "files": [
+    "bin",
+    "src",
+    "vendor",
+    "README.md"
+  ],
+  "dependencies": {
+    "@zmind/sdk": "^0.1.0"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

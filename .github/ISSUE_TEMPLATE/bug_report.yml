@@ -1,0 +1,53 @@
+name: Bug Report
+description: Report a reproducible bug in Zmind
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please include enough detail so we can reproduce quickly.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the current behavior and why it is wrong.
+      placeholder: A clear and concise bug summary.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps, including inputs and environment.
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should have happened?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Commit / Version
+      description: Commit SHA, tag, or branch name.
+      placeholder: main / v0.1.0 / abc1234
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment mode
+      options:
+        - Self-hosted from source
+        - Official cloud
+        - Local development
+    validations:
+      required: true

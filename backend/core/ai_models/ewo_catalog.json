@@ -1,0 +1,449 @@
+{
+  "source": "https://eapi.site/v1/models",
+  "verified_at": "2026-09-08",
+  "models": [
+    {
+      "id": "gpt-5.5",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiResponses": true,
+        "openAiChatCompletions": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "claude-fable-5",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "claude-opus-4-8",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "claude-opus-5",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "claude-opus-4-7",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "claude-sonnet-5",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "claude-haiku-4-5",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "owned_by": "deepseek",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "owned_by": "deepseek",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "gpt-image-2",
+      "owned_by": "openai",
+      "capabilities": [
+        "image"
+      ],
+      "protocol_support": {
+        "imageGeneration": true,
+        "imageEdits": true
+      }
+    },
+    {
+      "id": "gemini-3.1-flash-image-preview",
+      "owned_by": "gemini",
+      "capabilities": [
+        "image"
+      ],
+      "protocol_support": {
+        "imageGeneration": true,
+        "imageEdits": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "gemini-3-pro-image-preview",
+      "owned_by": "gemini",
+      "capabilities": [
+        "image"
+      ],
+      "protocol_support": {
+        "imageGeneration": true,
+        "imageEdits": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiResponses": true
+      }
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiResponses": true,
+        "openAiChatCompletions": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "glm-5.2",
+      "owned_by": "zhipu",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "claude-opus-4-6",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "codex-auto-review",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true
+      }
+    },
+    {
+      "id": "deepseek-v4-flash-0731",
+      "owned_by": "deepseek",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "qwen3.8-max",
+      "owned_by": "qwen",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "glm-5.3",
+      "owned_by": "zhipu",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "deepseek-v4-pro-0813",
+      "owned_by": "deepseek",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "kimi-k3",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    },
+    {
+      "id": "gpt-5.5-openai-compact",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true
+      }
+    },
+    {
+      "id": "claude-opus-4.6",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true
+      }
+    },
+    {
+      "id": "claude-opus-4.7",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true
+      }
+    },
+    {
+      "id": "claude-sonnet-4.6",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true
+      }
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "owned_by": "gemini",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "claude-fable-5-1",
+      "owned_by": "anthropic",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "anthropicMessages": true,
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "owned_by": "google",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true
+      }
+    },
+    {
+      "id": "gpt-6-astra",
+      "owned_by": "openai",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true
+      }
+    },
+    {
+      "id": "glm-5.3-flash",
+      "owned_by": "zhipu",
+      "capabilities": [
+        "text",
+        "chat",
+        "responses"
+      ],
+      "protocol_support": {
+        "openAiChatCompletions": true,
+        "openAiResponses": true,
+        "anthropicMessages": true,
+        "geminiGenerateContent": true
+      }
+    }
+  ]
+}

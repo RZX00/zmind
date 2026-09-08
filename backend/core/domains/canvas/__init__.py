@@ -1,0 +1,37 @@
+from .model import Canvas, CanvasConnection, CanvasNode, CanvasVersion, merge_updates
+from .task_ir import (
+    CanvasEntityKind,
+    CanvasEntitySpec,
+    CanvasTaskIR,
+    CanvasWorkingSet,
+    ConnectionIntent,
+    ExecutionMode,
+    ExecutionPolicy,
+    LayoutConstraints,
+    LayoutStrategy,
+    TargetCanvasRef,
+    VerificationCheck,
+    VerificationKind,
+    VerificationPlan,
+)
+
+__all__ = [
+    "Canvas",
+    "CanvasConnection",
+    "CanvasEntityKind",
+    "CanvasEntitySpec",
+    "CanvasNode",
+    "CanvasTaskIR",
+    "CanvasVersion",
+    "CanvasWorkingSet",
+    "ConnectionIntent",
+    "ExecutionMode",
+    "ExecutionPolicy",
+    "LayoutConstraints",
+    "LayoutStrategy",
+    "TargetCanvasRef",
+    "VerificationCheck",
+    "VerificationKind",
+    "VerificationPlan",
+    "merge_updates",
+]

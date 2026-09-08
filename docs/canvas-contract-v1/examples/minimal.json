@@ -1,0 +1,14 @@
+{
+  "id": "canvas-100",
+  "title": "Demo",
+  "createdAt": 1730000000000,
+  "updatedAt": 1730000000000,
+  "version": "1.0.0",
+  "nodes": [
+    {"id":"text-1","type":"text","x":100,"y":100,"width":300,"height":60,"content":"# 标题","createdAt":1730000000000,"updatedAt":1730000000000},
+    {"id":"text-2","type":"text","x":480,"y":120,"width":300,"height":60,"content":"正文内容","createdAt":1730000000000,"updatedAt":1730000000000}
+  ],
+  "connections": [
+    {"id":"connection-1","from":"text-1","to":"text-2","createdAt":1730000000000}
+  ]
+}

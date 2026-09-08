@@ -1,0 +1,19 @@
+{
+  "name": "@zmind/canvas-realtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@hocuspocus/extension-redis": "^2.11.0",
+    "@hocuspocus/server": "^2.11.0",
+    "@supabase/supabase-js": "^2.86.2",
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "yjs": "^13.6.10"
+  }
+}

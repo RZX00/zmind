@@ -1,0 +1,153 @@
+{
+  "schema_version": "ws-e-negative-v1",
+  "cases": [
+    {
+      "case_id": "neg_01_tool_sequence_mismatch",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_neg_01_primary",
+      "shadow_agent_run_id": "ar_neg_01_shadow",
+      "expect": { "is_match": false, "first_diff_type": "tool_sequence" },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_neg01_tc",
+          "thread_id": "th_neg_01",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              { "id": "call_neg01_1", "type": "function", "function": { "name": "web_search_tool", "arguments": { "query": "A" } } }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_neg01" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ],
+      "shadow_payloads": [
+        {
+          "message_id": "msg_asst_neg01_tc",
+          "thread_id": "th_neg_01",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              { "id": "call_neg01_1", "type": "function", "function": { "name": "web_search_tool", "arguments": { "query": "B" } } }
+            ]
+          },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_neg01" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "case_id": "neg_02_terminal_status_mismatch",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_neg_02_primary",
+      "shadow_agent_run_id": "ar_neg_02_shadow",
+      "expect": { "is_match": false, "first_diff_type": "terminal_status" },
+      "primary_payloads": [{ "type": "status", "status": "completed", "message": "ok" }],
+      "shadow_payloads": [{ "type": "status", "status": "failed", "message": "err" }]
+    },
+    {
+      "case_id": "neg_03_protocol_violation_metadata_not_string",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_neg_03_primary",
+      "shadow_agent_run_id": "ar_neg_03_shadow",
+      "expect": { "is_match": false, "first_diff_type": "protocol_violation" },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_neg03",
+          "thread_id": "th_neg_03",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "ok", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_neg03" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ],
+      "shadow_payloads": [
+        {
+          "message_id": "msg_asst_neg03",
+          "thread_id": "th_neg_03",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "ok", "tool_calls": null },
+          "metadata": { "stream_status": "complete", "thread_run_id": "tr_neg03" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "case_id": "neg_04_assistant_similarity_below_threshold",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_neg_04_primary",
+      "shadow_agent_run_id": "ar_neg_04_shadow",
+      "assistant_similarity_threshold": 0.9,
+      "expect": { "is_match": false, "first_diff_type": "assistant_final_text" },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_neg04",
+          "thread_id": "th_neg_04",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Hello world", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_neg04" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ],
+      "shadow_payloads": [
+        {
+          "message_id": "msg_asst_neg04",
+          "thread_id": "th_neg_04",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "Completely different output", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_neg04" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "case_id": "neg_05_required_phrase_missing",
+      "engine_version": "v1",
+      "primary_agent_run_id": "ar_neg_05_primary",
+      "shadow_agent_run_id": "ar_neg_05_shadow",
+      "required_phrases": ["MUST_INCLUDE_THIS"],
+      "expect": { "is_match": false, "first_diff_type": "assistant_final_text" },
+      "primary_payloads": [
+        {
+          "message_id": "msg_asst_neg05",
+          "thread_id": "th_neg_05",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "ok", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_neg05" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ],
+      "shadow_payloads": [
+        {
+          "message_id": "msg_asst_neg05",
+          "thread_id": "th_neg_05",
+          "type": "assistant",
+          "is_llm_message": true,
+          "content_obj": { "role": "assistant", "content": "ok", "tool_calls": null },
+          "metadata_obj": { "stream_status": "complete", "thread_run_id": "tr_neg05" },
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2025-01-01T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}
+

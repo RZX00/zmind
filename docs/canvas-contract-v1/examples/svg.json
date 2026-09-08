@@ -1,0 +1,28 @@
+{
+  "id": "canvas-500",
+  "title": "SVG Node Demo",
+  "createdAt": 1730000000000,
+  "updatedAt": 1730000000000,
+  "version": "1.0.0",
+  "nodes": [
+    {
+      "id": "code-1",
+      "type": "code",
+      "codeType": "svg",
+      "x": 120,
+      "y": 100,
+      "width": 400,
+      "height": 400,
+      "content": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"20\" y=\"20\" width=\"160\" height=\"160\" rx=\"16\" fill=\"#3b82f6\"/><circle cx=\"100\" cy=\"100\" r=\"40\" fill=\"#fff\" opacity=\"0.85\"/></svg>",
+      "svgTheme": {
+        "colorScheme": "light",
+        "colors": { "primary": "#3b82f6", "secondary": "#8b5cf6", "background": "#ffffff", "stroke": "#1f2937", "fill": "#3b82f6" }
+      },
+      "svgMetadata": { "viewBox": "0 0 200 200", "preserveAspectRatio": "xMidYMid meet" },
+      "createdAt": 1730000000000,
+      "updatedAt": 1730000000000
+    }
+  ],
+  "connections": []
+}
+

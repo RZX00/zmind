@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>思考层实施计划 (AI-First) · zmind</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  :root{--bg:#0c0e14;--panel:#141823;--ink:#e7ebf3;--mut:#9aa6bf;--line:#28304a;--acc:#7c9cff;
+    --acc2:#5ad1c8;--warn:#ff6b6b;--ok:#54d486;--gold:#f2c14e;--rad:14px;--maxw:1080px}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:radial-gradient(1200px 700px at 70% -10%,#16203a 0%,var(--bg) 55%);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 22px 120px}
+  h1{font-size:32px;line-height:1.25;margin:0 0 6px;letter-spacing:-.5px}
+  h2{font-size:23px;margin:50px 0 14px;padding-top:14px;border-top:1px solid var(--line)}
+  h3{font-size:17px;margin:22px 0 8px;color:#cdd6ec}
+  p{margin:10px 0;color:#d6ddee}.sub{color:var(--mut);font-size:14px;margin:0 0 8px}
+  .lead{font-size:18px;color:#eef2fb}code{background:#0f1626;border:1px solid var(--line);border-radius:6px;padding:1px 6px;
+    font-size:13px;color:#bcd0ff;font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+  .hero{background:linear-gradient(180deg,var(--panel),#10131c);border:1px solid var(--line);border-radius:var(--rad);padding:24px 26px;margin:16px 0}
+  .pill{display:inline-block;font-size:12px;color:var(--acc2);border:1px solid #2c4a4a;background:#0f1c1c;border-radius:999px;padding:3px 11px;margin-bottom:12px}
+  .grid{display:grid;gap:14px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:760px){.g2,.g3{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--rad);padding:16px 18px}
+  .card h4{margin:0 0 6px;font-size:15px;color:#fff}.k{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+  .muted{color:var(--mut)}.mermaid{background:var(--panel);border:1px solid var(--line);border-radius:var(--rad);padding:18px;margin:16px 0;text-align:center}
+  .callout{border:1px solid #4a2330;background:linear-gradient(180deg,#1f1015,#160c10);border-radius:var(--rad);padding:18px 20px;margin:18px 0}
+  .callout.good{border-color:#1f4a33;background:linear-gradient(180deg,#0e1f17,#0b1712)}
+  .callout .tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.callout.bad .tag{color:var(--warn)}.callout.good .tag{color:var(--ok)}
+  ul{margin:8px 0;padding-left:20px}li{margin:5px 0;color:#d6ddee}
+  .phase{border-left:3px solid var(--acc);padding:4px 0 4px 16px;margin:16px 0}
+  .phase.p1{border-color:var(--acc2)}.phase.p2{border-color:#5a6a96}
+  .track{background:#10141f;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+  .track b{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--rad);overflow:hidden}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#10141f;color:#aeb9d6;font-size:12px;text-transform:uppercase;letter-spacing:.05em}tr:last-child td{border-bottom:none}
+  .done{color:var(--ok)}.now{color:var(--gold)}.later{color:var(--mut)}
+  .st{display:inline-block;font-size:11px;border-radius:6px;padding:2px 8px;font-weight:700}
+  .st.d{background:#0e1f17;color:#54d486;border:1px solid #1f4a33}.st.n{background:#1f1a10;color:#f2c14e;border:1px solid #5a4a20}.st.l{background:#161b2b;color:#9aa6bf;border:1px solid #2c3a5e}
+  .foot{margin-top:54px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);padding-top:18px}
+  .toc{font-size:14px;color:var(--mut);margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px 16px}.toc a{color:#a9b6d6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="pill">实施计划 · AI-FIRST · 2026-06-25 · run wh73xuml2</span>
+  <h1>思考层实施计划：先建脑，不是先建底座</h1>
+  <p class="sub">前置研究 <code>docs/design/2026-06-24-…research.md/.html</code> · 4 工作线设计 → 综合 → 对抗批判</p>
+  <div class="toc">
+    <a href="#thesis">① 拍板修正</a><a href="#laws">② 不可违背的法则</a><a href="#facts">③ 关键事实</a>
+    <a href="#dep">④ 依赖图</a><a href="#phases">⑤ 分阶段</a><a href="#status">⑥ 进度</a><a href="#firstpr">⑦ 第一个 PR</a><a href="#decisions">⑧ 待决/护栏</a>
+  </div>
+
+  <div class="hero" id="thesis">
+    <div class="k" style="color:var(--acc2)">拍板的课程修正</div>
+    <p class="lead" style="margin-top:8px"><b>AI 推断层最先建,不是"思考层 later"。</b> 让开放底座可被采纳的东西<b>不在底座里,在 AI</b>——AI 替用户付形式化的税。先把底座槽做完、AI 最后建,过渡期 zmind 就是"带相机的 Roam"(开放关系仍得有人去打字)。</p>
+    <p class="muted" style="margin-bottom:0">底座词汇已基本做完(覆盖 ~70%);剩余底座工作很小。所以 <b>P0 = 让 AI 端到端有用的并行流</b>——三轨一起落,因为各自单独都是惰性的。</p>
+  </div>
+
+  <h2 id="laws">② 不可违背的法则(研究 + 对抗批判)</h2>
+  <div class="grid g3">
+    <div class="card"><div class="k">#1 铁律</div><h4>CAPTURE-FIRST</h4><p class="muted" style="font-size:13.5px">内容存在前绝不要求类型/关系/标签/角色。用户<b>永远看不到</b>"选个角色"控件。</p></div>
+    <div class="card"><div class="k">护城河</div><h4>AI 付税</h4><p class="muted" style="font-size:13.5px">AI 读 prose+空间 → <b>提议</b>(关系标签/聚类/隐形角色/诊断)。开放词汇,底座存不校验。</p></div>
+    <div class="card"><div class="k">正确性</div><h4>守护空间意图</h4><p class="muted" style="font-size:13.5px">Gestalt 不自主;AI 不能静默重排吃掉它。pinned 标志 + 每个 AI 结构带 provenance 可撤。</p></div>
+  </div>
+  <div class="callout bad" style="margin-top:14px"><div class="tag">✗ 已截肢的坟场器官 · 用户面绝不建</div>
+    <p style="margin-bottom:0;color:#f3d6da">边瞄准边(仅 AI 侧派生注释)· 可见 defended/defeated 状态(=Kialo)· 用户选角色/关系 picker · 常驻 Walton 苏格拉底引擎 · 发散/收敛模式开关。</p></div>
+
+  <h2 id="facts">③ 关键事实(设计 agent 读真实代码确认)</h2>
+  <ul>
+    <li><b>canvas lane 确实零 LLM</b>:<code>kernel.py:193</code> → <code>CanvasExecutionCoreV2</code>(regex/keyword planner)。唯一 LLM 路径是 general lane。<b>这就是痛根。</b></li>
+    <li><b>眼睛已具备</b>:<code>read_projection.py</code> 投影几何/拓扑/relation/provenance;<code>canvas_read</code> 暴露 scope/where/children_of/camera/detail。</li>
+    <li><b>手已具备</b>:<code>intent_compiler</code>/<code>cac.engine</code> 携带 relation/directed 到 ops;ALLOWED_OPS 覆盖所需。</li>
+    <li><b>provenance 半接线(present-but-dead)</b>:<code>applyCanvasOps.js:1338</code> 仅在 actor=="agent" 盖章,但 <code>index.js:897</code> 不传 actor、<code>write_service.py:261</code> 硬编码 actor:service → v2 写入永不标 agent。<b>D5 复活它。</b></li>
+    <li>引用更正:<code>canvas.ts</code> 真实路径 = <code>frontend/src/canvas/types/canvas.ts</code>(非 lib)。</li>
+  </ul>
+
+  <h2 id="dep">④ 依赖图 / 关键路径</h2>
+  <p>独立叶(可立即并行,均离线):诊断 · suggestion 模型 · β1 类型 · D3 · D1 · 空间读取器。三轨收敛到 <b>A5(接线)→ A4(活 LLM)</b>。</p>
+  <div class="mermaid">
+flowchart LR
+  subgraph A["轨 γ · 脑"]
+    A1["诊断 A1"]; A3["Suggestion+ops 编译"]; A5["InferenceCoreV2 接线<br/>kernel 窄触发"]; A4["活 LLM 循环"]
+    A1 --> A3 --> A5 --> A4
+  end
+  subgraph B["轨 β · 手+槽+安全"]
+    b1["β1 前端类型<br/>relation/directed/provenance"]; D3["write_service actor"]; D4["execution_core actor=agent"]; D5["index.js 接 actor<br/>(栈门控·安全)"]
+    b1 --> D3 --> D4 --> D5
+    D1["D1/D2 pinned 守护"]
+  end
+  subgraph C["轨 α · 眼"]
+    C1["空间读取器<br/>proximity/对齐/包围/颜色"]
+  end
+  A3 -. "需 slots 往返" .-> b1
+  A5 -. "需归因写入" .-> D5
+  A4 -. "需空间信号" .-> C1
+  D1 == "必须先于任何 AI 聚类" ==> C1
+  style A fill:#0e1f1c,stroke:#2c4a4a,color:#eafff9
+  style B fill:#161b2b,stroke:#2c3a5e,color:#dfe6f5
+  style C fill:#1a1626,stroke:#3a2c5e,color:#e6dff5
+  </div>
+
+  <h2 id="phases">⑤ 分阶段</h2>
+  <div class="phase"><h3>P0 — 让 AI 端到端有用(三轨并行,各自单独惰性)</h3>
+    <div class="track"><b>轨 γ(脑,先行)</b> — <code>inference/</code>:diagnostics(cycle 作 hint / orphan 角色感知 / unsupported 角色门控 / MECE Jaccard,<b>角色只读 AI 派生</b>)+ suggestions(Suggestion 模型 + ALLOWED_OPS 编译 + per-batch derivation + 隐形 role_tag + is_safe)→ InferenceCoreV2 + kernel <b>窄触发</b>(绝不截走 create/layout)→ 单次 LLM 提议(仅既有无标签边/dump/角色,绝不新节点、绝不要用户分类)。</div>
+    <div class="track"><b>轨 β(手+槽+安全)</b> — β1 一次性类型编辑(CanvasConnection+CanvasNode 加 slots/provenance/positionIsIntentional,单 owner)→ D3→D4→D5(actor 接线,<b>类型来自鉴权 context 防伪造</b>)+ D1/D2(pinned 守护,<b>先于任何 AI 聚类</b>)+ 前端 store 停止丢 slots。</div>
+    <div class="track"><b>轨 α(眼)</b> — spatial_reader.py(纯 stdlib:enclosure/alignment/proximity/等价类,cap=300,<b>不重报已有 containment</b>)→ 进 <code>canvas_read</code> 的 <code>meta.derived</code>。<b>聚类信号须在 D1/D2 守护之后接。</b></div>
+  </div>
+  <div class="phase p1"><h3>P1 — 质量 + 活证(docker 栈)</h3><p class="muted">A4 真 LLM 提议质量调优;诊断/proximity 阈值在真画布上调;栈上验 actor 到 realtime 真盖 createdBy:agent;GESTURE_PINNED → ask-then-override 协商。</p></div>
+  <div class="phase p2"><h3>P2 — 渲染 + 表面打磨</h3><p class="muted">区分 relation 边样式;读投影暴露 derivation "why";前端 canvas.infer 单一动词按钮(绝不扩成"选哪种结构");prose/outline 一等面 + AI 从 dump 填的低-schema 模板。</p></div>
+
+  <h2 id="status">⑥ 进度</h2>
+  <table>
+    <tr><th>PR</th><th>内容</th><th>状态</th><th>验证</th></tr>
+    <tr><td>PR #2</td><td><b>确定性推断核心</b> — diagnostics + suggestion 模型(脑的地基,零 LLM)</td><td><span class="st d">✅ 已落+推送</span></td><td>13 测试,纯离线;102 后端全绿</td></tr>
+    <tr><td>PR #3</td><td><b>InferenceCoreV2 + kernel 窄触发 + actor 接线</b>(D3/D4/D5 + D1/D2 pinned)</td><td><span class="st n">⏳ 下一个</span></td><td>docker 内 <code>uv run pytest</code>(重链)</td></tr>
+    <tr><td>PR #4</td><td><b>活 LLM 循环</b> — 单次结构化提议(关系/聚类/角色)</td><td><span class="st l">○ 之后</span></td><td>docker 栈活证 + 注入 fake client 离线半</td></tr>
+    <tr><td>PR #5</td><td><b>空间读取器</b> 接入(在 pinned 守护之后)</td><td><span class="st l">○ 之后</span></td><td>纯离线 read_projection</td></tr>
+  </table>
+
+  <h2 id="firstpr">⑦ 第一个 PR 为何是"脑"不是"眼"(批判修正)</h2>
+  <div class="callout bad"><div class="tag">⚠ 对抗 agent 驳回了 workflow 自己的推荐</div>
+    <p style="color:#f3d6da;margin:8px 0 0">规划综合本来推荐"空间读取器先行"。批判驳回:<b>那是 AI 有眼睛没脑子——一个没人读的读取器,和一个没人写的槽一样惰性,等于你否决的"slots-first"痛根换皮。</b> 第一个落地的增量必须让 AI 真的"做点用户能接受的事"。</p>
+  </div>
+  <div class="callout good"><div class="tag">✓ 采纳:先建脑的确定性核心</div>
+    <p style="color:#c8f0d8;margin:8px 0 0"><b>PR #2 = 诊断 + 建议模型</b>:"找问题 → 提议修复"——这是真正的 AI-first 能力(用户接受/忽略),<b>无需 LLM、纯 Python、离线可单测、对原生 lane 零回归</b>,正是 LLM 循环 + 接线要消费的地基。比"全 stub 端到端循环"更小更稳(不碰 jwt 污染层),又比"空间读取器"更 AI-first(是脑不是眼)。<b>已落地。</b></p>
+  </div>
+
+  <h2 id="decisions">⑧ 关键护栏 / 待决</h2>
+  <ul>
+    <li><b>角色 AI-派生-only</b>:存 provenance/metadata,<b>永不</b>用户可编辑字段,否则 IBIS 重生。(已在 PR #2 钉死)</li>
+    <li><b>per-batch derivation id</b>:reject-by-derivation 须 per-batch(非 per-run),否则一次撤销误删无关提议。(PR #2 已用 batchId)</li>
+    <li><b>D5 actor 安全</b>:actor 类型来自鉴权 context,body 只给 model/derivation;须用伪造 body 测过——防 user JWT 伪造 agent 绕过 pinned 守护。</li>
+    <li><b>inference 窄触发</b>:绝不截走既有 canvas create/layout 请求(getting it wrong 会回归原生 lane)。</li>
+    <li><b>accept 再校验</b>:提议 stable id 须挺过 propose→accept 间的版本 bump(复用 <code>_check_pending_preview_valid</code>)。</li>
+    <li><b>聚类信号顺序</b>:空间读取器的 proximity-cluster 必须在 D1/D2 pinned 守护落地后才接。</li>
+  </ul>
+
+  <div class="foot">完整计划(全部 ticket + file:line + 验收 ID)见 <code>docs/task-plans/2026-06-25-thinking-layer-ai-first-plan.md</code>。PR #2 已推送(远端 ef0a89a8a,0 payment)。</div>
+</div>
+<script>
+  mermaid.initialize({startOnLoad:true,theme:"dark",themeVariables:{fontFamily:'-apple-system,Segoe UI,PingFang SC,sans-serif',fontSize:'13px',
+    primaryColor:'#1b2030',primaryBorderColor:'#2c3a5e',primaryTextColor:'#e7ebf3',lineColor:'#5a6a96'}});
+</script>
+</body>
+</html>
