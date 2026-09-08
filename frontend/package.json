@@ -181,7 +181,7 @@
     "@types/turndown": "^5.0.5",
     "baseline-browser-mapping": "^2.9.19",
     "encoding": "^0.1.13",
-    "eslint": "^9",
+    "eslint": "^10",
     "eslint-config-next": "^16.0.10",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
