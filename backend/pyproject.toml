@@ -39,7 +39,7 @@ dependencies = [
   # asyncpg：core/services/db_client.py 用它直连 Postgres，取代 supabase-py 的
   # HTTP→PostgREST 这一跳。supabase 暂时保留，差分测试要拿它当对照组。
   "asyncpg==0.30.0",
-  "pyjwt==2.10.1",
+  "pyjwt==2.15.0",
   "exa-py==1.9.1",
   "e2b-code-interpreter==1.2.0",
   "certifi==2024.2.2",
