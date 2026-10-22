@@ -7,4 +7,4 @@ redis==5.2.1
 sentry-sdk[fastapi]==2.20.0
 pydantic==2.10.5
 python-multipart==0.0.17
-pillow==11.0.0
+pillow==13.0.0
