@@ -109,7 +109,7 @@
     "json5": "^2.2.3",
     "jsonrepair": "^3.12.0",
     "jszip": "^3.10.1",
-    "katex": "^0.16.22",
+    "katex": "^0.18.2",
     "libphonenumber-js": "^1.12.10",
     "lodash": "^4.17.21",
     "lowlight": "^3.3.0",
