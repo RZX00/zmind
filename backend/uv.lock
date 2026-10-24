@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.13'",
@@ -3034,11 +3034,11 @@ fastapi = [
 
 [[package]]
 name = "setuptools"
-version = "75.3.0"
+version = "84.1.0"
 source = { registry = "https://mirrors.aliyun.com/pypi/simple/" }
-sdist = { url = "https://mirrors.aliyun.com/pypi/packages/ed/22/a438e0caa4576f8c383fa4d35f1cc01655a46c75be358960d815bfbb12bd/setuptools-75.3.0.tar.gz", hash = "sha256:fba5dd4d766e97be1b1681d98712680ae8f2f26d7881245f2ce9e40714f1a686" }
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/73/eb/7e5f628ee2eb168fecbf8026de7856b2543d6d609cc85f086b9a91ac93d6/setuptools-84.1.0.tar.gz", hash = "sha256:23657205b63d4d31395ab917815247f694aafad28cd21316bf5fd45a51048ea0" }
 wheels = [
-    { url = "https://mirrors.aliyun.com/pypi/packages/90/12/282ee9bce8b58130cb762fbc9beabd531549952cac11fc56add11dcb7ea0/setuptools-75.3.0-py3-none-any.whl", hash = "sha256:f2504966861356aa38616760c0f66568e535562374995367b4e69c7143cf6bcd" },
+    { url = "https://mirrors.aliyun.com/pypi/packages/18/02/b4bbb90f8f29e334898ff45c6d9b1fffaa6f378017052b3023a06262b5f7/setuptools-84.1.0-py3-none-any.whl", hash = "sha256:5231689c6ac8156cd155cfb98c3fd6fb252c3e7e9bd3d78b64d3c55f132624c9" },
 ]
 
 [[package]]
@@ -3868,7 +3868,7 @@ requires-dist = [
     { name = "reportlab", specifier = "==3.6.13" },
     { name = "requests", specifier = "==2.32.3" },
     { name = "sentry-sdk", extras = ["fastapi"], specifier = "==2.29.1" },
-    { name = "setuptools", specifier = "==75.3.0" },
+    { name = "setuptools", specifier = "==84.1.0" },
     { name = "stripe", specifier = "==11.6.0" },
     { name = "structlog", specifier = "==25.4.0" },
     { name = "supabase", specifier = "==2.17.0" },
